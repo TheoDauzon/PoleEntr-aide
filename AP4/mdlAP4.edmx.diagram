@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="80e130bd50a049e2b09d2695b19bb5a2" Name="Diagram1">
+        <EntityTypeShape EntityType="ap4Model.acheter" Width="1.5" PointX="9.75" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="ap4Model.course" Width="1.5" PointX="7.5" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ap4Model.departement" Width="1.5" PointX="0.75" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ap4Model.formation" Width="1.5" PointX="7.5" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ap4Model.inscrit" Width="1.5" PointX="0.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ap4Model.loisirs" Width="1.5" PointX="10.5" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ap4Model.produit" Width="1.5" PointX="7.5" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ap4Model.repondre" Width="1.5" PointX="3" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ap4Model.service" Width="1.5" PointX="5.25" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ap4Model.tache_menagere" Width="1.5" PointX="7.5" PointY="25.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ap4Model.transport" Width="1.5" PointX="7.5" PointY="33" IsExpanded="true" />
+        <EntityTypeShape EntityType="ap4Model.type" Width="1.5" PointX="3" PointY="29.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ap4Model.type_loisirs" Width="1.5" PointX="8.25" PointY="30.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ap4Model.type_tache_menagere" Width="1.5" PointX="5.25" PointY="26.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ap4Model.ville" Width="1.5" PointX="3" PointY="21.375" IsExpanded="true" />
+        <AssociationConnector Association="ap4Model.FK_ACHETER_COURSE" ManuallyRouted="false" />
+        <AssociationConnector Association="ap4Model.FK_ACHETER_PRODUIT" ManuallyRouted="false" />
+        <AssociationConnector Association="ap4Model.FK_COURSE_SERVICE" ManuallyRouted="false" />
+        <AssociationConnector Association="ap4Model.FK_VILLE_DEPARTEMENT" ManuallyRouted="false" />
+        <AssociationConnector Association="ap4Model.FK_FORMATION_SERVICE" ManuallyRouted="false" />
+        <AssociationConnector Association="ap4Model.FK_REPONDRE_INSCRIT" ManuallyRouted="false" />
+        <AssociationConnector Association="ap4Model.FK_SERVICE_INSCRIT" ManuallyRouted="false" />
+        <AssociationConnector Association="ap4Model.FK_LOISIRS_SERVICE" ManuallyRouted="false" />
+        <AssociationConnector Association="ap4Model.FK_LOISIRS_TYPE_LOISIRS" ManuallyRouted="false" />
+        <AssociationConnector Association="ap4Model.FK_REPONDRE_SERVICE" ManuallyRouted="false" />
+        <AssociationConnector Association="ap4Model.FK_SERVICE_TYPE" ManuallyRouted="false" />
+        <AssociationConnector Association="ap4Model.FK_SERVICE_VILLE" ManuallyRouted="false" />
+        <AssociationConnector Association="ap4Model.FK_TACHE_MENAGERE_SERVICE" ManuallyRouted="false" />
+        <AssociationConnector Association="ap4Model.FK_TRANSPORT_SERVICE" ManuallyRouted="false" />
+        <AssociationConnector Association="ap4Model.FK_TACHE_MENAGERE_TYPE_TACHE_MENAGERE" ManuallyRouted="false" />
+        <AssociationConnector Association="ap4Model.illustrer" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

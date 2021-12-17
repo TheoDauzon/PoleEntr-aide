@@ -10,15 +10,11 @@ using System.Windows.Forms;
 
 namespace AP4
 {
-    public partial class Menu : Form
+    public partial class ListeInscrit : Form
     {
-        public Menu()
+        public ListeInscrit()
         {
             InitializeComponent();
-        }
-
-        private void BtnGestionInscrits_Click(object sender, EventArgs e)
-        {
         }
     }
 }
