@@ -29,11 +29,43 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.bsInscrits = new System.Windows.Forms.BindingSource(this.components);
+            this.dgvInscrits = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.bsInscrits)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInscrits)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // dgvInscrits
+            // 
+            this.dgvInscrits.AllowUserToAddRows = false;
+            this.dgvInscrits.AllowUserToDeleteRows = false;
+            this.dgvInscrits.AutoGenerateColumns = false;
+            this.dgvInscrits.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInscrits.DataSource = this.bsInscrits;
+            this.dgvInscrits.Location = new System.Drawing.Point(164, 180);
+            this.dgvInscrits.Name = "dgvInscrits";
+            this.dgvInscrits.ReadOnly = true;
+            this.dgvInscrits.Size = new System.Drawing.Size(240, 150);
+            this.dgvInscrits.TabIndex = 0;
+            // 
+            // ListeInscrit
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dgvInscrits);
+            this.Name = "ListeInscrit";
             this.Text = "ListeInscrit";
+            this.Load += new System.EventHandler(this.ListeInscrit_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.bsInscrits)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInscrits)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.BindingSource bsInscrits;
+        private System.Windows.Forms.DataGridView dgvInscrits;
     }
 }

@@ -16,5 +16,11 @@ namespace AP4
         {
             InitializeComponent();
         }
+
+        private void ListeInscrit_Load(object sender, EventArgs e)
+        {
+            bsInscrits.DataSource = Modele.listeInscrit(); // appel de la méthode listeClients
+            dgvInscrits.DataSource = bsInscrits;
+        }
     }
 }

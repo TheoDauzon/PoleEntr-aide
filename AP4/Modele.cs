@@ -6,16 +6,31 @@ using System.Threading.Tasks;
 
 namespace AP4
 {
-    public static class Modele // bien mettre vos noms
+    public static class Modele
     {
-        private static ap4 maConnexion;
+        private static ap4Entities maConnexion;
         public static void init()
         {
-            maConnexion = new bd_partitionsEntities();
+            maConnexion = new ap4Entities();
         }
-        public static List<> listeClients()
+        public static List<inscrit> listeInscrit()
         {
-            return maConnexion.client.ToList();
+            return maConnexion.inscrit.ToList();
         }
+
+        public static List<service> listeService()
+        {
+            return maConnexion.service.ToList();
+        }
+
+        public static List<repondre> listeReponse()
+        {
+            return maConnexion.repondre.ToList();
+        }
+
+        /*public static List<message> listeMessage()
+        {
+            return maConnexion.message.ToList();
+        }*/
     }
 }

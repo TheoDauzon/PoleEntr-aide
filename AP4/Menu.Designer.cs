@@ -32,13 +32,14 @@
             this.btnGestionServices = new System.Windows.Forms.Button();
             this.btnGestionReponses = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnGestionMessages = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnGestionInscrits
             // 
-            this.btnGestionInscrits.Location = new System.Drawing.Point(551, 191);
+            this.btnGestionInscrits.Location = new System.Drawing.Point(133, 253);
             this.btnGestionInscrits.Name = "btnGestionInscrits";
-            this.btnGestionInscrits.Size = new System.Drawing.Size(193, 56);
+            this.btnGestionInscrits.Size = new System.Drawing.Size(202, 77);
             this.btnGestionInscrits.TabIndex = 0;
             this.btnGestionInscrits.Text = "Gestion des inscrits";
             this.btnGestionInscrits.UseVisualStyleBackColor = true;
@@ -46,21 +47,23 @@
             // 
             // btnGestionServices
             // 
-            this.btnGestionServices.Location = new System.Drawing.Point(292, 191);
+            this.btnGestionServices.Location = new System.Drawing.Point(133, 143);
             this.btnGestionServices.Name = "btnGestionServices";
-            this.btnGestionServices.Size = new System.Drawing.Size(193, 56);
+            this.btnGestionServices.Size = new System.Drawing.Size(202, 77);
             this.btnGestionServices.TabIndex = 1;
             this.btnGestionServices.Text = "Gestion des services";
             this.btnGestionServices.UseVisualStyleBackColor = true;
+            this.btnGestionServices.Click += new System.EventHandler(this.btnGestionServices_Click);
             // 
             // btnGestionReponses
             // 
-            this.btnGestionReponses.Location = new System.Drawing.Point(35, 191);
+            this.btnGestionReponses.Location = new System.Drawing.Point(497, 143);
             this.btnGestionReponses.Name = "btnGestionReponses";
-            this.btnGestionReponses.Size = new System.Drawing.Size(193, 56);
+            this.btnGestionReponses.Size = new System.Drawing.Size(202, 77);
             this.btnGestionReponses.TabIndex = 2;
-            this.btnGestionReponses.Text = "Gestion des réponses";
+            this.btnGestionReponses.Text = "Gestion des réponses aux services";
             this.btnGestionReponses.UseVisualStyleBackColor = true;
+            this.btnGestionReponses.Click += new System.EventHandler(this.btnGestionReponses_Click);
             // 
             // label1
             // 
@@ -72,11 +75,22 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Menu";
             // 
+            // btnGestionMessages
+            // 
+            this.btnGestionMessages.Location = new System.Drawing.Point(497, 253);
+            this.btnGestionMessages.Name = "btnGestionMessages";
+            this.btnGestionMessages.Size = new System.Drawing.Size(202, 77);
+            this.btnGestionMessages.TabIndex = 4;
+            this.btnGestionMessages.Text = "Gestions des messages d\'aide";
+            this.btnGestionMessages.UseVisualStyleBackColor = true;
+            this.btnGestionMessages.Click += new System.EventHandler(this.btnGestionMessages_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnGestionMessages);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnGestionReponses);
             this.Controls.Add(this.btnGestionServices);
@@ -94,6 +108,7 @@
         private System.Windows.Forms.Button btnGestionServices;
         private System.Windows.Forms.Button btnGestionReponses;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnGestionMessages;
     }
 }
 
