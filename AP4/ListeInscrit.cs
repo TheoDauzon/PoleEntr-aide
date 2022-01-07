@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace AP4
 {
+
     public partial class ListeInscrit : Form
     {
         public ListeInscrit()
@@ -22,5 +23,11 @@ namespace AP4
             bsInscrits.DataSource = Modele.listeInscrit(); // appel de la méthode listeClients
             dgvInscrits.DataSource = bsInscrits;
         }
+
+        private void BtnRetourMenu_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }

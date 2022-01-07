@@ -32,5 +32,19 @@ namespace AP4
         {
             return maConnexion.message.ToList();
         }*/
+
+        public static bool VerifInscrit(string mail, string mdp)
+        {
+            try
+            {
+                inscrit unInscrit = new inscrit();
+                unInscrit = maConnexion.inscrit.First(x => x.MAIL == mail && x.MDPINSCRIT == mdp);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

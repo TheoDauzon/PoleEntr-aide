@@ -33,6 +33,8 @@
             this.lbMotDePasse = new System.Windows.Forms.Label();
             this.tbMail = new System.Windows.Forms.TextBox();
             this.tbMdp = new System.Windows.Forms.TextBox();
+            this.btnConnexion = new System.Windows.Forms.Button();
+            this.btnQuitter = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbConnexion
@@ -76,14 +78,37 @@
             // 
             this.tbMdp.Location = new System.Drawing.Point(266, 286);
             this.tbMdp.Name = "tbMdp";
+            this.tbMdp.PasswordChar = '*';
             this.tbMdp.Size = new System.Drawing.Size(335, 20);
             this.tbMdp.TabIndex = 4;
+            // 
+            // btnConnexion
+            // 
+            this.btnConnexion.Location = new System.Drawing.Point(123, 365);
+            this.btnConnexion.Name = "btnConnexion";
+            this.btnConnexion.Size = new System.Drawing.Size(176, 45);
+            this.btnConnexion.TabIndex = 5;
+            this.btnConnexion.Text = "SE CONNECTER";
+            this.btnConnexion.UseVisualStyleBackColor = true;
+            this.btnConnexion.Click += new System.EventHandler(this.BtnConnexion_Click);
+            // 
+            // btnQuitter
+            // 
+            this.btnQuitter.Location = new System.Drawing.Point(391, 365);
+            this.btnQuitter.Name = "btnQuitter";
+            this.btnQuitter.Size = new System.Drawing.Size(180, 45);
+            this.btnQuitter.TabIndex = 6;
+            this.btnQuitter.Text = "QUITTER";
+            this.btnQuitter.UseVisualStyleBackColor = true;
+            this.btnQuitter.Click += new System.EventHandler(this.BtnQuitter_Click);
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnQuitter);
+            this.Controls.Add(this.btnConnexion);
             this.Controls.Add(this.tbMdp);
             this.Controls.Add(this.tbMail);
             this.Controls.Add(this.lbMotDePasse);
@@ -103,5 +128,7 @@
         private System.Windows.Forms.Label lbMotDePasse;
         private System.Windows.Forms.TextBox tbMail;
         private System.Windows.Forms.TextBox tbMdp;
+        private System.Windows.Forms.Button btnConnexion;
+        private System.Windows.Forms.Button btnQuitter;
     }
 }

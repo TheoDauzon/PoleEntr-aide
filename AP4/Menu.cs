@@ -44,5 +44,10 @@ namespace AP4
             LM = new ListeMessage();
             LM.Show();
         }
+
+        private void BtnDeconnexion_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
