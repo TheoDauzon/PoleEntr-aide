@@ -31,13 +31,14 @@
             this.btnGestionInscrits = new System.Windows.Forms.Button();
             this.btnGestionServices = new System.Windows.Forms.Button();
             this.btnGestionReponses = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbMenu = new System.Windows.Forms.Label();
             this.btnGestionMessages = new System.Windows.Forms.Button();
             this.btnDeconnexion = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnGestionInscrits
             // 
+            this.btnGestionInscrits.Font = new System.Drawing.Font("Liberation Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGestionInscrits.Location = new System.Drawing.Point(133, 253);
             this.btnGestionInscrits.Name = "btnGestionInscrits";
             this.btnGestionInscrits.Size = new System.Drawing.Size(202, 77);
@@ -48,6 +49,7 @@
             // 
             // btnGestionServices
             // 
+            this.btnGestionServices.Font = new System.Drawing.Font("Liberation Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGestionServices.Location = new System.Drawing.Point(133, 143);
             this.btnGestionServices.Name = "btnGestionServices";
             this.btnGestionServices.Size = new System.Drawing.Size(202, 77);
@@ -58,6 +60,7 @@
             // 
             // btnGestionReponses
             // 
+            this.btnGestionReponses.Font = new System.Drawing.Font("Liberation Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGestionReponses.Location = new System.Drawing.Point(497, 143);
             this.btnGestionReponses.Name = "btnGestionReponses";
             this.btnGestionReponses.Size = new System.Drawing.Size(202, 77);
@@ -66,18 +69,19 @@
             this.btnGestionReponses.UseVisualStyleBackColor = true;
             this.btnGestionReponses.Click += new System.EventHandler(this.btnGestionReponses_Click);
             // 
-            // label1
+            // lbMenu
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(347, 60);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 37);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "MENU";
+            this.lbMenu.AutoSize = true;
+            this.lbMenu.Font = new System.Drawing.Font("Liberation Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMenu.Location = new System.Drawing.Point(354, 60);
+            this.lbMenu.Name = "lbMenu";
+            this.lbMenu.Size = new System.Drawing.Size(133, 41);
+            this.lbMenu.TabIndex = 3;
+            this.lbMenu.Text = "MENU";
             // 
             // btnGestionMessages
             // 
+            this.btnGestionMessages.Font = new System.Drawing.Font("Liberation Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGestionMessages.Location = new System.Drawing.Point(497, 253);
             this.btnGestionMessages.Name = "btnGestionMessages";
             this.btnGestionMessages.Size = new System.Drawing.Size(202, 77);
@@ -88,7 +92,8 @@
             // 
             // btnDeconnexion
             // 
-            this.btnDeconnexion.Location = new System.Drawing.Point(39, 30);
+            this.btnDeconnexion.Font = new System.Drawing.Font("Liberation Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeconnexion.Location = new System.Drawing.Point(30, 31);
             this.btnDeconnexion.Name = "btnDeconnexion";
             this.btnDeconnexion.Size = new System.Drawing.Size(179, 48);
             this.btnDeconnexion.TabIndex = 5;
@@ -100,10 +105,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(127)))), ((int)(((byte)(102)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnDeconnexion);
             this.Controls.Add(this.btnGestionMessages);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbMenu);
             this.Controls.Add(this.btnGestionReponses);
             this.Controls.Add(this.btnGestionServices);
             this.Controls.Add(this.btnGestionInscrits);
@@ -119,7 +125,7 @@
         private System.Windows.Forms.Button btnGestionInscrits;
         private System.Windows.Forms.Button btnGestionServices;
         private System.Windows.Forms.Button btnGestionReponses;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbMenu;
         private System.Windows.Forms.Button btnGestionMessages;
         private System.Windows.Forms.Button btnDeconnexion;
     }

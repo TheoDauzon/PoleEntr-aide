@@ -40,5 +40,6 @@ namespace AP4
         public virtual DbSet<type_loisirs> type_loisirs { get; set; }
         public virtual DbSet<type_tache_menagere> type_tache_menagere { get; set; }
         public virtual DbSet<ville> ville { get; set; }
+        public virtual DbSet<message> message { get; set; }
     }
 }

@@ -40,43 +40,43 @@
             // lbConnexion
             // 
             this.lbConnexion.AutoSize = true;
-            this.lbConnexion.Font = new System.Drawing.Font("Arial", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbConnexion.Location = new System.Drawing.Point(283, 67);
+            this.lbConnexion.Font = new System.Drawing.Font("Liberation Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbConnexion.Location = new System.Drawing.Point(254, 39);
             this.lbConnexion.Name = "lbConnexion";
-            this.lbConnexion.Size = new System.Drawing.Size(192, 41);
+            this.lbConnexion.Size = new System.Drawing.Size(324, 71);
             this.lbConnexion.TabIndex = 0;
             this.lbConnexion.Text = "Connexion";
             // 
             // lbMail
             // 
             this.lbMail.AutoSize = true;
-            this.lbMail.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMail.Location = new System.Drawing.Point(78, 164);
+            this.lbMail.Font = new System.Drawing.Font("Liberation Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMail.Location = new System.Drawing.Point(81, 152);
             this.lbMail.Name = "lbMail";
-            this.lbMail.Size = new System.Drawing.Size(141, 24);
+            this.lbMail.Size = new System.Drawing.Size(188, 32);
             this.lbMail.TabIndex = 1;
-            this.lbMail.Text = "Adresse mail";
+            this.lbMail.Text = "Adresse mail :";
             // 
             // lbMotDePasse
             // 
             this.lbMotDePasse.AutoSize = true;
-            this.lbMotDePasse.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMotDePasse.Location = new System.Drawing.Point(74, 286);
+            this.lbMotDePasse.Font = new System.Drawing.Font("Liberation Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMotDePasse.Location = new System.Drawing.Point(81, 274);
             this.lbMotDePasse.Name = "lbMotDePasse";
-            this.lbMotDePasse.Size = new System.Drawing.Size(145, 24);
+            this.lbMotDePasse.Size = new System.Drawing.Size(192, 32);
             this.lbMotDePasse.TabIndex = 2;
-            this.lbMotDePasse.Text = "Mot de passe";
+            this.lbMotDePasse.Text = "Mot de passe :";
             // 
             // tbMail
             // 
-            this.tbMail.Location = new System.Drawing.Point(266, 164);
+            this.tbMail.Location = new System.Drawing.Point(288, 164);
             this.tbMail.Name = "tbMail";
             this.tbMail.Size = new System.Drawing.Size(335, 20);
             this.tbMail.TabIndex = 3;
             // 
             // tbMdp
             // 
-            this.tbMdp.Location = new System.Drawing.Point(266, 286);
+            this.tbMdp.Location = new System.Drawing.Point(288, 286);
             this.tbMdp.Name = "tbMdp";
             this.tbMdp.PasswordChar = '*';
             this.tbMdp.Size = new System.Drawing.Size(335, 20);
@@ -84,7 +84,8 @@
             // 
             // btnConnexion
             // 
-            this.btnConnexion.Location = new System.Drawing.Point(123, 365);
+            this.btnConnexion.Font = new System.Drawing.Font("Liberation Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConnexion.Location = new System.Drawing.Point(266, 363);
             this.btnConnexion.Name = "btnConnexion";
             this.btnConnexion.Size = new System.Drawing.Size(176, 45);
             this.btnConnexion.TabIndex = 5;
@@ -94,9 +95,10 @@
             // 
             // btnQuitter
             // 
-            this.btnQuitter.Location = new System.Drawing.Point(391, 365);
+            this.btnQuitter.Font = new System.Drawing.Font("Liberation Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuitter.Location = new System.Drawing.Point(447, 363);
             this.btnQuitter.Name = "btnQuitter";
-            this.btnQuitter.Size = new System.Drawing.Size(180, 45);
+            this.btnQuitter.Size = new System.Drawing.Size(176, 45);
             this.btnQuitter.TabIndex = 6;
             this.btnQuitter.Text = "QUITTER";
             this.btnQuitter.UseVisualStyleBackColor = true;
@@ -106,6 +108,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(127)))), ((int)(((byte)(102)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnQuitter);
             this.Controls.Add(this.btnConnexion);

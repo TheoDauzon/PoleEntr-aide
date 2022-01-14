@@ -73,8 +73,9 @@
           <Property Name="TELINSCRIT" Type="char" MaxLength="32" Nullable="false" />
           <Property Name="DATENAISSANCE" Type="date" Nullable="false" />
           <Property Name="ADRESSE" Type="char" MaxLength="150" Nullable="false" />
-          <Property Name="CREDIT" Type="int" />
+          <Property Name="CREDIT" Type="int" Nullable="false" />
           <Property Name="ADMIN" Type="smallint" Nullable="false" />
+          <Property Name="STATUT" Type="smallint" Nullable="false" />
         </EntityType>
         <EntityType Name="loisirs">
           <Key>
@@ -90,6 +91,14 @@
           <Property Name="PRIX" Type="int" Nullable="false" />
           <Property Name="DATEDEPOT" Type="date" Nullable="false" />
           <Property Name="ATTRIBUER" Type="bool" Nullable="false" />
+        </EntityType>
+        <EntityType Name="message">
+          <Key>
+            <PropertyRef Name="IDMESSAGE" />
+          </Key>
+          <Property Name="IDMESSAGE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDINSCRIT" Type="int" Nullable="false" />
+          <Property Name="LIBELLEMESSAGE" Type="varchar" MaxLength="500" Nullable="false" />
         </EntityType>
         <EntityType Name="produit">
           <Key>
@@ -283,6 +292,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_MESSAGE_INSCRIT">
+          <End Role="inscrit" Type="Self.inscrit" Multiplicity="1" />
+          <End Role="message" Type="Self.message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inscrit">
+              <PropertyRef Name="IDINSCRIT" />
+            </Principal>
+            <Dependent Role="message">
+              <PropertyRef Name="IDINSCRIT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_REPONDRE_INSCRIT">
           <End Role="inscrit" Type="Self.inscrit" Multiplicity="1" />
           <End Role="repondre" Type="Self.repondre" Multiplicity="*" />
@@ -399,6 +420,7 @@
           <EntitySet Name="illustrer" EntityType="Self.illustrer" Schema="ap4" store:Type="Tables" />
           <EntitySet Name="inscrit" EntityType="Self.inscrit" Schema="ap4" store:Type="Tables" />
           <EntitySet Name="loisirs" EntityType="Self.loisirs" Schema="ap4" store:Type="Tables" />
+          <EntitySet Name="message" EntityType="Self.message" Schema="ap4" store:Type="Tables" />
           <EntitySet Name="produit" EntityType="Self.produit" Schema="ap4" store:Type="Tables" />
           <EntitySet Name="repondre" EntityType="Self.repondre" Schema="ap4" store:Type="Tables" />
           <EntitySet Name="service" EntityType="Self.service" Schema="ap4" store:Type="Tables" />
@@ -439,6 +461,10 @@
           <AssociationSet Name="FK_LOISIRS_TYPE_LOISIRS" Association="Self.FK_LOISIRS_TYPE_LOISIRS">
             <End Role="type_loisirs" EntitySet="type_loisirs" />
             <End Role="loisirs" EntitySet="loisirs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MESSAGE_INSCRIT" Association="Self.FK_MESSAGE_INSCRIT">
+            <End Role="inscrit" EntitySet="inscrit" />
+            <End Role="message" EntitySet="message" />
           </AssociationSet>
           <AssociationSet Name="FK_REPONDRE_INSCRIT" Association="Self.FK_REPONDRE_INSCRIT">
             <End Role="inscrit" EntitySet="inscrit" />
@@ -547,11 +573,13 @@
           <Property Name="TELINSCRIT" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DATENAISSANCE" Type="DateTime" Nullable="false" />
           <Property Name="ADRESSE" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CREDIT" Type="Int32" />
+          <Property Name="CREDIT" Type="Int32" Nullable="false" />
           <Property Name="ADMIN" Type="Int16" Nullable="false" />
           <NavigationProperty Name="repondre" Relationship="Self.FK_REPONDRE_INSCRIT" FromRole="inscrit" ToRole="repondre" />
           <NavigationProperty Name="service" Relationship="Self.FK_SERVICE_INSCRIT" FromRole="inscrit" ToRole="service" />
           <NavigationProperty Name="type" Relationship="Self.illustrer" FromRole="inscrit" ToRole="type" />
+          <Property Name="STATUT" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="message" Relationship="ap4Model.FK_MESSAGE_INSCRIT" FromRole="inscrit" ToRole="message" />
         </EntityType>
         <EntityType Name="loisirs">
           <Key>
@@ -951,7 +979,33 @@
             <End Role="inscrit" EntitySet="inscrit" />
             <End Role="type" EntitySet="type" />
           </AssociationSet>
+          <EntitySet Name="message" EntityType="ap4Model.message" />
+          <AssociationSet Name="FK_MESSAGE_INSCRIT" Association="ap4Model.FK_MESSAGE_INSCRIT">
+            <End Role="inscrit" EntitySet="inscrit" />
+            <End Role="message" EntitySet="message" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="message">
+          <Key>
+            <PropertyRef Name="IDMESSAGE" />
+          </Key>
+          <Property Name="IDMESSAGE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDINSCRIT" Type="Int32" Nullable="false" />
+          <Property Name="LIBELLEMESSAGE" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="inscrit" Relationship="ap4Model.FK_MESSAGE_INSCRIT" FromRole="message" ToRole="inscrit" />
+        </EntityType>
+        <Association Name="FK_MESSAGE_INSCRIT">
+          <End Type="ap4Model.inscrit" Role="inscrit" Multiplicity="1" />
+          <End Type="ap4Model.message" Role="message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inscrit">
+              <PropertyRef Name="IDINSCRIT" />
+            </Principal>
+            <Dependent Role="message">
+              <PropertyRef Name="IDINSCRIT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1012,6 +1066,7 @@
           <EntitySetMapping Name="inscrit">
             <EntityTypeMapping TypeName="ap4Model.inscrit">
               <MappingFragment StoreEntitySet="inscrit">
+                <ScalarProperty Name="STATUT" ColumnName="STATUT" />
                 <ScalarProperty Name="IDINSCRIT" ColumnName="IDINSCRIT" />
                 <ScalarProperty Name="NOMINSCRIT" ColumnName="NOMINSCRIT" />
                 <ScalarProperty Name="PRENOMINSCRIT" ColumnName="PRENOMINSCRIT" />
@@ -1152,6 +1207,15 @@
               <ScalarProperty Name="IDTYPE" ColumnName="IDTYPE" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="message">
+            <EntityTypeMapping TypeName="ap4Model.message">
+              <MappingFragment StoreEntitySet="message">
+                <ScalarProperty Name="LIBELLEMESSAGE" ColumnName="LIBELLEMESSAGE" />
+                <ScalarProperty Name="IDINSCRIT" ColumnName="IDINSCRIT" />
+                <ScalarProperty Name="IDMESSAGE" ColumnName="IDMESSAGE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

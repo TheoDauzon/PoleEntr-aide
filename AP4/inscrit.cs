@@ -20,6 +20,7 @@ namespace AP4
             this.repondre = new HashSet<repondre>();
             this.service = new HashSet<service>();
             this.type = new HashSet<type>();
+            this.message = new HashSet<message>();
         }
     
         public int IDINSCRIT { get; set; }
@@ -30,8 +31,9 @@ namespace AP4
         public string TELINSCRIT { get; set; }
         public System.DateTime DATENAISSANCE { get; set; }
         public string ADRESSE { get; set; }
-        public Nullable<int> CREDIT { get; set; }
+        public int CREDIT { get; set; }
         public short ADMIN { get; set; }
+        public short STATUT { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<repondre> repondre { get; set; }
@@ -39,5 +41,7 @@ namespace AP4
         public virtual ICollection<service> service { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<type> type { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<message> message { get; set; }
     }
 }

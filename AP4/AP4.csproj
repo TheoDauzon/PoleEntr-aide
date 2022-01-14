@@ -129,6 +129,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>mdlAP4.edmx</DependentUpon>
     </Compile>
+    <Compile Include="message.cs">
+      <DependentUpon>mdlAP4.tt</DependentUpon>
+    </Compile>
     <Compile Include="Modele.cs" />
     <Compile Include="produit.cs">
       <DependentUpon>mdlAP4.tt</DependentUpon>
@@ -161,6 +164,15 @@
     </Compile>
     <EmbeddedResource Include="ListeInscrit.resx">
       <DependentUpon>ListeInscrit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListeMessage.resx">
+      <DependentUpon>ListeMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListeReponse.resx">
+      <DependentUpon>ListeReponse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListeService.resx">
+      <DependentUpon>ListeService.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

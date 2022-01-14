@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace AP4
 {
@@ -28,10 +29,10 @@ namespace AP4
             return maConnexion.repondre.ToList();
         }
 
-        /*public static List<message> listeMessage()
+        public static List<message> listeMessage()
         {
             return maConnexion.message.ToList();
-        }*/
+        }
 
         public static bool VerifInscrit(string mail, string mdp)
         {

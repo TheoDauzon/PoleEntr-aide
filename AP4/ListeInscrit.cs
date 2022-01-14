@@ -20,8 +20,12 @@ namespace AP4
 
         private void ListeInscrit_Load(object sender, EventArgs e)
         {
-            bsInscrits.DataSource = Modele.listeInscrit(); // appel de la méthode listeClients
-            dgvInscrits.DataSource = bsInscrits;
+            bsInscrit.DataSource = Modele.listeInscrit(); // appel de la méthode listeClients
+            dgvInscrit.DataSource = bsInscrit;
+            dgvInscrit.Columns[11].Visible = false;
+            dgvInscrit.Columns[12].Visible = false;
+            dgvInscrit.Columns[13].Visible = false;
+            dgvInscrit.Columns[14].Visible = false;
         }
 
         private void BtnRetourMenu_Click(object sender, EventArgs e)

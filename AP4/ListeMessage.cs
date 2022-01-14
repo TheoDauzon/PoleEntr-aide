@@ -16,5 +16,17 @@ namespace AP4
         {
             InitializeComponent();
         }
+
+        private void BtnRetourMenu_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void ListeMessage_Load(object sender, EventArgs e)
+        {
+            bsMessage.DataSource = Modele.listeMessage(); // appel de la méthode listeClients
+            dgvMessage.DataSource = bsMessage;
+            dgvMessage.Columns[3].Visible = false;
+        }
     }
 }

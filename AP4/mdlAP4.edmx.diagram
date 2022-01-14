@@ -36,6 +36,8 @@
         <AssociationConnector Association="ap4Model.FK_TRANSPORT_SERVICE" ManuallyRouted="false" />
         <AssociationConnector Association="ap4Model.FK_TACHE_MENAGERE_TYPE_TACHE_MENAGERE" ManuallyRouted="false" />
         <AssociationConnector Association="ap4Model.illustrer" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ap4Model.message" Width="1.5" PointX="3" PointY="17.125" />
+        <AssociationConnector Association="ap4Model.FK_MESSAGE_INSCRIT" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
