@@ -16,9 +16,11 @@ namespace AP4
         ListeService LS;
         ListeReponse LR;
         ListeMessage LM;
-        public Menu()
+        inscrit unInscrit;
+        public Menu(inscrit unInscrit)
         {
             InitializeComponent();
+            this.unInscrit = unInscrit;
         }
 
         private void BtnGestionInscrits_Click(object sender, EventArgs e)
@@ -48,6 +50,13 @@ namespace AP4
         private void BtnDeconnexion_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+            lbNom.Text = unInscrit.NOMINSCRIT;
+            lbPrenom.Text = unInscrit.PRENOMINSCRIT;
+
         }
     }
 }

@@ -30,12 +30,10 @@ namespace AP4
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnRetourMenu = new System.Windows.Forms.Button();
             this.lbListeService = new System.Windows.Forms.Label();
-            this.btnAjouter = new System.Windows.Forms.Button();
             this.btnModifier = new System.Windows.Forms.Button();
-            this.btnSuppprimer = new System.Windows.Forms.Button();
             this.dgvService = new System.Windows.Forms.DataGridView();
             this.bsService = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvService)).BeginInit();
@@ -63,48 +61,28 @@ namespace AP4
             this.lbListeService.TabIndex = 1;
             this.lbListeService.Text = "LISTE DES SERVICES";
             // 
-            // btnAjouter
-            // 
-            this.btnAjouter.Font = new System.Drawing.Font("Liberation Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAjouter.Location = new System.Drawing.Point(25, 398);
-            this.btnAjouter.Name = "btnAjouter";
-            this.btnAjouter.Size = new System.Drawing.Size(116, 40);
-            this.btnAjouter.TabIndex = 2;
-            this.btnAjouter.Text = "AJOUTER";
-            this.btnAjouter.UseVisualStyleBackColor = true;
-            // 
             // btnModifier
             // 
             this.btnModifier.Font = new System.Drawing.Font("Liberation Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModifier.Location = new System.Drawing.Point(207, 398);
+            this.btnModifier.Location = new System.Drawing.Point(25, 398);
             this.btnModifier.Name = "btnModifier";
             this.btnModifier.Size = new System.Drawing.Size(116, 40);
             this.btnModifier.TabIndex = 3;
             this.btnModifier.Text = "MODIFIER";
             this.btnModifier.UseVisualStyleBackColor = true;
             // 
-            // btnSuppprimer
-            // 
-            this.btnSuppprimer.Font = new System.Drawing.Font("Liberation Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSuppprimer.Location = new System.Drawing.Point(390, 398);
-            this.btnSuppprimer.Name = "btnSuppprimer";
-            this.btnSuppprimer.Size = new System.Drawing.Size(116, 40);
-            this.btnSuppprimer.TabIndex = 4;
-            this.btnSuppprimer.Text = "SUPPRIMER";
-            this.btnSuppprimer.UseVisualStyleBackColor = true;
-            // 
             // dgvService
             // 
             this.dgvService.AllowUserToAddRows = false;
             this.dgvService.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Liberation Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvService.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Liberation Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvService.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvService.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvService.Location = new System.Drawing.Point(25, 159);
             this.dgvService.Name = "dgvService";
@@ -119,9 +97,7 @@ namespace AP4
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(127)))), ((int)(((byte)(102)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dgvService);
-            this.Controls.Add(this.btnSuppprimer);
             this.Controls.Add(this.btnModifier);
-            this.Controls.Add(this.btnAjouter);
             this.Controls.Add(this.lbListeService);
             this.Controls.Add(this.btnRetourMenu);
             this.Name = "ListeService";
@@ -138,9 +114,7 @@ namespace AP4
 
         private System.Windows.Forms.Button btnRetourMenu;
         private System.Windows.Forms.Label lbListeService;
-        private System.Windows.Forms.Button btnAjouter;
         private System.Windows.Forms.Button btnModifier;
-        private System.Windows.Forms.Button btnSuppprimer;
         private System.Windows.Forms.DataGridView dgvService;
         private System.Windows.Forms.BindingSource bsService;
     }

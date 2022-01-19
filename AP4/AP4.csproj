@@ -69,6 +69,12 @@
     <Compile Include="departement.cs">
       <DependentUpon>mdlAP4.tt</DependentUpon>
     </Compile>
+    <Compile Include="FormGestionInscrit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGestionInscrit.Designer.cs">
+      <DependentUpon>FormGestionInscrit.cs</DependentUpon>
+    </Compile>
     <Compile Include="ListeInscrit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +168,9 @@
     <Compile Include="ville.cs">
       <DependentUpon>mdlAP4.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormGestionInscrit.resx">
+      <DependentUpon>FormGestionInscrit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ListeInscrit.resx">
       <DependentUpon>ListeInscrit.cs</DependentUpon>
     </EmbeddedResource>

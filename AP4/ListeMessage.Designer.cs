@@ -32,9 +32,7 @@ namespace AP4
             this.components = new System.ComponentModel.Container();
             this.dgvMessage = new System.Windows.Forms.DataGridView();
             this.btnRetourMenu = new System.Windows.Forms.Button();
-            this.btnSupprimerMessage = new System.Windows.Forms.Button();
             this.btnModifierMessage = new System.Windows.Forms.Button();
-            this.btnAjouterMessage = new System.Windows.Forms.Button();
             this.lbTitre = new System.Windows.Forms.Label();
             this.bsMessage = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMessage)).BeginInit();
@@ -46,75 +44,59 @@ namespace AP4
             this.dgvMessage.AllowUserToAddRows = false;
             this.dgvMessage.AllowUserToDeleteRows = false;
             this.dgvMessage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMessage.Location = new System.Drawing.Point(32, 159);
+            this.dgvMessage.Location = new System.Drawing.Point(43, 196);
+            this.dgvMessage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvMessage.Name = "dgvMessage";
             this.dgvMessage.ReadOnly = true;
-            this.dgvMessage.Size = new System.Drawing.Size(750, 233);
+            this.dgvMessage.RowHeadersWidth = 51;
+            this.dgvMessage.Size = new System.Drawing.Size(1000, 287);
             this.dgvMessage.TabIndex = 12;
             // 
             // btnRetourMenu
             // 
-            this.btnRetourMenu.Font = new System.Drawing.Font("Liberation Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRetourMenu.Location = new System.Drawing.Point(19, 12);
+            this.btnRetourMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRetourMenu.Location = new System.Drawing.Point(25, 15);
+            this.btnRetourMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRetourMenu.Name = "btnRetourMenu";
-            this.btnRetourMenu.Size = new System.Drawing.Size(163, 49);
+            this.btnRetourMenu.Size = new System.Drawing.Size(217, 60);
             this.btnRetourMenu.TabIndex = 11;
             this.btnRetourMenu.Text = "RETOUR AU MENU";
             this.btnRetourMenu.UseVisualStyleBackColor = true;
             this.btnRetourMenu.Click += new System.EventHandler(this.BtnRetourMenu_Click);
             // 
-            // btnSupprimerMessage
-            // 
-            this.btnSupprimerMessage.Font = new System.Drawing.Font("Liberation Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSupprimerMessage.Location = new System.Drawing.Point(397, 398);
-            this.btnSupprimerMessage.Name = "btnSupprimerMessage";
-            this.btnSupprimerMessage.Size = new System.Drawing.Size(116, 40);
-            this.btnSupprimerMessage.TabIndex = 10;
-            this.btnSupprimerMessage.Text = "SUPPRIMER";
-            this.btnSupprimerMessage.UseVisualStyleBackColor = true;
-            // 
             // btnModifierMessage
             // 
-            this.btnModifierMessage.Font = new System.Drawing.Font("Liberation Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModifierMessage.Location = new System.Drawing.Point(214, 398);
+            this.btnModifierMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModifierMessage.Location = new System.Drawing.Point(43, 490);
+            this.btnModifierMessage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnModifierMessage.Name = "btnModifierMessage";
-            this.btnModifierMessage.Size = new System.Drawing.Size(116, 40);
+            this.btnModifierMessage.Size = new System.Drawing.Size(155, 49);
             this.btnModifierMessage.TabIndex = 9;
             this.btnModifierMessage.Text = "MODIFIER";
             this.btnModifierMessage.UseVisualStyleBackColor = true;
             // 
-            // btnAjouterMessage
-            // 
-            this.btnAjouterMessage.Font = new System.Drawing.Font("Liberation Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAjouterMessage.Location = new System.Drawing.Point(32, 398);
-            this.btnAjouterMessage.Name = "btnAjouterMessage";
-            this.btnAjouterMessage.Size = new System.Drawing.Size(116, 40);
-            this.btnAjouterMessage.TabIndex = 8;
-            this.btnAjouterMessage.Text = "AJOUTER";
-            this.btnAjouterMessage.UseVisualStyleBackColor = true;
-            // 
             // lbTitre
             // 
             this.lbTitre.AutoSize = true;
-            this.lbTitre.Font = new System.Drawing.Font("Liberation Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTitre.Location = new System.Drawing.Point(290, 18);
+            this.lbTitre.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTitre.Location = new System.Drawing.Point(387, 22);
+            this.lbTitre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbTitre.Name = "lbTitre";
-            this.lbTitre.Size = new System.Drawing.Size(229, 30);
+            this.lbTitre.Size = new System.Drawing.Size(335, 39);
             this.lbTitre.TabIndex = 7;
             this.lbTitre.Text = "Liste des messages";
             // 
             // ListeMessage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(127)))), ((int)(((byte)(102)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.dgvMessage);
             this.Controls.Add(this.btnRetourMenu);
-            this.Controls.Add(this.btnSupprimerMessage);
             this.Controls.Add(this.btnModifierMessage);
-            this.Controls.Add(this.btnAjouterMessage);
             this.Controls.Add(this.lbTitre);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ListeMessage";
             this.Text = "ListeMessage";
             this.Load += new System.EventHandler(this.ListeMessage_Load);
@@ -129,9 +111,7 @@ namespace AP4
 
         private System.Windows.Forms.DataGridView dgvMessage;
         private System.Windows.Forms.Button btnRetourMenu;
-        private System.Windows.Forms.Button btnSupprimerMessage;
         private System.Windows.Forms.Button btnModifierMessage;
-        private System.Windows.Forms.Button btnAjouterMessage;
         private System.Windows.Forms.Label lbTitre;
         private System.Windows.Forms.BindingSource bsMessage;
     }

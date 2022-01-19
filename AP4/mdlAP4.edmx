@@ -5,29 +5,20 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="ap4Model.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="acheter">
-          <Key>
-            <PropertyRef Name="IDSERVICE" />
-            <PropertyRef Name="IDPRODUIT" />
-          </Key>
-          <Property Name="IDSERVICE" Type="int" Nullable="false" />
-          <Property Name="IDPRODUIT" Type="int" Nullable="false" />
-          <Property Name="QUANTITÉ" Type="int" Nullable="false" />
-        </EntityType>
         <EntityType Name="course">
           <Key>
             <PropertyRef Name="IDSERVICE" />
           </Key>
           <Property Name="IDSERVICE" Type="int" Nullable="false" />
           <Property Name="LIBELLEEPICERIE" Type="char" MaxLength="50" Nullable="false" />
-          <Property Name="LIEUEPICERIE" Type="char" MaxLength="32" Nullable="false" />
+          <Property Name="LISTEACHATS" Type="smallint" Nullable="false" />
+          <Property Name="PERSONNE" Type="smallint" Nullable="false" />
           <Property Name="DESCRIPTIFSERVICE" Type="varchar" MaxLength="500" Nullable="false" />
-          <Property Name="PHOTO" Type="varchar" MaxLength="128" />
+          <Property Name="PHOTO" Type="char" MaxLength="255" />
           <Property Name="DATEDEBUT" Type="date" Nullable="false" />
           <Property Name="DUREEJOURS" Type="int" Nullable="false" />
           <Property Name="PRIX" Type="int" Nullable="false" />
           <Property Name="DATEDEPOT" Type="date" Nullable="false" />
-          <Property Name="ATTRIBUER" Type="bool" Nullable="false" />
         </EntityType>
         <EntityType Name="departement">
           <Key>
@@ -42,16 +33,15 @@
           </Key>
           <Property Name="IDSERVICE" Type="int" Nullable="false" />
           <Property Name="LIBELLECOMPETENCE" Type="char" MaxLength="50" Nullable="false" />
-          <Property Name="NBHEURES" Type="char" MaxLength="32" Nullable="false" />
+          <Property Name="NBHEURES" Type="char" MaxLength="32" />
           <Property Name="VISIOCONF" Type="smallint" Nullable="false" />
-          <Property Name="PREREQUIS" Type="char" MaxLength="100" Nullable="false" />
+          <Property Name="PREREQUIS" Type="char" MaxLength="100" />
           <Property Name="DESCRIPTIFSERVICE" Type="varchar" MaxLength="500" Nullable="false" />
-          <Property Name="PHOTO" Type="varchar" MaxLength="128" />
+          <Property Name="PHOTO" Type="char" MaxLength="255" />
           <Property Name="DATEDEBUT" Type="date" Nullable="false" />
           <Property Name="DUREEJOURS" Type="int" Nullable="false" />
           <Property Name="PRIX" Type="int" Nullable="false" />
           <Property Name="DATEDEPOT" Type="date" Nullable="false" />
-          <Property Name="ATTRIBUER" Type="bool" Nullable="false" />
         </EntityType>
         <EntityType Name="illustrer">
           <Key>
@@ -73,7 +63,7 @@
           <Property Name="TELINSCRIT" Type="char" MaxLength="32" Nullable="false" />
           <Property Name="DATENAISSANCE" Type="date" Nullable="false" />
           <Property Name="ADRESSE" Type="char" MaxLength="150" Nullable="false" />
-          <Property Name="CREDIT" Type="int" Nullable="false" />
+          <Property Name="CREDIT" Type="int" />
           <Property Name="ADMIN" Type="smallint" Nullable="false" />
           <Property Name="STATUT" Type="smallint" Nullable="false" />
         </EntityType>
@@ -85,12 +75,11 @@
           <Property Name="IDLOISIRS" Type="int" Nullable="false" />
           <Property Name="NBPERSONNES" Type="int" Nullable="false" />
           <Property Name="DESCRIPTIFSERVICE" Type="varchar" MaxLength="500" Nullable="false" />
-          <Property Name="PHOTO" Type="varchar" MaxLength="128" />
+          <Property Name="PHOTO" Type="char" MaxLength="255" />
           <Property Name="DATEDEBUT" Type="date" Nullable="false" />
           <Property Name="DUREEJOURS" Type="int" Nullable="false" />
           <Property Name="PRIX" Type="int" Nullable="false" />
           <Property Name="DATEDEPOT" Type="date" Nullable="false" />
-          <Property Name="ATTRIBUER" Type="bool" Nullable="false" />
         </EntityType>
         <EntityType Name="message">
           <Key>
@@ -99,13 +88,6 @@
           <Property Name="IDMESSAGE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IDINSCRIT" Type="int" Nullable="false" />
           <Property Name="LIBELLEMESSAGE" Type="varchar" MaxLength="500" Nullable="false" />
-        </EntityType>
-        <EntityType Name="produit">
-          <Key>
-            <PropertyRef Name="IDPRODUIT" />
-          </Key>
-          <Property Name="IDPRODUIT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="LIBELLEPRODUIT" Type="varchar" MaxLength="128" Nullable="false" />
         </EntityType>
         <EntityType Name="repondre">
           <Key>
@@ -116,7 +98,6 @@
           <Property Name="IDINSCRIT" Type="int" Nullable="false" />
           <Property Name="IDSERVICE" Type="int" Nullable="false" />
           <Property Name="DATEREP" Type="date" Nullable="false" />
-          <Property Name="LIBELLEREP" Type="char" MaxLength="255" Nullable="false" />
         </EntityType>
         <EntityType Name="service">
           <Key>
@@ -124,15 +105,14 @@
           </Key>
           <Property Name="IDSERVICE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IDINSCRIT" Type="int" Nullable="false" />
-          <Property Name="IDVILLE" Type="smallint" Nullable="false" />
+          <Property Name="IDDEPARTEMENT" Type="int" Nullable="false" />
           <Property Name="IDTYPE" Type="int" Nullable="false" />
           <Property Name="DESCRIPTIFSERVICE" Type="varchar" MaxLength="500" Nullable="false" />
-          <Property Name="PHOTO" Type="varchar" MaxLength="128" />
+          <Property Name="PHOTO" Type="char" MaxLength="255" />
           <Property Name="DATEDEBUT" Type="date" Nullable="false" />
           <Property Name="DUREEJOURS" Type="int" Nullable="false" />
           <Property Name="PRIX" Type="int" Nullable="false" />
           <Property Name="DATEDEPOT" Type="date" Nullable="false" />
-          <Property Name="ATTRIBUER" Type="bool" Nullable="false" />
         </EntityType>
         <EntityType Name="tache_menagere">
           <Key>
@@ -143,12 +123,11 @@
           <Property Name="DESCTACHEM" Type="char" MaxLength="50" Nullable="false" />
           <Property Name="MATERIEL" Type="char" MaxLength="120" />
           <Property Name="DESCRIPTIFSERVICE" Type="varchar" MaxLength="500" Nullable="false" />
-          <Property Name="PHOTO" Type="varchar" MaxLength="128" />
+          <Property Name="PHOTO" Type="char" MaxLength="255" />
           <Property Name="DATEDEBUT" Type="date" Nullable="false" />
           <Property Name="DUREEJOURS" Type="int" Nullable="false" />
           <Property Name="PRIX" Type="int" Nullable="false" />
           <Property Name="DATEDEPOT" Type="date" Nullable="false" />
-          <Property Name="ATTRIBUER" Type="bool" Nullable="false" />
         </EntityType>
         <EntityType Name="transport">
           <Key>
@@ -161,12 +140,11 @@
           <Property Name="NBPLACESDISPO" Type="smallint" Nullable="false" />
           <Property Name="VEHICULE" Type="smallint" Nullable="false" />
           <Property Name="DESCRIPTIFSERVICE" Type="varchar" MaxLength="500" Nullable="false" />
-          <Property Name="PHOTO" Type="varchar" MaxLength="128" />
+          <Property Name="PHOTO" Type="char" MaxLength="255" />
           <Property Name="DATEDEBUT" Type="date" Nullable="false" />
           <Property Name="DUREEJOURS" Type="int" Nullable="false" />
           <Property Name="PRIX" Type="int" Nullable="false" />
           <Property Name="DATEDEPOT" Type="date" Nullable="false" />
-          <Property Name="ATTRIBUER" Type="bool" Nullable="false" />
         </EntityType>
         <EntityType Name="type">
           <Key>
@@ -196,30 +174,6 @@
           <Property Name="IDDEPARTEMENT" Type="int" Nullable="false" />
           <Property Name="NOMVILLE" Type="char" MaxLength="120" />
         </EntityType>
-        <Association Name="FK_ACHETER_COURSE">
-          <End Role="course" Type="Self.course" Multiplicity="1" />
-          <End Role="acheter" Type="Self.acheter" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="course">
-              <PropertyRef Name="IDSERVICE" />
-            </Principal>
-            <Dependent Role="acheter">
-              <PropertyRef Name="IDSERVICE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ACHETER_PRODUIT">
-          <End Role="produit" Type="Self.produit" Multiplicity="1" />
-          <End Role="acheter" Type="Self.acheter" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="produit">
-              <PropertyRef Name="IDPRODUIT" />
-            </Principal>
-            <Dependent Role="acheter">
-              <PropertyRef Name="IDPRODUIT" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_COURSE_SERVICE">
           <End Role="service" Type="Self.service" Multiplicity="1" />
           <End Role="course" Type="Self.course" Multiplicity="0..1" />
@@ -328,6 +282,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_SERVICE_DEPARTEMENT">
+          <End Role="departement" Type="Self.departement" Multiplicity="1" />
+          <End Role="service" Type="Self.service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="departement">
+              <PropertyRef Name="IDDEPARTEMENT" />
+            </Principal>
+            <Dependent Role="service">
+              <PropertyRef Name="IDDEPARTEMENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_SERVICE_INSCRIT">
           <End Role="inscrit" Type="Self.inscrit" Multiplicity="1" />
           <End Role="service" Type="Self.service" Multiplicity="*" />
@@ -349,18 +315,6 @@
             </Principal>
             <Dependent Role="service">
               <PropertyRef Name="IDTYPE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SERVICE_VILLE">
-          <End Role="ville" Type="Self.ville" Multiplicity="1" />
-          <End Role="service" Type="Self.service" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ville">
-              <PropertyRef Name="IDVILLE" />
-            </Principal>
-            <Dependent Role="service">
-              <PropertyRef Name="IDVILLE" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -413,7 +367,6 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="ap4ModelStoreContainer">
-          <EntitySet Name="acheter" EntityType="Self.acheter" Schema="ap4" store:Type="Tables" />
           <EntitySet Name="course" EntityType="Self.course" Schema="ap4" store:Type="Tables" />
           <EntitySet Name="departement" EntityType="Self.departement" Schema="ap4" store:Type="Tables" />
           <EntitySet Name="formation" EntityType="Self.formation" Schema="ap4" store:Type="Tables" />
@@ -421,7 +374,6 @@
           <EntitySet Name="inscrit" EntityType="Self.inscrit" Schema="ap4" store:Type="Tables" />
           <EntitySet Name="loisirs" EntityType="Self.loisirs" Schema="ap4" store:Type="Tables" />
           <EntitySet Name="message" EntityType="Self.message" Schema="ap4" store:Type="Tables" />
-          <EntitySet Name="produit" EntityType="Self.produit" Schema="ap4" store:Type="Tables" />
           <EntitySet Name="repondre" EntityType="Self.repondre" Schema="ap4" store:Type="Tables" />
           <EntitySet Name="service" EntityType="Self.service" Schema="ap4" store:Type="Tables" />
           <EntitySet Name="tache_menagere" EntityType="Self.tache_menagere" Schema="ap4" store:Type="Tables" />
@@ -430,14 +382,6 @@
           <EntitySet Name="type_loisirs" EntityType="Self.type_loisirs" Schema="ap4" store:Type="Tables" />
           <EntitySet Name="type_tache_menagere" EntityType="Self.type_tache_menagere" Schema="ap4" store:Type="Tables" />
           <EntitySet Name="ville" EntityType="Self.ville" Schema="ap4" store:Type="Tables" />
-          <AssociationSet Name="FK_ACHETER_COURSE" Association="Self.FK_ACHETER_COURSE">
-            <End Role="course" EntitySet="course" />
-            <End Role="acheter" EntitySet="acheter" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ACHETER_PRODUIT" Association="Self.FK_ACHETER_PRODUIT">
-            <End Role="produit" EntitySet="produit" />
-            <End Role="acheter" EntitySet="acheter" />
-          </AssociationSet>
           <AssociationSet Name="FK_COURSE_SERVICE" Association="Self.FK_COURSE_SERVICE">
             <End Role="service" EntitySet="service" />
             <End Role="course" EntitySet="course" />
@@ -474,16 +418,16 @@
             <End Role="service" EntitySet="service" />
             <End Role="repondre" EntitySet="repondre" />
           </AssociationSet>
+          <AssociationSet Name="FK_SERVICE_DEPARTEMENT" Association="Self.FK_SERVICE_DEPARTEMENT">
+            <End Role="departement" EntitySet="departement" />
+            <End Role="service" EntitySet="service" />
+          </AssociationSet>
           <AssociationSet Name="FK_SERVICE_INSCRIT" Association="Self.FK_SERVICE_INSCRIT">
             <End Role="inscrit" EntitySet="inscrit" />
             <End Role="service" EntitySet="service" />
           </AssociationSet>
           <AssociationSet Name="FK_SERVICE_TYPE" Association="Self.FK_SERVICE_TYPE">
             <End Role="type" EntitySet="type" />
-            <End Role="service" EntitySet="service" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SERVICE_VILLE" Association="Self.FK_SERVICE_VILLE">
-            <End Role="ville" EntitySet="ville" />
             <End Role="service" EntitySet="service" />
           </AssociationSet>
           <AssociationSet Name="FK_TACHE_MENAGERE_SERVICE" Association="Self.FK_TACHE_MENAGERE_SERVICE">
@@ -534,6 +478,8 @@
           <Property Name="ATTRIBUER" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="acheter" Relationship="Self.FK_ACHETER_COURSE" FromRole="course" ToRole="acheter" />
           <NavigationProperty Name="service" Relationship="Self.FK_COURSE_SERVICE" FromRole="course" ToRole="service" />
+          <Property Name="LISTEACHATS" Type="Int16" Nullable="false" />
+          <Property Name="PERSONNE" Type="Int16" Nullable="false" />
         </EntityType>
         <EntityType Name="departement">
           <Key>
@@ -542,6 +488,7 @@
           <Property Name="IDDEPARTEMENT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="LIBELLEDEPARTEMENT" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="ville" Relationship="Self.FK_VILLE_DEPARTEMENT" FromRole="departement" ToRole="ville" />
+          <NavigationProperty Name="service" Relationship="ap4Model.FK_SERVICE_DEPARTEMENT" FromRole="departement" ToRole="service" />
         </EntityType>
         <EntityType Name="formation">
           <Key>
@@ -643,6 +590,8 @@
           <NavigationProperty Name="ville" Relationship="Self.FK_SERVICE_VILLE" FromRole="service" ToRole="ville" />
           <NavigationProperty Name="tache_menagere" Relationship="Self.FK_TACHE_MENAGERE_SERVICE" FromRole="service" ToRole="tache_menagere" />
           <NavigationProperty Name="transport" Relationship="Self.FK_TRANSPORT_SERVICE" FromRole="service" ToRole="transport" />
+          <Property Name="IDDEPARTEMENT" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="departement" Relationship="ap4Model.FK_SERVICE_DEPARTEMENT" FromRole="service" ToRole="departement" />
         </EntityType>
         <EntityType Name="tache_menagere">
           <Key>
@@ -984,6 +933,10 @@
             <End Role="inscrit" EntitySet="inscrit" />
             <End Role="message" EntitySet="message" />
           </AssociationSet>
+          <AssociationSet Name="FK_SERVICE_DEPARTEMENT" Association="ap4Model.FK_SERVICE_DEPARTEMENT">
+            <End Role="departement" EntitySet="departement" />
+            <End Role="service" EntitySet="service" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="message">
           <Key>
@@ -1006,34 +959,37 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_SERVICE_DEPARTEMENT">
+          <End Type="ap4Model.departement" Role="departement" Multiplicity="1" />
+          <End Type="ap4Model.service" Role="service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="departement">
+              <PropertyRef Name="IDDEPARTEMENT" />
+            </Principal>
+            <Dependent Role="service">
+              <PropertyRef Name="IDDEPARTEMENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ap4ModelStoreContainer" CdmEntityContainer="ap4Entities">
-          <EntitySetMapping Name="acheter">
-            <EntityTypeMapping TypeName="ap4Model.acheter">
-              <MappingFragment StoreEntitySet="acheter">
-                <ScalarProperty Name="IDSERVICE" ColumnName="IDSERVICE" />
-                <ScalarProperty Name="IDPRODUIT" ColumnName="IDPRODUIT" />
-                <ScalarProperty Name="QUANTITÉ" ColumnName="QUANTITÉ" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="course">
             <EntityTypeMapping TypeName="ap4Model.course">
               <MappingFragment StoreEntitySet="course">
+                <ScalarProperty Name="PERSONNE" ColumnName="PERSONNE" />
+                <ScalarProperty Name="LISTEACHATS" ColumnName="LISTEACHATS" />
                 <ScalarProperty Name="IDSERVICE" ColumnName="IDSERVICE" />
                 <ScalarProperty Name="LIBELLEEPICERIE" ColumnName="LIBELLEEPICERIE" />
-                <ScalarProperty Name="LIEUEPICERIE" ColumnName="LIEUEPICERIE" />
                 <ScalarProperty Name="DESCRIPTIFSERVICE" ColumnName="DESCRIPTIFSERVICE" />
                 <ScalarProperty Name="PHOTO" ColumnName="PHOTO" />
                 <ScalarProperty Name="DATEDEBUT" ColumnName="DATEDEBUT" />
                 <ScalarProperty Name="DUREEJOURS" ColumnName="DUREEJOURS" />
                 <ScalarProperty Name="PRIX" ColumnName="PRIX" />
                 <ScalarProperty Name="DATEDEPOT" ColumnName="DATEDEPOT" />
-                <ScalarProperty Name="ATTRIBUER" ColumnName="ATTRIBUER" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1059,7 +1015,6 @@
                 <ScalarProperty Name="DUREEJOURS" ColumnName="DUREEJOURS" />
                 <ScalarProperty Name="PRIX" ColumnName="PRIX" />
                 <ScalarProperty Name="DATEDEPOT" ColumnName="DATEDEPOT" />
-                <ScalarProperty Name="ATTRIBUER" ColumnName="ATTRIBUER" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1092,15 +1047,6 @@
                 <ScalarProperty Name="DUREEJOURS" ColumnName="DUREEJOURS" />
                 <ScalarProperty Name="PRIX" ColumnName="PRIX" />
                 <ScalarProperty Name="DATEDEPOT" ColumnName="DATEDEPOT" />
-                <ScalarProperty Name="ATTRIBUER" ColumnName="ATTRIBUER" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="produit">
-            <EntityTypeMapping TypeName="ap4Model.produit">
-              <MappingFragment StoreEntitySet="produit">
-                <ScalarProperty Name="IDPRODUIT" ColumnName="IDPRODUIT" />
-                <ScalarProperty Name="LIBELLEPRODUIT" ColumnName="LIBELLEPRODUIT" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1110,16 +1056,15 @@
                 <ScalarProperty Name="IDINSCRIT" ColumnName="IDINSCRIT" />
                 <ScalarProperty Name="IDSERVICE" ColumnName="IDSERVICE" />
                 <ScalarProperty Name="DATEREP" ColumnName="DATEREP" />
-                <ScalarProperty Name="LIBELLEREP" ColumnName="LIBELLEREP" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="service">
             <EntityTypeMapping TypeName="ap4Model.service">
               <MappingFragment StoreEntitySet="service">
+                <ScalarProperty Name="IDDEPARTEMENT" ColumnName="IDDEPARTEMENT" />
                 <ScalarProperty Name="IDSERVICE" ColumnName="IDSERVICE" />
                 <ScalarProperty Name="IDINSCRIT" ColumnName="IDINSCRIT" />
-                <ScalarProperty Name="IDVILLE" ColumnName="IDVILLE" />
                 <ScalarProperty Name="IDTYPE" ColumnName="IDTYPE" />
                 <ScalarProperty Name="DESCRIPTIFSERVICE" ColumnName="DESCRIPTIFSERVICE" />
                 <ScalarProperty Name="PHOTO" ColumnName="PHOTO" />
@@ -1127,7 +1072,6 @@
                 <ScalarProperty Name="DUREEJOURS" ColumnName="DUREEJOURS" />
                 <ScalarProperty Name="PRIX" ColumnName="PRIX" />
                 <ScalarProperty Name="DATEDEPOT" ColumnName="DATEDEPOT" />
-                <ScalarProperty Name="ATTRIBUER" ColumnName="ATTRIBUER" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1144,7 +1088,6 @@
                 <ScalarProperty Name="DUREEJOURS" ColumnName="DUREEJOURS" />
                 <ScalarProperty Name="PRIX" ColumnName="PRIX" />
                 <ScalarProperty Name="DATEDEPOT" ColumnName="DATEDEPOT" />
-                <ScalarProperty Name="ATTRIBUER" ColumnName="ATTRIBUER" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1163,7 +1106,6 @@
                 <ScalarProperty Name="DUREEJOURS" ColumnName="DUREEJOURS" />
                 <ScalarProperty Name="PRIX" ColumnName="PRIX" />
                 <ScalarProperty Name="DATEDEPOT" ColumnName="DATEDEPOT" />
-                <ScalarProperty Name="ATTRIBUER" ColumnName="ATTRIBUER" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

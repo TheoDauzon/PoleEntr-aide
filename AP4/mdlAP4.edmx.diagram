@@ -38,6 +38,7 @@
         <AssociationConnector Association="ap4Model.illustrer" ManuallyRouted="false" />
         <EntityTypeShape EntityType="ap4Model.message" Width="1.5" PointX="3" PointY="17.125" />
         <AssociationConnector Association="ap4Model.FK_MESSAGE_INSCRIT" />
+        <AssociationConnector Association="ap4Model.FK_SERVICE_DEPARTEMENT" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

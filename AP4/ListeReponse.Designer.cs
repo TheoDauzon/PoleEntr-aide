@@ -30,12 +30,10 @@ namespace AP4
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnRetourMenu = new System.Windows.Forms.Button();
             this.lbListeReponse = new System.Windows.Forms.Label();
-            this.btnAjouterReponse = new System.Windows.Forms.Button();
             this.btnModifier = new System.Windows.Forms.Button();
-            this.btnSupprimer = new System.Windows.Forms.Button();
             this.dgvReponse = new System.Windows.Forms.DataGridView();
             this.bsReponse = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReponse)).BeginInit();
@@ -65,51 +63,29 @@ namespace AP4
             this.lbListeReponse.TabIndex = 1;
             this.lbListeReponse.Text = "LISTE DES RÉPONSES";
             // 
-            // btnAjouterReponse
-            // 
-            this.btnAjouterReponse.Font = new System.Drawing.Font("Liberation Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAjouterReponse.ForeColor = System.Drawing.Color.Black;
-            this.btnAjouterReponse.Location = new System.Drawing.Point(25, 398);
-            this.btnAjouterReponse.Name = "btnAjouterReponse";
-            this.btnAjouterReponse.Size = new System.Drawing.Size(116, 40);
-            this.btnAjouterReponse.TabIndex = 2;
-            this.btnAjouterReponse.Text = "AJOUTER";
-            this.btnAjouterReponse.UseVisualStyleBackColor = true;
-            // 
             // btnModifier
             // 
             this.btnModifier.Font = new System.Drawing.Font("Liberation Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModifier.ForeColor = System.Drawing.Color.Black;
-            this.btnModifier.Location = new System.Drawing.Point(207, 398);
+            this.btnModifier.Location = new System.Drawing.Point(25, 398);
             this.btnModifier.Name = "btnModifier";
             this.btnModifier.Size = new System.Drawing.Size(116, 40);
             this.btnModifier.TabIndex = 3;
             this.btnModifier.Text = "MODIFIER";
             this.btnModifier.UseVisualStyleBackColor = true;
             // 
-            // btnSupprimer
-            // 
-            this.btnSupprimer.Font = new System.Drawing.Font("Liberation Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSupprimer.ForeColor = System.Drawing.Color.Black;
-            this.btnSupprimer.Location = new System.Drawing.Point(390, 398);
-            this.btnSupprimer.Name = "btnSupprimer";
-            this.btnSupprimer.Size = new System.Drawing.Size(116, 40);
-            this.btnSupprimer.TabIndex = 4;
-            this.btnSupprimer.Text = "SUPPRIMER";
-            this.btnSupprimer.UseVisualStyleBackColor = true;
-            // 
             // dgvReponse
             // 
             this.dgvReponse.AllowUserToAddRows = false;
             this.dgvReponse.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Liberation Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvReponse.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Liberation Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvReponse.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvReponse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReponse.Location = new System.Drawing.Point(25, 159);
             this.dgvReponse.Name = "dgvReponse";
@@ -124,9 +100,7 @@ namespace AP4
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(127)))), ((int)(((byte)(102)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dgvReponse);
-            this.Controls.Add(this.btnSupprimer);
             this.Controls.Add(this.btnModifier);
-            this.Controls.Add(this.btnAjouterReponse);
             this.Controls.Add(this.lbListeReponse);
             this.Controls.Add(this.btnRetourMenu);
             this.Name = "ListeReponse";
@@ -143,9 +117,7 @@ namespace AP4
 
         private System.Windows.Forms.Button btnRetourMenu;
         private System.Windows.Forms.Label lbListeReponse;
-        private System.Windows.Forms.Button btnAjouterReponse;
         private System.Windows.Forms.Button btnModifier;
-        private System.Windows.Forms.Button btnSupprimer;
         private System.Windows.Forms.DataGridView dgvReponse;
         private System.Windows.Forms.BindingSource bsReponse;
     }

@@ -33,5 +33,30 @@ namespace AP4
             this.Close();
         }
 
+        private void btnSupprimerMessage_Click(object sender, EventArgs e)
+        {
+            System.Type type = bsInscrit.Current.GetType();
+            int idInscrit = (int)type.GetProperty("IDINSCRIT").GetValue(bsInscrit.Current, null);
+           
+            if (MessageBox.Show("Etes vous sur de vouloir supprimer l'inscrit : " + idInscrit, "Suppression", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                if (Modele.SuppInscrit(idInscrit))
+                   MessageBox.Show("Suppression effectuée");
+                else
+                   MessageBox.Show("PROBLEME suppression");
+            }
+        }
+         
+        private void btnModifierInscrit_Click(object sender, EventArgs e)
+        {
+            System.Type type = bsInscrit.Current.GetType();
+            int idInscrit = (int)type.GetProperty("IDINSCRIT").GetValue(bsInscrit.Current, null);
+            MessageBox.Show("Inscrit :" + idInscrit);
+
+            /*if (Modele.ModifierInscrit(idInscrit))
+                MessageBox.Show("Modification effectuée");
+            else
+                MessageBox.Show("PROBLEME Modifications");*/
+        }
     }
 }

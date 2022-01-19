@@ -25,9 +25,10 @@ namespace AP4
 
         private void BtnConnexion_Click(object sender, EventArgs e)
         {
-            if (Modele.VerifInscrit(tbMail.Text, tbMdp.Text) == true)
+            inscrit unInscrit = Modele.VerifInscrit(tbMail.Text, tbMdp.Text);
+            if (unInscrit != null)
             {
-                M = new Menu();
+                M = new Menu(unInscrit);
                 M.Show();
                 tbMail.Text = "";
                 tbMdp.Text = "";
