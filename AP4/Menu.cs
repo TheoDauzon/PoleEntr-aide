@@ -16,7 +16,7 @@ namespace AP4
         ListeService LS;
         ListeReponse LR;
         ListeMessage LM;
-        inscrit unInscrit;
+        readonly inscrit unInscrit;
         public Menu(inscrit unInscrit)
         {
             InitializeComponent();
@@ -29,19 +29,19 @@ namespace AP4
             LI.Show();
         }
 
-        private void btnGestionServices_Click(object sender, EventArgs e)
+        private void BtnGestionServices_Click(object sender, EventArgs e)
         {
             LS = new ListeService();
             LS.Show();
         }
 
-        private void btnGestionReponses_Click(object sender, EventArgs e)
+        private void BtnGestionReponses_Click(object sender, EventArgs e)
         {
             LR = new ListeReponse();
             LR.Show();
         }
 
-        private void btnGestionMessages_Click(object sender, EventArgs e)
+        private void BtnGestionMessages_Click(object sender, EventArgs e)
         {
             LM = new ListeMessage();
             LM.Show();

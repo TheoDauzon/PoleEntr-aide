@@ -24,9 +24,9 @@ namespace AP4
 
         private void ListeMessage_Load(object sender, EventArgs e)
         {
-            bsMessage.DataSource = Modele.listeMessage(); // appel de la méthode listeClients
+            bsMessage.DataSource = Modele.ListeMessage(); // appel de la méthode listeClients
             dgvMessage.DataSource = bsMessage;
-            dgvMessage.Columns[3].Visible = false;
+            dgvMessage.Columns[4].Visible = false;
         }
     }
 }

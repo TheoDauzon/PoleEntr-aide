@@ -20,7 +20,7 @@ namespace AP4
 
         private void ListeInscrit_Load(object sender, EventArgs e)
         {
-            bsInscrit.DataSource = Modele.listeInscrit(); // appel de la méthode listeClients
+            bsInscrit.DataSource = Modele.ListeInscrit(); // appel de la méthode listeClients
             dgvInscrit.DataSource = bsInscrit;
             dgvInscrit.Columns[11].Visible = false;
             dgvInscrit.Columns[12].Visible = false;
@@ -33,7 +33,7 @@ namespace AP4
             this.Close();
         }
 
-        private void btnSupprimerMessage_Click(object sender, EventArgs e)
+        private void BtnSupprimerMessage_Click(object sender, EventArgs e)
         {
             System.Type type = bsInscrit.Current.GetType();
             int idInscrit = (int)type.GetProperty("IDINSCRIT").GetValue(bsInscrit.Current, null);
@@ -47,7 +47,7 @@ namespace AP4
             }
         }
          
-        private void btnModifierInscrit_Click(object sender, EventArgs e)
+        private void BtnModifierInscrit_Click(object sender, EventArgs e)
         {
             System.Type type = bsInscrit.Current.GetType();
             int idInscrit = (int)type.GetProperty("IDINSCRIT").GetValue(bsInscrit.Current, null);

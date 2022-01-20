@@ -70,6 +70,7 @@
           <Property Name="IDMESSAGE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IDINSCRIT" Type="int" Nullable="false" />
           <Property Name="LIBELLEMESSAGE" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="TRAITER" Type="bool" Nullable="false" />
         </EntityType>
         <EntityType Name="repondre">
           <Key>
@@ -95,6 +96,7 @@
           <Property Name="DUREEJOURS" Type="int" Nullable="false" />
           <Property Name="PRIX" Type="int" Nullable="false" />
           <Property Name="DATEDEPOT" Type="date" Nullable="false" />
+          <Property Name="REALISER" Type="bool" Nullable="false" />
         </EntityType>
         <EntityType Name="tache_menagere">
           <Key>
@@ -566,6 +568,7 @@
           <Property Name="IDINSCRIT" Type="Int32" Nullable="false" />
           <Property Name="LIBELLEMESSAGE" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="inscrit" Relationship="ap4Model.FK_MESSAGE_INSCRIT" FromRole="message" ToRole="inscrit" />
+          <Property Name="TRAITER" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="repondre">
           <Key>
@@ -602,6 +605,7 @@
           <NavigationProperty Name="type" Relationship="ap4Model.FK_SERVICE_TYPE" FromRole="service" ToRole="type" />
           <NavigationProperty Name="tache_menagere" Relationship="ap4Model.FK_TACHE_MENAGERE_SERVICE" FromRole="service" ToRole="tache_menagere" />
           <NavigationProperty Name="transport" Relationship="ap4Model.FK_TRANSPORT_SERVICE" FromRole="service" ToRole="transport" />
+          <Property Name="REALISER" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="tache_menagere">
           <Key>
@@ -896,6 +900,7 @@
           <EntitySetMapping Name="message">
             <EntityTypeMapping TypeName="ap4Model.message">
               <MappingFragment StoreEntitySet="message">
+                <ScalarProperty Name="TRAITER" ColumnName="TRAITER" />
                 <ScalarProperty Name="LIBELLEMESSAGE" ColumnName="LIBELLEMESSAGE" />
                 <ScalarProperty Name="IDINSCRIT" ColumnName="IDINSCRIT" />
                 <ScalarProperty Name="IDMESSAGE" ColumnName="IDMESSAGE" />
@@ -914,6 +919,7 @@
           <EntitySetMapping Name="service">
             <EntityTypeMapping TypeName="ap4Model.service">
               <MappingFragment StoreEntitySet="service">
+                <ScalarProperty Name="REALISER" ColumnName="REALISER" />
                 <ScalarProperty Name="DATEDEPOT" ColumnName="DATEDEPOT" />
                 <ScalarProperty Name="PRIX" ColumnName="PRIX" />
                 <ScalarProperty Name="DUREEJOURS" ColumnName="DUREEJOURS" />

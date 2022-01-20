@@ -13,26 +13,26 @@ namespace AP4
         private static inscrit unInscrit;
 
         public static inscrit UnInscrit { get => UnInscrit; set => UnInscrit = value; }
-        public static void init()
+        public static void Init()
         {
             maConnexion = new ap4Entities();
         }
-        public static List<inscrit> listeInscrit()
+        public static List<inscrit> ListeInscrit()
         {
             return maConnexion.inscrit.ToList();
         }
 
-        public static List<service> listeService()
+        public static List<service> ListeService()
         {
             return maConnexion.service.ToList();
         }
 
-        public static List<repondre> listeReponse()
+        public static List<repondre> ListeReponse()
         {
             return maConnexion.repondre.ToList();
         }
 
-        public static List<message> listeMessage()
+        public static List<message> ListeMessage()
         {
             return maConnexion.message.ToList();
         }
@@ -81,7 +81,7 @@ namespace AP4
 
                 maConnexion.SaveChanges();
             }
-            catch (Exception ex)
+            catch
             {
                 vretour = false;
             }

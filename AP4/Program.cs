@@ -15,7 +15,7 @@ namespace AP4
         [STAThread]
         static void Main()
         {
-            Modele.init();
+            Modele.Init();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Login());

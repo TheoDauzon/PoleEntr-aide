@@ -24,7 +24,7 @@ namespace AP4
 
         private void ListeService_Load(object sender, EventArgs e)
         {
-            bsService.DataSource = Modele.listeService(); // appel de la méthode listeClients
+            bsService.DataSource = Modele.ListeService(); // appel de la méthode listeClients
             dgvService.DataSource = bsService;
             dgvService.Columns[11].Visible = false;
             dgvService.Columns[12].Visible = false;

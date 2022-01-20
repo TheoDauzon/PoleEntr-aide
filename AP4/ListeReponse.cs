@@ -24,10 +24,10 @@ namespace AP4
 
         private void ListeReponse_Load(object sender, EventArgs e)
         {
-            bsReponse.DataSource = Modele.listeReponse(); // appel de la méthode listeClients
+            bsReponse.DataSource = Modele.ListeReponse(); // appel de la méthode listeClients
             dgvReponse.DataSource = bsReponse;
+            dgvReponse.Columns[3].Visible = false;
             dgvReponse.Columns[4].Visible = false;
-            dgvReponse.Columns[5].Visible = false;
         }
     }
 }
