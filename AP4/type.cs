@@ -22,6 +22,7 @@ namespace AP4
         }
     
         public int IDTYPE { get; set; }
+        public string LIBELLETYPE { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<service> service { get; set; }

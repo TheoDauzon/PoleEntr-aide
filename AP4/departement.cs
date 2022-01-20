@@ -17,12 +17,15 @@ namespace AP4
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public departement()
         {
+            this.service = new HashSet<service>();
             this.ville = new HashSet<ville>();
         }
     
         public int IDDEPARTEMENT { get; set; }
         public string LIBELLEDEPARTEMENT { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<service> service { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ville> ville { get; set; }
     }

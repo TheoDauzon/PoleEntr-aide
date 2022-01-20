@@ -20,13 +20,6 @@ namespace AP4
         public string MOTIF { get; set; }
         public short NBPLACESDISPO { get; set; }
         public short VEHICULE { get; set; }
-        public string DESCRIPTIFSERVICE { get; set; }
-        public string PHOTO { get; set; }
-        public System.DateTime DATEDEBUT { get; set; }
-        public int DUREEJOURS { get; set; }
-        public int PRIX { get; set; }
-        public System.DateTime DATEDEPOT { get; set; }
-        public bool ATTRIBUER { get; set; }
     
         public virtual service service { get; set; }
     }

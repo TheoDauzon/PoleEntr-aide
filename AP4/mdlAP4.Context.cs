@@ -25,13 +25,12 @@ namespace AP4
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<acheter> acheter { get; set; }
         public virtual DbSet<course> course { get; set; }
         public virtual DbSet<departement> departement { get; set; }
         public virtual DbSet<formation> formation { get; set; }
         public virtual DbSet<inscrit> inscrit { get; set; }
         public virtual DbSet<loisirs> loisirs { get; set; }
-        public virtual DbSet<produit> produit { get; set; }
+        public virtual DbSet<message> message { get; set; }
         public virtual DbSet<repondre> repondre { get; set; }
         public virtual DbSet<service> service { get; set; }
         public virtual DbSet<tache_menagere> tache_menagere { get; set; }
@@ -40,6 +39,5 @@ namespace AP4
         public virtual DbSet<type_loisirs> type_loisirs { get; set; }
         public virtual DbSet<type_tache_menagere> type_tache_menagere { get; set; }
         public virtual DbSet<ville> ville { get; set; }
-        public virtual DbSet<message> message { get; set; }
     }
 }

@@ -19,13 +19,6 @@ namespace AP4
         public string NBHEURES { get; set; }
         public short VISIOCONF { get; set; }
         public string PREREQUIS { get; set; }
-        public string DESCRIPTIFSERVICE { get; set; }
-        public string PHOTO { get; set; }
-        public System.DateTime DATEDEBUT { get; set; }
-        public int DUREEJOURS { get; set; }
-        public int PRIX { get; set; }
-        public System.DateTime DATEDEPOT { get; set; }
-        public bool ATTRIBUER { get; set; }
     
         public virtual service service { get; set; }
     }

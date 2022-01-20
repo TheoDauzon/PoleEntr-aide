@@ -13,12 +13,6 @@
           <Property Name="LIBELLEEPICERIE" Type="char" MaxLength="50" Nullable="false" />
           <Property Name="LISTEACHATS" Type="smallint" Nullable="false" />
           <Property Name="PERSONNE" Type="smallint" Nullable="false" />
-          <Property Name="DESCRIPTIFSERVICE" Type="varchar" MaxLength="500" Nullable="false" />
-          <Property Name="PHOTO" Type="char" MaxLength="255" />
-          <Property Name="DATEDEBUT" Type="date" Nullable="false" />
-          <Property Name="DUREEJOURS" Type="int" Nullable="false" />
-          <Property Name="PRIX" Type="int" Nullable="false" />
-          <Property Name="DATEDEPOT" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="departement">
           <Key>
@@ -36,12 +30,6 @@
           <Property Name="NBHEURES" Type="char" MaxLength="32" />
           <Property Name="VISIOCONF" Type="smallint" Nullable="false" />
           <Property Name="PREREQUIS" Type="char" MaxLength="100" />
-          <Property Name="DESCRIPTIFSERVICE" Type="varchar" MaxLength="500" Nullable="false" />
-          <Property Name="PHOTO" Type="char" MaxLength="255" />
-          <Property Name="DATEDEBUT" Type="date" Nullable="false" />
-          <Property Name="DUREEJOURS" Type="int" Nullable="false" />
-          <Property Name="PRIX" Type="int" Nullable="false" />
-          <Property Name="DATEDEPOT" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="illustrer">
           <Key>
@@ -74,12 +62,6 @@
           <Property Name="IDSERVICE" Type="int" Nullable="false" />
           <Property Name="IDLOISIRS" Type="int" Nullable="false" />
           <Property Name="NBPERSONNES" Type="int" Nullable="false" />
-          <Property Name="DESCRIPTIFSERVICE" Type="varchar" MaxLength="500" Nullable="false" />
-          <Property Name="PHOTO" Type="char" MaxLength="255" />
-          <Property Name="DATEDEBUT" Type="date" Nullable="false" />
-          <Property Name="DUREEJOURS" Type="int" Nullable="false" />
-          <Property Name="PRIX" Type="int" Nullable="false" />
-          <Property Name="DATEDEPOT" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="message">
           <Key>
@@ -107,8 +89,8 @@
           <Property Name="IDINSCRIT" Type="int" Nullable="false" />
           <Property Name="IDDEPARTEMENT" Type="int" Nullable="false" />
           <Property Name="IDTYPE" Type="int" Nullable="false" />
-          <Property Name="DESCRIPTIFSERVICE" Type="varchar" MaxLength="500" Nullable="false" />
-          <Property Name="PHOTO" Type="char" MaxLength="255" />
+          <Property Name="DESCRIPTIFSERVICE" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="PHOTO" Type="varchar" MaxLength="128" />
           <Property Name="DATEDEBUT" Type="date" Nullable="false" />
           <Property Name="DUREEJOURS" Type="int" Nullable="false" />
           <Property Name="PRIX" Type="int" Nullable="false" />
@@ -120,14 +102,8 @@
           </Key>
           <Property Name="IDSERVICE" Type="int" Nullable="false" />
           <Property Name="IDTACHE" Type="int" Nullable="false" />
-          <Property Name="DESCTACHEM" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="DESCTACHEM" Type="varchar" MaxLength="128" Nullable="false" />
           <Property Name="MATERIEL" Type="char" MaxLength="120" />
-          <Property Name="DESCRIPTIFSERVICE" Type="varchar" MaxLength="500" Nullable="false" />
-          <Property Name="PHOTO" Type="char" MaxLength="255" />
-          <Property Name="DATEDEBUT" Type="date" Nullable="false" />
-          <Property Name="DUREEJOURS" Type="int" Nullable="false" />
-          <Property Name="PRIX" Type="int" Nullable="false" />
-          <Property Name="DATEDEPOT" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="transport">
           <Key>
@@ -139,32 +115,27 @@
           <Property Name="MOTIF" Type="char" MaxLength="80" Nullable="false" />
           <Property Name="NBPLACESDISPO" Type="smallint" Nullable="false" />
           <Property Name="VEHICULE" Type="smallint" Nullable="false" />
-          <Property Name="DESCRIPTIFSERVICE" Type="varchar" MaxLength="500" Nullable="false" />
-          <Property Name="PHOTO" Type="char" MaxLength="255" />
-          <Property Name="DATEDEBUT" Type="date" Nullable="false" />
-          <Property Name="DUREEJOURS" Type="int" Nullable="false" />
-          <Property Name="PRIX" Type="int" Nullable="false" />
-          <Property Name="DATEDEPOT" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="type">
           <Key>
             <PropertyRef Name="IDTYPE" />
           </Key>
           <Property Name="IDTYPE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LIBELLETYPE" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="type_loisirs">
           <Key>
             <PropertyRef Name="IDLOISIRS" />
           </Key>
           <Property Name="IDLOISIRS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="LIBELLELOISIRS" Type="char" MaxLength="120" Nullable="false" />
+          <Property Name="LIBELLELOISIRS" Type="varchar" MaxLength="128" Nullable="false" />
         </EntityType>
         <EntityType Name="type_tache_menagere">
           <Key>
             <PropertyRef Name="IDTACHE" />
           </Key>
           <Property Name="IDTACHE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="LIBELLETACHE" Type="char" MaxLength="120" Nullable="false" />
+          <Property Name="LIBELLETACHE" Type="varchar" MaxLength="128" Nullable="false" />
         </EntityType>
         <EntityType Name="ville">
           <Key>
@@ -451,82 +422,131 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ap4Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="acheter">
-          <Key>
-            <PropertyRef Name="IDSERVICE" />
-            <PropertyRef Name="IDPRODUIT" />
-          </Key>
-          <Property Name="IDSERVICE" Type="Int32" Nullable="false" />
-          <Property Name="IDPRODUIT" Type="Int32" Nullable="false" />
-          <Property Name="QUANTITÉ" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="course" Relationship="Self.FK_ACHETER_COURSE" FromRole="acheter" ToRole="course" />
-          <NavigationProperty Name="produit" Relationship="Self.FK_ACHETER_PRODUIT" FromRole="acheter" ToRole="produit" />
-        </EntityType>
+        <EntityContainer Name="ap4Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="course" EntityType="ap4Model.course" />
+          <EntitySet Name="departement" EntityType="ap4Model.departement" />
+          <EntitySet Name="formation" EntityType="ap4Model.formation" />
+          <EntitySet Name="inscrit" EntityType="ap4Model.inscrit" />
+          <EntitySet Name="loisirs" EntityType="ap4Model.loisirs" />
+          <EntitySet Name="message" EntityType="ap4Model.message" />
+          <EntitySet Name="repondre" EntityType="ap4Model.repondre" />
+          <EntitySet Name="service" EntityType="ap4Model.service" />
+          <EntitySet Name="tache_menagere" EntityType="ap4Model.tache_menagere" />
+          <EntitySet Name="transport" EntityType="ap4Model.transport" />
+          <EntitySet Name="type" EntityType="ap4Model.type" />
+          <EntitySet Name="type_loisirs" EntityType="ap4Model.type_loisirs" />
+          <EntitySet Name="type_tache_menagere" EntityType="ap4Model.type_tache_menagere" />
+          <EntitySet Name="ville" EntityType="ap4Model.ville" />
+          <AssociationSet Name="FK_COURSE_SERVICE" Association="ap4Model.FK_COURSE_SERVICE">
+            <End Role="service" EntitySet="service" />
+            <End Role="course" EntitySet="course" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SERVICE_DEPARTEMENT" Association="ap4Model.FK_SERVICE_DEPARTEMENT">
+            <End Role="departement" EntitySet="departement" />
+            <End Role="service" EntitySet="service" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VILLE_DEPARTEMENT" Association="ap4Model.FK_VILLE_DEPARTEMENT">
+            <End Role="departement" EntitySet="departement" />
+            <End Role="ville" EntitySet="ville" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FORMATION_SERVICE" Association="ap4Model.FK_FORMATION_SERVICE">
+            <End Role="service" EntitySet="service" />
+            <End Role="formation" EntitySet="formation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MESSAGE_INSCRIT" Association="ap4Model.FK_MESSAGE_INSCRIT">
+            <End Role="inscrit" EntitySet="inscrit" />
+            <End Role="message" EntitySet="message" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REPONDRE_INSCRIT" Association="ap4Model.FK_REPONDRE_INSCRIT">
+            <End Role="inscrit" EntitySet="inscrit" />
+            <End Role="repondre" EntitySet="repondre" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SERVICE_INSCRIT" Association="ap4Model.FK_SERVICE_INSCRIT">
+            <End Role="inscrit" EntitySet="inscrit" />
+            <End Role="service" EntitySet="service" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LOISIRS_SERVICE" Association="ap4Model.FK_LOISIRS_SERVICE">
+            <End Role="service" EntitySet="service" />
+            <End Role="loisirs" EntitySet="loisirs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LOISIRS_TYPE_LOISIRS" Association="ap4Model.FK_LOISIRS_TYPE_LOISIRS">
+            <End Role="type_loisirs" EntitySet="type_loisirs" />
+            <End Role="loisirs" EntitySet="loisirs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REPONDRE_SERVICE" Association="ap4Model.FK_REPONDRE_SERVICE">
+            <End Role="service" EntitySet="service" />
+            <End Role="repondre" EntitySet="repondre" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SERVICE_TYPE" Association="ap4Model.FK_SERVICE_TYPE">
+            <End Role="type" EntitySet="type" />
+            <End Role="service" EntitySet="service" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TACHE_MENAGERE_SERVICE" Association="ap4Model.FK_TACHE_MENAGERE_SERVICE">
+            <End Role="service" EntitySet="service" />
+            <End Role="tache_menagere" EntitySet="tache_menagere" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TRANSPORT_SERVICE" Association="ap4Model.FK_TRANSPORT_SERVICE">
+            <End Role="service" EntitySet="service" />
+            <End Role="transport" EntitySet="transport" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TACHE_MENAGERE_TYPE_TACHE_MENAGERE" Association="ap4Model.FK_TACHE_MENAGERE_TYPE_TACHE_MENAGERE">
+            <End Role="type_tache_menagere" EntitySet="type_tache_menagere" />
+            <End Role="tache_menagere" EntitySet="tache_menagere" />
+          </AssociationSet>
+          <AssociationSet Name="illustrer" Association="ap4Model.illustrer">
+            <End Role="inscrit" EntitySet="inscrit" />
+            <End Role="type" EntitySet="type" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="course">
           <Key>
             <PropertyRef Name="IDSERVICE" />
           </Key>
           <Property Name="IDSERVICE" Type="Int32" Nullable="false" />
-          <Property Name="LIBELLEEPICERIE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="LIEUEPICERIE" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DESCRIPTIFSERVICE" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="PHOTO" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
-          <Property Name="DATEDEBUT" Type="DateTime" Nullable="false" />
-          <Property Name="DUREEJOURS" Type="Int32" Nullable="false" />
-          <Property Name="PRIX" Type="Int32" Nullable="false" />
-          <Property Name="DATEDEPOT" Type="DateTime" Nullable="false" />
-          <Property Name="ATTRIBUER" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="acheter" Relationship="Self.FK_ACHETER_COURSE" FromRole="course" ToRole="acheter" />
-          <NavigationProperty Name="service" Relationship="Self.FK_COURSE_SERVICE" FromRole="course" ToRole="service" />
+          <Property Name="LIBELLEEPICERIE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="LISTEACHATS" Type="Int16" Nullable="false" />
           <Property Name="PERSONNE" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="service" Relationship="ap4Model.FK_COURSE_SERVICE" FromRole="course" ToRole="service" />
         </EntityType>
         <EntityType Name="departement">
           <Key>
             <PropertyRef Name="IDDEPARTEMENT" />
           </Key>
           <Property Name="IDDEPARTEMENT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="LIBELLEDEPARTEMENT" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="ville" Relationship="Self.FK_VILLE_DEPARTEMENT" FromRole="departement" ToRole="ville" />
+          <Property Name="LIBELLEDEPARTEMENT" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="service" Relationship="ap4Model.FK_SERVICE_DEPARTEMENT" FromRole="departement" ToRole="service" />
+          <NavigationProperty Name="ville" Relationship="ap4Model.FK_VILLE_DEPARTEMENT" FromRole="departement" ToRole="ville" />
         </EntityType>
         <EntityType Name="formation">
           <Key>
             <PropertyRef Name="IDSERVICE" />
           </Key>
           <Property Name="IDSERVICE" Type="Int32" Nullable="false" />
-          <Property Name="LIBELLECOMPETENCE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="NBHEURES" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LIBELLECOMPETENCE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NBHEURES" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
           <Property Name="VISIOCONF" Type="Int16" Nullable="false" />
-          <Property Name="PREREQUIS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DESCRIPTIFSERVICE" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="PHOTO" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
-          <Property Name="DATEDEBUT" Type="DateTime" Nullable="false" />
-          <Property Name="DUREEJOURS" Type="Int32" Nullable="false" />
-          <Property Name="PRIX" Type="Int32" Nullable="false" />
-          <Property Name="DATEDEPOT" Type="DateTime" Nullable="false" />
-          <Property Name="ATTRIBUER" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="service" Relationship="Self.FK_FORMATION_SERVICE" FromRole="formation" ToRole="service" />
+          <Property Name="PREREQUIS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="service" Relationship="ap4Model.FK_FORMATION_SERVICE" FromRole="formation" ToRole="service" />
         </EntityType>
         <EntityType Name="inscrit">
           <Key>
             <PropertyRef Name="IDINSCRIT" />
           </Key>
           <Property Name="IDINSCRIT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NOMINSCRIT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="PRENOMINSCRIT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="MAIL" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="MDPINSCRIT" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="TELINSCRIT" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NOMINSCRIT" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PRENOMINSCRIT" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MAIL" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="MDPINSCRIT" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="TELINSCRIT" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
           <Property Name="DATENAISSANCE" Type="DateTime" Nullable="false" />
-          <Property Name="ADRESSE" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CREDIT" Type="Int32" Nullable="false" />
+          <Property Name="ADRESSE" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="CREDIT" Type="Int32" />
           <Property Name="ADMIN" Type="Int16" Nullable="false" />
-          <NavigationProperty Name="repondre" Relationship="Self.FK_REPONDRE_INSCRIT" FromRole="inscrit" ToRole="repondre" />
-          <NavigationProperty Name="service" Relationship="Self.FK_SERVICE_INSCRIT" FromRole="inscrit" ToRole="service" />
-          <NavigationProperty Name="type" Relationship="Self.illustrer" FromRole="inscrit" ToRole="type" />
           <Property Name="STATUT" Type="Int16" Nullable="false" />
           <NavigationProperty Name="message" Relationship="ap4Model.FK_MESSAGE_INSCRIT" FromRole="inscrit" ToRole="message" />
+          <NavigationProperty Name="repondre" Relationship="ap4Model.FK_REPONDRE_INSCRIT" FromRole="inscrit" ToRole="repondre" />
+          <NavigationProperty Name="service" Relationship="ap4Model.FK_SERVICE_INSCRIT" FromRole="inscrit" ToRole="service" />
+          <NavigationProperty Name="type" Relationship="ap4Model.illustrer" FromRole="inscrit" ToRole="type" />
         </EntityType>
         <EntityType Name="loisirs">
           <Key>
@@ -535,23 +555,17 @@
           <Property Name="IDSERVICE" Type="Int32" Nullable="false" />
           <Property Name="IDLOISIRS" Type="Int32" Nullable="false" />
           <Property Name="NBPERSONNES" Type="Int32" Nullable="false" />
-          <Property Name="DESCRIPTIFSERVICE" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="PHOTO" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
-          <Property Name="DATEDEBUT" Type="DateTime" Nullable="false" />
-          <Property Name="DUREEJOURS" Type="Int32" Nullable="false" />
-          <Property Name="PRIX" Type="Int32" Nullable="false" />
-          <Property Name="DATEDEPOT" Type="DateTime" Nullable="false" />
-          <Property Name="ATTRIBUER" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="service" Relationship="Self.FK_LOISIRS_SERVICE" FromRole="loisirs" ToRole="service" />
-          <NavigationProperty Name="type_loisirs" Relationship="Self.FK_LOISIRS_TYPE_LOISIRS" FromRole="loisirs" ToRole="type_loisirs" />
+          <NavigationProperty Name="service" Relationship="ap4Model.FK_LOISIRS_SERVICE" FromRole="loisirs" ToRole="service" />
+          <NavigationProperty Name="type_loisirs" Relationship="ap4Model.FK_LOISIRS_TYPE_LOISIRS" FromRole="loisirs" ToRole="type_loisirs" />
         </EntityType>
-        <EntityType Name="produit">
+        <EntityType Name="message">
           <Key>
-            <PropertyRef Name="IDPRODUIT" />
+            <PropertyRef Name="IDMESSAGE" />
           </Key>
-          <Property Name="IDPRODUIT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="LIBELLEPRODUIT" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="acheter" Relationship="Self.FK_ACHETER_PRODUIT" FromRole="produit" ToRole="acheter" />
+          <Property Name="IDMESSAGE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDINSCRIT" Type="Int32" Nullable="false" />
+          <Property Name="LIBELLEMESSAGE" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="inscrit" Relationship="ap4Model.FK_MESSAGE_INSCRIT" FromRole="message" ToRole="inscrit" />
         </EntityType>
         <EntityType Name="repondre">
           <Key>
@@ -562,9 +576,8 @@
           <Property Name="IDINSCRIT" Type="Int32" Nullable="false" />
           <Property Name="IDSERVICE" Type="Int32" Nullable="false" />
           <Property Name="DATEREP" Type="DateTime" Nullable="false" />
-          <Property Name="LIBELLEREP" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="inscrit" Relationship="Self.FK_REPONDRE_INSCRIT" FromRole="repondre" ToRole="inscrit" />
-          <NavigationProperty Name="service" Relationship="Self.FK_REPONDRE_SERVICE" FromRole="repondre" ToRole="service" />
+          <NavigationProperty Name="inscrit" Relationship="ap4Model.FK_REPONDRE_INSCRIT" FromRole="repondre" ToRole="inscrit" />
+          <NavigationProperty Name="service" Relationship="ap4Model.FK_REPONDRE_SERVICE" FromRole="repondre" ToRole="service" />
         </EntityType>
         <EntityType Name="service">
           <Key>
@@ -572,26 +585,23 @@
           </Key>
           <Property Name="IDSERVICE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IDINSCRIT" Type="Int32" Nullable="false" />
-          <Property Name="IDVILLE" Type="Int16" Nullable="false" />
+          <Property Name="IDDEPARTEMENT" Type="Int32" Nullable="false" />
           <Property Name="IDTYPE" Type="Int32" Nullable="false" />
-          <Property Name="DESCRIPTIFSERVICE" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCRIPTIFSERVICE" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="PHOTO" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
           <Property Name="DATEDEBUT" Type="DateTime" Nullable="false" />
           <Property Name="DUREEJOURS" Type="Int32" Nullable="false" />
           <Property Name="PRIX" Type="Int32" Nullable="false" />
           <Property Name="DATEDEPOT" Type="DateTime" Nullable="false" />
-          <Property Name="ATTRIBUER" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="course" Relationship="Self.FK_COURSE_SERVICE" FromRole="service" ToRole="course" />
-          <NavigationProperty Name="formation" Relationship="Self.FK_FORMATION_SERVICE" FromRole="service" ToRole="formation" />
-          <NavigationProperty Name="inscrit" Relationship="Self.FK_SERVICE_INSCRIT" FromRole="service" ToRole="inscrit" />
-          <NavigationProperty Name="loisirs" Relationship="Self.FK_LOISIRS_SERVICE" FromRole="service" ToRole="loisirs" />
-          <NavigationProperty Name="repondre" Relationship="Self.FK_REPONDRE_SERVICE" FromRole="service" ToRole="repondre" />
-          <NavigationProperty Name="type" Relationship="Self.FK_SERVICE_TYPE" FromRole="service" ToRole="type" />
-          <NavigationProperty Name="ville" Relationship="Self.FK_SERVICE_VILLE" FromRole="service" ToRole="ville" />
-          <NavigationProperty Name="tache_menagere" Relationship="Self.FK_TACHE_MENAGERE_SERVICE" FromRole="service" ToRole="tache_menagere" />
-          <NavigationProperty Name="transport" Relationship="Self.FK_TRANSPORT_SERVICE" FromRole="service" ToRole="transport" />
-          <Property Name="IDDEPARTEMENT" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="course" Relationship="ap4Model.FK_COURSE_SERVICE" FromRole="service" ToRole="course" />
           <NavigationProperty Name="departement" Relationship="ap4Model.FK_SERVICE_DEPARTEMENT" FromRole="service" ToRole="departement" />
+          <NavigationProperty Name="formation" Relationship="ap4Model.FK_FORMATION_SERVICE" FromRole="service" ToRole="formation" />
+          <NavigationProperty Name="inscrit" Relationship="ap4Model.FK_SERVICE_INSCRIT" FromRole="service" ToRole="inscrit" />
+          <NavigationProperty Name="loisirs" Relationship="ap4Model.FK_LOISIRS_SERVICE" FromRole="service" ToRole="loisirs" />
+          <NavigationProperty Name="repondre" Relationship="ap4Model.FK_REPONDRE_SERVICE" FromRole="service" ToRole="repondre" />
+          <NavigationProperty Name="type" Relationship="ap4Model.FK_SERVICE_TYPE" FromRole="service" ToRole="type" />
+          <NavigationProperty Name="tache_menagere" Relationship="ap4Model.FK_TACHE_MENAGERE_SERVICE" FromRole="service" ToRole="tache_menagere" />
+          <NavigationProperty Name="transport" Relationship="ap4Model.FK_TRANSPORT_SERVICE" FromRole="service" ToRole="transport" />
         </EntityType>
         <EntityType Name="tache_menagere">
           <Key>
@@ -599,60 +609,47 @@
           </Key>
           <Property Name="IDSERVICE" Type="Int32" Nullable="false" />
           <Property Name="IDTACHE" Type="Int32" Nullable="false" />
-          <Property Name="DESCTACHEM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCTACHEM" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
           <Property Name="MATERIEL" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
-          <Property Name="DESCRIPTIFSERVICE" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="PHOTO" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
-          <Property Name="DATEDEBUT" Type="DateTime" Nullable="false" />
-          <Property Name="DUREEJOURS" Type="Int32" Nullable="false" />
-          <Property Name="PRIX" Type="Int32" Nullable="false" />
-          <Property Name="DATEDEPOT" Type="DateTime" Nullable="false" />
-          <Property Name="ATTRIBUER" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="service" Relationship="Self.FK_TACHE_MENAGERE_SERVICE" FromRole="tache_menagere" ToRole="service" />
-          <NavigationProperty Name="type_tache_menagere" Relationship="Self.FK_TACHE_MENAGERE_TYPE_TACHE_MENAGERE" FromRole="tache_menagere" ToRole="type_tache_menagere" />
+          <NavigationProperty Name="service" Relationship="ap4Model.FK_TACHE_MENAGERE_SERVICE" FromRole="tache_menagere" ToRole="service" />
+          <NavigationProperty Name="type_tache_menagere" Relationship="ap4Model.FK_TACHE_MENAGERE_TYPE_TACHE_MENAGERE" FromRole="tache_menagere" ToRole="type_tache_menagere" />
         </EntityType>
         <EntityType Name="transport">
           <Key>
             <PropertyRef Name="IDSERVICE" />
           </Key>
           <Property Name="IDSERVICE" Type="Int32" Nullable="false" />
-          <Property Name="POINTDEPART" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="POINTARRIVEE" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="MOTIF" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="POINTDEPART" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="POINTARRIVEE" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="MOTIF" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
           <Property Name="NBPLACESDISPO" Type="Int16" Nullable="false" />
           <Property Name="VEHICULE" Type="Int16" Nullable="false" />
-          <Property Name="DESCRIPTIFSERVICE" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="PHOTO" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
-          <Property Name="DATEDEBUT" Type="DateTime" Nullable="false" />
-          <Property Name="DUREEJOURS" Type="Int32" Nullable="false" />
-          <Property Name="PRIX" Type="Int32" Nullable="false" />
-          <Property Name="DATEDEPOT" Type="DateTime" Nullable="false" />
-          <Property Name="ATTRIBUER" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="service" Relationship="Self.FK_TRANSPORT_SERVICE" FromRole="transport" ToRole="service" />
+          <NavigationProperty Name="service" Relationship="ap4Model.FK_TRANSPORT_SERVICE" FromRole="transport" ToRole="service" />
         </EntityType>
         <EntityType Name="type">
           <Key>
             <PropertyRef Name="IDTYPE" />
           </Key>
           <Property Name="IDTYPE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <NavigationProperty Name="service" Relationship="Self.FK_SERVICE_TYPE" FromRole="type" ToRole="service" />
-          <NavigationProperty Name="inscrit" Relationship="Self.illustrer" FromRole="type" ToRole="inscrit" />
+          <NavigationProperty Name="service" Relationship="ap4Model.FK_SERVICE_TYPE" FromRole="type" ToRole="service" />
+          <NavigationProperty Name="inscrit" Relationship="ap4Model.illustrer" FromRole="type" ToRole="inscrit" />
+          <Property Name="LIBELLETYPE" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="type_loisirs">
           <Key>
             <PropertyRef Name="IDLOISIRS" />
           </Key>
           <Property Name="IDLOISIRS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="LIBELLELOISIRS" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="loisirs" Relationship="Self.FK_LOISIRS_TYPE_LOISIRS" FromRole="type_loisirs" ToRole="loisirs" />
+          <Property Name="LIBELLELOISIRS" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="loisirs" Relationship="ap4Model.FK_LOISIRS_TYPE_LOISIRS" FromRole="type_loisirs" ToRole="loisirs" />
         </EntityType>
         <EntityType Name="type_tache_menagere">
           <Key>
             <PropertyRef Name="IDTACHE" />
           </Key>
           <Property Name="IDTACHE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="LIBELLETACHE" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="tache_menagere" Relationship="Self.FK_TACHE_MENAGERE_TYPE_TACHE_MENAGERE" FromRole="type_tache_menagere" ToRole="tache_menagere" />
+          <Property Name="LIBELLETACHE" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tache_menagere" Relationship="ap4Model.FK_TACHE_MENAGERE_TYPE_TACHE_MENAGERE" FromRole="type_tache_menagere" ToRole="tache_menagere" />
         </EntityType>
         <EntityType Name="ville">
           <Key>
@@ -661,301 +658,17 @@
           <Property Name="IDVILLE" Type="Int16" Nullable="false" />
           <Property Name="IDDEPARTEMENT" Type="Int32" Nullable="false" />
           <Property Name="NOMVILLE" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="departement" Relationship="Self.FK_VILLE_DEPARTEMENT" FromRole="ville" ToRole="departement" />
-          <NavigationProperty Name="service" Relationship="Self.FK_SERVICE_VILLE" FromRole="ville" ToRole="service" />
+          <NavigationProperty Name="departement" Relationship="ap4Model.FK_VILLE_DEPARTEMENT" FromRole="ville" ToRole="departement" />
         </EntityType>
-        <Association Name="FK_ACHETER_COURSE">
-          <End Role="course" Type="Self.course" Multiplicity="1" />
-          <End Role="acheter" Type="Self.acheter" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="course">
-              <PropertyRef Name="IDSERVICE" />
-            </Principal>
-            <Dependent Role="acheter">
-              <PropertyRef Name="IDSERVICE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ACHETER_PRODUIT">
-          <End Role="produit" Type="Self.produit" Multiplicity="1" />
-          <End Role="acheter" Type="Self.acheter" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="produit">
-              <PropertyRef Name="IDPRODUIT" />
-            </Principal>
-            <Dependent Role="acheter">
-              <PropertyRef Name="IDPRODUIT" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_COURSE_SERVICE">
-          <End Role="service" Type="Self.service" Multiplicity="1" />
-          <End Role="course" Type="Self.course" Multiplicity="0..1" />
+          <End Type="ap4Model.service" Role="service" Multiplicity="1" />
+          <End Type="ap4Model.course" Role="course" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="service">
               <PropertyRef Name="IDSERVICE" />
             </Principal>
             <Dependent Role="course">
               <PropertyRef Name="IDSERVICE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_VILLE_DEPARTEMENT">
-          <End Role="departement" Type="Self.departement" Multiplicity="1" />
-          <End Role="ville" Type="Self.ville" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="departement">
-              <PropertyRef Name="IDDEPARTEMENT" />
-            </Principal>
-            <Dependent Role="ville">
-              <PropertyRef Name="IDDEPARTEMENT" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_FORMATION_SERVICE">
-          <End Role="service" Type="Self.service" Multiplicity="1" />
-          <End Role="formation" Type="Self.formation" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="service">
-              <PropertyRef Name="IDSERVICE" />
-            </Principal>
-            <Dependent Role="formation">
-              <PropertyRef Name="IDSERVICE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_REPONDRE_INSCRIT">
-          <End Role="inscrit" Type="Self.inscrit" Multiplicity="1" />
-          <End Role="repondre" Type="Self.repondre" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="inscrit">
-              <PropertyRef Name="IDINSCRIT" />
-            </Principal>
-            <Dependent Role="repondre">
-              <PropertyRef Name="IDINSCRIT" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SERVICE_INSCRIT">
-          <End Role="inscrit" Type="Self.inscrit" Multiplicity="1" />
-          <End Role="service" Type="Self.service" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="inscrit">
-              <PropertyRef Name="IDINSCRIT" />
-            </Principal>
-            <Dependent Role="service">
-              <PropertyRef Name="IDINSCRIT" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_LOISIRS_SERVICE">
-          <End Role="service" Type="Self.service" Multiplicity="1" />
-          <End Role="loisirs" Type="Self.loisirs" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="service">
-              <PropertyRef Name="IDSERVICE" />
-            </Principal>
-            <Dependent Role="loisirs">
-              <PropertyRef Name="IDSERVICE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_LOISIRS_TYPE_LOISIRS">
-          <End Role="type_loisirs" Type="Self.type_loisirs" Multiplicity="1" />
-          <End Role="loisirs" Type="Self.loisirs" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="type_loisirs">
-              <PropertyRef Name="IDLOISIRS" />
-            </Principal>
-            <Dependent Role="loisirs">
-              <PropertyRef Name="IDLOISIRS" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_REPONDRE_SERVICE">
-          <End Role="service" Type="Self.service" Multiplicity="1" />
-          <End Role="repondre" Type="Self.repondre" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="service">
-              <PropertyRef Name="IDSERVICE" />
-            </Principal>
-            <Dependent Role="repondre">
-              <PropertyRef Name="IDSERVICE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SERVICE_TYPE">
-          <End Role="type" Type="Self.type" Multiplicity="1" />
-          <End Role="service" Type="Self.service" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="type">
-              <PropertyRef Name="IDTYPE" />
-            </Principal>
-            <Dependent Role="service">
-              <PropertyRef Name="IDTYPE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SERVICE_VILLE">
-          <End Role="ville" Type="Self.ville" Multiplicity="1" />
-          <End Role="service" Type="Self.service" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ville">
-              <PropertyRef Name="IDVILLE" />
-            </Principal>
-            <Dependent Role="service">
-              <PropertyRef Name="IDVILLE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TACHE_MENAGERE_SERVICE">
-          <End Role="service" Type="Self.service" Multiplicity="1" />
-          <End Role="tache_menagere" Type="Self.tache_menagere" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="service">
-              <PropertyRef Name="IDSERVICE" />
-            </Principal>
-            <Dependent Role="tache_menagere">
-              <PropertyRef Name="IDSERVICE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TRANSPORT_SERVICE">
-          <End Role="service" Type="Self.service" Multiplicity="1" />
-          <End Role="transport" Type="Self.transport" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="service">
-              <PropertyRef Name="IDSERVICE" />
-            </Principal>
-            <Dependent Role="transport">
-              <PropertyRef Name="IDSERVICE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TACHE_MENAGERE_TYPE_TACHE_MENAGERE">
-          <End Role="type_tache_menagere" Type="Self.type_tache_menagere" Multiplicity="1" />
-          <End Role="tache_menagere" Type="Self.tache_menagere" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="type_tache_menagere">
-              <PropertyRef Name="IDTACHE" />
-            </Principal>
-            <Dependent Role="tache_menagere">
-              <PropertyRef Name="IDTACHE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="illustrer">
-          <End Role="inscrit" Type="Self.inscrit" Multiplicity="*" />
-          <End Role="type" Type="Self.type" Multiplicity="*" />
-        </Association>
-        <EntityContainer Name="ap4Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="acheter" EntityType="Self.acheter" />
-          <EntitySet Name="course" EntityType="Self.course" />
-          <EntitySet Name="departement" EntityType="Self.departement" />
-          <EntitySet Name="formation" EntityType="Self.formation" />
-          <EntitySet Name="inscrit" EntityType="Self.inscrit" />
-          <EntitySet Name="loisirs" EntityType="Self.loisirs" />
-          <EntitySet Name="produit" EntityType="Self.produit" />
-          <EntitySet Name="repondre" EntityType="Self.repondre" />
-          <EntitySet Name="service" EntityType="Self.service" />
-          <EntitySet Name="tache_menagere" EntityType="Self.tache_menagere" />
-          <EntitySet Name="transport" EntityType="Self.transport" />
-          <EntitySet Name="type" EntityType="Self.type" />
-          <EntitySet Name="type_loisirs" EntityType="Self.type_loisirs" />
-          <EntitySet Name="type_tache_menagere" EntityType="Self.type_tache_menagere" />
-          <EntitySet Name="ville" EntityType="Self.ville" />
-          <AssociationSet Name="FK_ACHETER_COURSE" Association="Self.FK_ACHETER_COURSE">
-            <End Role="course" EntitySet="course" />
-            <End Role="acheter" EntitySet="acheter" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ACHETER_PRODUIT" Association="Self.FK_ACHETER_PRODUIT">
-            <End Role="produit" EntitySet="produit" />
-            <End Role="acheter" EntitySet="acheter" />
-          </AssociationSet>
-          <AssociationSet Name="FK_COURSE_SERVICE" Association="Self.FK_COURSE_SERVICE">
-            <End Role="service" EntitySet="service" />
-            <End Role="course" EntitySet="course" />
-          </AssociationSet>
-          <AssociationSet Name="FK_VILLE_DEPARTEMENT" Association="Self.FK_VILLE_DEPARTEMENT">
-            <End Role="departement" EntitySet="departement" />
-            <End Role="ville" EntitySet="ville" />
-          </AssociationSet>
-          <AssociationSet Name="FK_FORMATION_SERVICE" Association="Self.FK_FORMATION_SERVICE">
-            <End Role="service" EntitySet="service" />
-            <End Role="formation" EntitySet="formation" />
-          </AssociationSet>
-          <AssociationSet Name="FK_REPONDRE_INSCRIT" Association="Self.FK_REPONDRE_INSCRIT">
-            <End Role="inscrit" EntitySet="inscrit" />
-            <End Role="repondre" EntitySet="repondre" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SERVICE_INSCRIT" Association="Self.FK_SERVICE_INSCRIT">
-            <End Role="inscrit" EntitySet="inscrit" />
-            <End Role="service" EntitySet="service" />
-          </AssociationSet>
-          <AssociationSet Name="FK_LOISIRS_SERVICE" Association="Self.FK_LOISIRS_SERVICE">
-            <End Role="service" EntitySet="service" />
-            <End Role="loisirs" EntitySet="loisirs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_LOISIRS_TYPE_LOISIRS" Association="Self.FK_LOISIRS_TYPE_LOISIRS">
-            <End Role="type_loisirs" EntitySet="type_loisirs" />
-            <End Role="loisirs" EntitySet="loisirs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_REPONDRE_SERVICE" Association="Self.FK_REPONDRE_SERVICE">
-            <End Role="service" EntitySet="service" />
-            <End Role="repondre" EntitySet="repondre" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SERVICE_TYPE" Association="Self.FK_SERVICE_TYPE">
-            <End Role="type" EntitySet="type" />
-            <End Role="service" EntitySet="service" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SERVICE_VILLE" Association="Self.FK_SERVICE_VILLE">
-            <End Role="ville" EntitySet="ville" />
-            <End Role="service" EntitySet="service" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TACHE_MENAGERE_SERVICE" Association="Self.FK_TACHE_MENAGERE_SERVICE">
-            <End Role="service" EntitySet="service" />
-            <End Role="tache_menagere" EntitySet="tache_menagere" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TRANSPORT_SERVICE" Association="Self.FK_TRANSPORT_SERVICE">
-            <End Role="service" EntitySet="service" />
-            <End Role="transport" EntitySet="transport" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TACHE_MENAGERE_TYPE_TACHE_MENAGERE" Association="Self.FK_TACHE_MENAGERE_TYPE_TACHE_MENAGERE">
-            <End Role="type_tache_menagere" EntitySet="type_tache_menagere" />
-            <End Role="tache_menagere" EntitySet="tache_menagere" />
-          </AssociationSet>
-          <AssociationSet Name="illustrer" Association="Self.illustrer">
-            <End Role="inscrit" EntitySet="inscrit" />
-            <End Role="type" EntitySet="type" />
-          </AssociationSet>
-          <EntitySet Name="message" EntityType="ap4Model.message" />
-          <AssociationSet Name="FK_MESSAGE_INSCRIT" Association="ap4Model.FK_MESSAGE_INSCRIT">
-            <End Role="inscrit" EntitySet="inscrit" />
-            <End Role="message" EntitySet="message" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SERVICE_DEPARTEMENT" Association="ap4Model.FK_SERVICE_DEPARTEMENT">
-            <End Role="departement" EntitySet="departement" />
-            <End Role="service" EntitySet="service" />
-          </AssociationSet>
-        </EntityContainer>
-        <EntityType Name="message">
-          <Key>
-            <PropertyRef Name="IDMESSAGE" />
-          </Key>
-          <Property Name="IDMESSAGE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IDINSCRIT" Type="Int32" Nullable="false" />
-          <Property Name="LIBELLEMESSAGE" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="inscrit" Relationship="ap4Model.FK_MESSAGE_INSCRIT" FromRole="message" ToRole="inscrit" />
-        </EntityType>
-        <Association Name="FK_MESSAGE_INSCRIT">
-          <End Type="ap4Model.inscrit" Role="inscrit" Multiplicity="1" />
-          <End Type="ap4Model.message" Role="message" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="inscrit">
-              <PropertyRef Name="IDINSCRIT" />
-            </Principal>
-            <Dependent Role="message">
-              <PropertyRef Name="IDINSCRIT" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -971,6 +684,154 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_VILLE_DEPARTEMENT">
+          <End Type="ap4Model.departement" Role="departement" Multiplicity="1" />
+          <End Type="ap4Model.ville" Role="ville" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="departement">
+              <PropertyRef Name="IDDEPARTEMENT" />
+            </Principal>
+            <Dependent Role="ville">
+              <PropertyRef Name="IDDEPARTEMENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FORMATION_SERVICE">
+          <End Type="ap4Model.service" Role="service" Multiplicity="1" />
+          <End Type="ap4Model.formation" Role="formation" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="service">
+              <PropertyRef Name="IDSERVICE" />
+            </Principal>
+            <Dependent Role="formation">
+              <PropertyRef Name="IDSERVICE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MESSAGE_INSCRIT">
+          <End Type="ap4Model.inscrit" Role="inscrit" Multiplicity="1" />
+          <End Type="ap4Model.message" Role="message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inscrit">
+              <PropertyRef Name="IDINSCRIT" />
+            </Principal>
+            <Dependent Role="message">
+              <PropertyRef Name="IDINSCRIT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REPONDRE_INSCRIT">
+          <End Type="ap4Model.inscrit" Role="inscrit" Multiplicity="1" />
+          <End Type="ap4Model.repondre" Role="repondre" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inscrit">
+              <PropertyRef Name="IDINSCRIT" />
+            </Principal>
+            <Dependent Role="repondre">
+              <PropertyRef Name="IDINSCRIT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SERVICE_INSCRIT">
+          <End Type="ap4Model.inscrit" Role="inscrit" Multiplicity="1" />
+          <End Type="ap4Model.service" Role="service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inscrit">
+              <PropertyRef Name="IDINSCRIT" />
+            </Principal>
+            <Dependent Role="service">
+              <PropertyRef Name="IDINSCRIT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LOISIRS_SERVICE">
+          <End Type="ap4Model.service" Role="service" Multiplicity="1" />
+          <End Type="ap4Model.loisirs" Role="loisirs" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="service">
+              <PropertyRef Name="IDSERVICE" />
+            </Principal>
+            <Dependent Role="loisirs">
+              <PropertyRef Name="IDSERVICE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LOISIRS_TYPE_LOISIRS">
+          <End Type="ap4Model.type_loisirs" Role="type_loisirs" Multiplicity="1" />
+          <End Type="ap4Model.loisirs" Role="loisirs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="type_loisirs">
+              <PropertyRef Name="IDLOISIRS" />
+            </Principal>
+            <Dependent Role="loisirs">
+              <PropertyRef Name="IDLOISIRS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REPONDRE_SERVICE">
+          <End Type="ap4Model.service" Role="service" Multiplicity="1" />
+          <End Type="ap4Model.repondre" Role="repondre" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="service">
+              <PropertyRef Name="IDSERVICE" />
+            </Principal>
+            <Dependent Role="repondre">
+              <PropertyRef Name="IDSERVICE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SERVICE_TYPE">
+          <End Type="ap4Model.type" Role="type" Multiplicity="1" />
+          <End Type="ap4Model.service" Role="service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="type">
+              <PropertyRef Name="IDTYPE" />
+            </Principal>
+            <Dependent Role="service">
+              <PropertyRef Name="IDTYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TACHE_MENAGERE_SERVICE">
+          <End Type="ap4Model.service" Role="service" Multiplicity="1" />
+          <End Type="ap4Model.tache_menagere" Role="tache_menagere" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="service">
+              <PropertyRef Name="IDSERVICE" />
+            </Principal>
+            <Dependent Role="tache_menagere">
+              <PropertyRef Name="IDSERVICE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TRANSPORT_SERVICE">
+          <End Type="ap4Model.service" Role="service" Multiplicity="1" />
+          <End Type="ap4Model.transport" Role="transport" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="service">
+              <PropertyRef Name="IDSERVICE" />
+            </Principal>
+            <Dependent Role="transport">
+              <PropertyRef Name="IDSERVICE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TACHE_MENAGERE_TYPE_TACHE_MENAGERE">
+          <End Type="ap4Model.type_tache_menagere" Role="type_tache_menagere" Multiplicity="1" />
+          <End Type="ap4Model.tache_menagere" Role="tache_menagere" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="type_tache_menagere">
+              <PropertyRef Name="IDTACHE" />
+            </Principal>
+            <Dependent Role="tache_menagere">
+              <PropertyRef Name="IDTACHE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="illustrer">
+          <End Type="ap4Model.inscrit" Role="inscrit" Multiplicity="*" />
+          <End Type="ap4Model.type" Role="type" Multiplicity="*" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -982,39 +843,27 @@
               <MappingFragment StoreEntitySet="course">
                 <ScalarProperty Name="PERSONNE" ColumnName="PERSONNE" />
                 <ScalarProperty Name="LISTEACHATS" ColumnName="LISTEACHATS" />
-                <ScalarProperty Name="IDSERVICE" ColumnName="IDSERVICE" />
                 <ScalarProperty Name="LIBELLEEPICERIE" ColumnName="LIBELLEEPICERIE" />
-                <ScalarProperty Name="DESCRIPTIFSERVICE" ColumnName="DESCRIPTIFSERVICE" />
-                <ScalarProperty Name="PHOTO" ColumnName="PHOTO" />
-                <ScalarProperty Name="DATEDEBUT" ColumnName="DATEDEBUT" />
-                <ScalarProperty Name="DUREEJOURS" ColumnName="DUREEJOURS" />
-                <ScalarProperty Name="PRIX" ColumnName="PRIX" />
-                <ScalarProperty Name="DATEDEPOT" ColumnName="DATEDEPOT" />
+                <ScalarProperty Name="IDSERVICE" ColumnName="IDSERVICE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="departement">
             <EntityTypeMapping TypeName="ap4Model.departement">
               <MappingFragment StoreEntitySet="departement">
-                <ScalarProperty Name="IDDEPARTEMENT" ColumnName="IDDEPARTEMENT" />
                 <ScalarProperty Name="LIBELLEDEPARTEMENT" ColumnName="LIBELLEDEPARTEMENT" />
+                <ScalarProperty Name="IDDEPARTEMENT" ColumnName="IDDEPARTEMENT" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="formation">
             <EntityTypeMapping TypeName="ap4Model.formation">
               <MappingFragment StoreEntitySet="formation">
-                <ScalarProperty Name="IDSERVICE" ColumnName="IDSERVICE" />
-                <ScalarProperty Name="LIBELLECOMPETENCE" ColumnName="LIBELLECOMPETENCE" />
-                <ScalarProperty Name="NBHEURES" ColumnName="NBHEURES" />
-                <ScalarProperty Name="VISIOCONF" ColumnName="VISIOCONF" />
                 <ScalarProperty Name="PREREQUIS" ColumnName="PREREQUIS" />
-                <ScalarProperty Name="DESCRIPTIFSERVICE" ColumnName="DESCRIPTIFSERVICE" />
-                <ScalarProperty Name="PHOTO" ColumnName="PHOTO" />
-                <ScalarProperty Name="DATEDEBUT" ColumnName="DATEDEBUT" />
-                <ScalarProperty Name="DUREEJOURS" ColumnName="DUREEJOURS" />
-                <ScalarProperty Name="PRIX" ColumnName="PRIX" />
-                <ScalarProperty Name="DATEDEPOT" ColumnName="DATEDEPOT" />
+                <ScalarProperty Name="VISIOCONF" ColumnName="VISIOCONF" />
+                <ScalarProperty Name="NBHEURES" ColumnName="NBHEURES" />
+                <ScalarProperty Name="LIBELLECOMPETENCE" ColumnName="LIBELLECOMPETENCE" />
+                <ScalarProperty Name="IDSERVICE" ColumnName="IDSERVICE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1022,133 +871,28 @@
             <EntityTypeMapping TypeName="ap4Model.inscrit">
               <MappingFragment StoreEntitySet="inscrit">
                 <ScalarProperty Name="STATUT" ColumnName="STATUT" />
-                <ScalarProperty Name="IDINSCRIT" ColumnName="IDINSCRIT" />
-                <ScalarProperty Name="NOMINSCRIT" ColumnName="NOMINSCRIT" />
-                <ScalarProperty Name="PRENOMINSCRIT" ColumnName="PRENOMINSCRIT" />
-                <ScalarProperty Name="MAIL" ColumnName="MAIL" />
-                <ScalarProperty Name="MDPINSCRIT" ColumnName="MDPINSCRIT" />
-                <ScalarProperty Name="TELINSCRIT" ColumnName="TELINSCRIT" />
-                <ScalarProperty Name="DATENAISSANCE" ColumnName="DATENAISSANCE" />
-                <ScalarProperty Name="ADRESSE" ColumnName="ADRESSE" />
-                <ScalarProperty Name="CREDIT" ColumnName="CREDIT" />
                 <ScalarProperty Name="ADMIN" ColumnName="ADMIN" />
+                <ScalarProperty Name="CREDIT" ColumnName="CREDIT" />
+                <ScalarProperty Name="ADRESSE" ColumnName="ADRESSE" />
+                <ScalarProperty Name="DATENAISSANCE" ColumnName="DATENAISSANCE" />
+                <ScalarProperty Name="TELINSCRIT" ColumnName="TELINSCRIT" />
+                <ScalarProperty Name="MDPINSCRIT" ColumnName="MDPINSCRIT" />
+                <ScalarProperty Name="MAIL" ColumnName="MAIL" />
+                <ScalarProperty Name="PRENOMINSCRIT" ColumnName="PRENOMINSCRIT" />
+                <ScalarProperty Name="NOMINSCRIT" ColumnName="NOMINSCRIT" />
+                <ScalarProperty Name="IDINSCRIT" ColumnName="IDINSCRIT" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="loisirs">
             <EntityTypeMapping TypeName="ap4Model.loisirs">
               <MappingFragment StoreEntitySet="loisirs">
-                <ScalarProperty Name="IDSERVICE" ColumnName="IDSERVICE" />
-                <ScalarProperty Name="IDLOISIRS" ColumnName="IDLOISIRS" />
                 <ScalarProperty Name="NBPERSONNES" ColumnName="NBPERSONNES" />
-                <ScalarProperty Name="DESCRIPTIFSERVICE" ColumnName="DESCRIPTIFSERVICE" />
-                <ScalarProperty Name="PHOTO" ColumnName="PHOTO" />
-                <ScalarProperty Name="DATEDEBUT" ColumnName="DATEDEBUT" />
-                <ScalarProperty Name="DUREEJOURS" ColumnName="DUREEJOURS" />
-                <ScalarProperty Name="PRIX" ColumnName="PRIX" />
-                <ScalarProperty Name="DATEDEPOT" ColumnName="DATEDEPOT" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="repondre">
-            <EntityTypeMapping TypeName="ap4Model.repondre">
-              <MappingFragment StoreEntitySet="repondre">
-                <ScalarProperty Name="IDINSCRIT" ColumnName="IDINSCRIT" />
-                <ScalarProperty Name="IDSERVICE" ColumnName="IDSERVICE" />
-                <ScalarProperty Name="DATEREP" ColumnName="DATEREP" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="service">
-            <EntityTypeMapping TypeName="ap4Model.service">
-              <MappingFragment StoreEntitySet="service">
-                <ScalarProperty Name="IDDEPARTEMENT" ColumnName="IDDEPARTEMENT" />
-                <ScalarProperty Name="IDSERVICE" ColumnName="IDSERVICE" />
-                <ScalarProperty Name="IDINSCRIT" ColumnName="IDINSCRIT" />
-                <ScalarProperty Name="IDTYPE" ColumnName="IDTYPE" />
-                <ScalarProperty Name="DESCRIPTIFSERVICE" ColumnName="DESCRIPTIFSERVICE" />
-                <ScalarProperty Name="PHOTO" ColumnName="PHOTO" />
-                <ScalarProperty Name="DATEDEBUT" ColumnName="DATEDEBUT" />
-                <ScalarProperty Name="DUREEJOURS" ColumnName="DUREEJOURS" />
-                <ScalarProperty Name="PRIX" ColumnName="PRIX" />
-                <ScalarProperty Name="DATEDEPOT" ColumnName="DATEDEPOT" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tache_menagere">
-            <EntityTypeMapping TypeName="ap4Model.tache_menagere">
-              <MappingFragment StoreEntitySet="tache_menagere">
-                <ScalarProperty Name="IDSERVICE" ColumnName="IDSERVICE" />
-                <ScalarProperty Name="IDTACHE" ColumnName="IDTACHE" />
-                <ScalarProperty Name="DESCTACHEM" ColumnName="DESCTACHEM" />
-                <ScalarProperty Name="MATERIEL" ColumnName="MATERIEL" />
-                <ScalarProperty Name="DESCRIPTIFSERVICE" ColumnName="DESCRIPTIFSERVICE" />
-                <ScalarProperty Name="PHOTO" ColumnName="PHOTO" />
-                <ScalarProperty Name="DATEDEBUT" ColumnName="DATEDEBUT" />
-                <ScalarProperty Name="DUREEJOURS" ColumnName="DUREEJOURS" />
-                <ScalarProperty Name="PRIX" ColumnName="PRIX" />
-                <ScalarProperty Name="DATEDEPOT" ColumnName="DATEDEPOT" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="transport">
-            <EntityTypeMapping TypeName="ap4Model.transport">
-              <MappingFragment StoreEntitySet="transport">
-                <ScalarProperty Name="IDSERVICE" ColumnName="IDSERVICE" />
-                <ScalarProperty Name="POINTDEPART" ColumnName="POINTDEPART" />
-                <ScalarProperty Name="POINTARRIVEE" ColumnName="POINTARRIVEE" />
-                <ScalarProperty Name="MOTIF" ColumnName="MOTIF" />
-                <ScalarProperty Name="NBPLACESDISPO" ColumnName="NBPLACESDISPO" />
-                <ScalarProperty Name="VEHICULE" ColumnName="VEHICULE" />
-                <ScalarProperty Name="DESCRIPTIFSERVICE" ColumnName="DESCRIPTIFSERVICE" />
-                <ScalarProperty Name="PHOTO" ColumnName="PHOTO" />
-                <ScalarProperty Name="DATEDEBUT" ColumnName="DATEDEBUT" />
-                <ScalarProperty Name="DUREEJOURS" ColumnName="DUREEJOURS" />
-                <ScalarProperty Name="PRIX" ColumnName="PRIX" />
-                <ScalarProperty Name="DATEDEPOT" ColumnName="DATEDEPOT" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="type">
-            <EntityTypeMapping TypeName="ap4Model.type">
-              <MappingFragment StoreEntitySet="type">
-                <ScalarProperty Name="IDTYPE" ColumnName="IDTYPE" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="type_loisirs">
-            <EntityTypeMapping TypeName="ap4Model.type_loisirs">
-              <MappingFragment StoreEntitySet="type_loisirs">
                 <ScalarProperty Name="IDLOISIRS" ColumnName="IDLOISIRS" />
-                <ScalarProperty Name="LIBELLELOISIRS" ColumnName="LIBELLELOISIRS" />
+                <ScalarProperty Name="IDSERVICE" ColumnName="IDSERVICE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="type_tache_menagere">
-            <EntityTypeMapping TypeName="ap4Model.type_tache_menagere">
-              <MappingFragment StoreEntitySet="type_tache_menagere">
-                <ScalarProperty Name="IDTACHE" ColumnName="IDTACHE" />
-                <ScalarProperty Name="LIBELLETACHE" ColumnName="LIBELLETACHE" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ville">
-            <EntityTypeMapping TypeName="ap4Model.ville">
-              <MappingFragment StoreEntitySet="ville">
-                <ScalarProperty Name="IDVILLE" ColumnName="IDVILLE" />
-                <ScalarProperty Name="IDDEPARTEMENT" ColumnName="IDDEPARTEMENT" />
-                <ScalarProperty Name="NOMVILLE" ColumnName="NOMVILLE" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <AssociationSetMapping Name="illustrer" TypeName="ap4Model.illustrer" StoreEntitySet="illustrer">
-            <EndProperty Name="inscrit">
-              <ScalarProperty Name="IDINSCRIT" ColumnName="IDINSCRIT" />
-            </EndProperty>
-            <EndProperty Name="type">
-              <ScalarProperty Name="IDTYPE" ColumnName="IDTYPE" />
-            </EndProperty>
-          </AssociationSetMapping>
           <EntitySetMapping Name="message">
             <EntityTypeMapping TypeName="ap4Model.message">
               <MappingFragment StoreEntitySet="message">
@@ -1158,6 +902,94 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="repondre">
+            <EntityTypeMapping TypeName="ap4Model.repondre">
+              <MappingFragment StoreEntitySet="repondre">
+                <ScalarProperty Name="DATEREP" ColumnName="DATEREP" />
+                <ScalarProperty Name="IDSERVICE" ColumnName="IDSERVICE" />
+                <ScalarProperty Name="IDINSCRIT" ColumnName="IDINSCRIT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="service">
+            <EntityTypeMapping TypeName="ap4Model.service">
+              <MappingFragment StoreEntitySet="service">
+                <ScalarProperty Name="DATEDEPOT" ColumnName="DATEDEPOT" />
+                <ScalarProperty Name="PRIX" ColumnName="PRIX" />
+                <ScalarProperty Name="DUREEJOURS" ColumnName="DUREEJOURS" />
+                <ScalarProperty Name="DATEDEBUT" ColumnName="DATEDEBUT" />
+                <ScalarProperty Name="PHOTO" ColumnName="PHOTO" />
+                <ScalarProperty Name="DESCRIPTIFSERVICE" ColumnName="DESCRIPTIFSERVICE" />
+                <ScalarProperty Name="IDTYPE" ColumnName="IDTYPE" />
+                <ScalarProperty Name="IDDEPARTEMENT" ColumnName="IDDEPARTEMENT" />
+                <ScalarProperty Name="IDINSCRIT" ColumnName="IDINSCRIT" />
+                <ScalarProperty Name="IDSERVICE" ColumnName="IDSERVICE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tache_menagere">
+            <EntityTypeMapping TypeName="ap4Model.tache_menagere">
+              <MappingFragment StoreEntitySet="tache_menagere">
+                <ScalarProperty Name="MATERIEL" ColumnName="MATERIEL" />
+                <ScalarProperty Name="DESCTACHEM" ColumnName="DESCTACHEM" />
+                <ScalarProperty Name="IDTACHE" ColumnName="IDTACHE" />
+                <ScalarProperty Name="IDSERVICE" ColumnName="IDSERVICE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="transport">
+            <EntityTypeMapping TypeName="ap4Model.transport">
+              <MappingFragment StoreEntitySet="transport">
+                <ScalarProperty Name="VEHICULE" ColumnName="VEHICULE" />
+                <ScalarProperty Name="NBPLACESDISPO" ColumnName="NBPLACESDISPO" />
+                <ScalarProperty Name="MOTIF" ColumnName="MOTIF" />
+                <ScalarProperty Name="POINTARRIVEE" ColumnName="POINTARRIVEE" />
+                <ScalarProperty Name="POINTDEPART" ColumnName="POINTDEPART" />
+                <ScalarProperty Name="IDSERVICE" ColumnName="IDSERVICE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="type">
+            <EntityTypeMapping TypeName="ap4Model.type">
+              <MappingFragment StoreEntitySet="type">
+                <ScalarProperty Name="LIBELLETYPE" ColumnName="LIBELLETYPE" />
+                <ScalarProperty Name="IDTYPE" ColumnName="IDTYPE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="type_loisirs">
+            <EntityTypeMapping TypeName="ap4Model.type_loisirs">
+              <MappingFragment StoreEntitySet="type_loisirs">
+                <ScalarProperty Name="LIBELLELOISIRS" ColumnName="LIBELLELOISIRS" />
+                <ScalarProperty Name="IDLOISIRS" ColumnName="IDLOISIRS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="type_tache_menagere">
+            <EntityTypeMapping TypeName="ap4Model.type_tache_menagere">
+              <MappingFragment StoreEntitySet="type_tache_menagere">
+                <ScalarProperty Name="LIBELLETACHE" ColumnName="LIBELLETACHE" />
+                <ScalarProperty Name="IDTACHE" ColumnName="IDTACHE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ville">
+            <EntityTypeMapping TypeName="ap4Model.ville">
+              <MappingFragment StoreEntitySet="ville">
+                <ScalarProperty Name="NOMVILLE" ColumnName="NOMVILLE" />
+                <ScalarProperty Name="IDDEPARTEMENT" ColumnName="IDDEPARTEMENT" />
+                <ScalarProperty Name="IDVILLE" ColumnName="IDVILLE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="illustrer" TypeName="ap4Model.illustrer" StoreEntitySet="illustrer">
+            <EndProperty Name="type">
+              <ScalarProperty Name="IDTYPE" ColumnName="IDTYPE" />
+            </EndProperty>
+            <EndProperty Name="inscrit">
+              <ScalarProperty Name="IDINSCRIT" ColumnName="IDINSCRIT" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

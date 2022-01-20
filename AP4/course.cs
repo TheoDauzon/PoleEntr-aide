@@ -14,25 +14,11 @@ namespace AP4
     
     public partial class course
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public course()
-        {
-            this.acheter = new HashSet<acheter>();
-        }
-    
         public int IDSERVICE { get; set; }
         public string LIBELLEEPICERIE { get; set; }
-        public string LIEUEPICERIE { get; set; }
-        public string DESCRIPTIFSERVICE { get; set; }
-        public string PHOTO { get; set; }
-        public System.DateTime DATEDEBUT { get; set; }
-        public int DUREEJOURS { get; set; }
-        public int PRIX { get; set; }
-        public System.DateTime DATEDEPOT { get; set; }
-        public bool ATTRIBUER { get; set; }
+        public short LISTEACHATS { get; set; }
+        public short PERSONNE { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<acheter> acheter { get; set; }
         public virtual service service { get; set; }
     }
 }

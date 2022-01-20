@@ -14,18 +14,10 @@ namespace AP4
     
     public partial class ville
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ville()
-        {
-            this.service = new HashSet<service>();
-        }
-    
         public short IDVILLE { get; set; }
         public int IDDEPARTEMENT { get; set; }
         public string NOMVILLE { get; set; }
     
         public virtual departement departement { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<service> service { get; set; }
     }
 }
