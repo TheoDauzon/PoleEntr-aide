@@ -36,5 +36,30 @@ namespace AP4
             string traiter = tbTraiter.Text;
             dgvMessage.DataSource = (Modele.ListeMessage()).Where(k => k.IDINSCRIT.ToString().StartsWith(num) && k.LIBELLEMESSAGE.StartsWith(libelle) && k.TRAITER.ToString().StartsWith(traiter)).Select(p => new { IDMESSAGE = p.IDMESSAGE, IDINSCRIT = p.IDINSCRIT, LIBELLEMESSAGE = p.LIBELLEMESSAGE, TRAITER = p.TRAITER}).ToList();    
         }
+
+        private void btnEnvoyer_Click(object sender, EventArgs e)
+        {
+            string mailI = Convert.ToString(tbMail.Text);
+            string Subject = Convert.ToString(tbObjet.Text);
+            string Body = Convert.ToString(tbCorps.Text);
+
+            if (Modele.Envoi_mail(mailI, Subject, Body))
+            {
+                MessageBox.Show("Mail envoyé avec succès !");
+            }
+        }
+
+        private void btnModifierMessage_Click(object sender, EventArgs e)
+        {
+            System.Type type = bsMessage.Current.GetType();
+            int idMessage = (int)type.GetProperty("IDMESSAGE").GetValue(bsMessage.Current, null);
+
+            MessageBox.Show("Message :" + idMessage);
+
+            if (Modele.ModifierMessage(idMessage, 10, DateTime.Now, 1))
+                MessageBox.Show("Modification effectuée");
+            else
+                MessageBox.Show("problème dans la modification");
+        }
     }
 }

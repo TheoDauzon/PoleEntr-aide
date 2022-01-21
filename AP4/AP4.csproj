@@ -76,6 +76,12 @@
     <Compile Include="FormGestionInscrit.Designer.cs">
       <DependentUpon>FormGestionInscrit.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormGestionMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGestionMessage.Designer.cs">
+      <DependentUpon>FormGestionMessage.cs</DependentUpon>
+    </Compile>
     <Compile Include="inscrit.cs">
       <DependentUpon>mdlAP4.tt</DependentUpon>
     </Compile>
