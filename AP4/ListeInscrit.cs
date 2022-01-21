@@ -58,5 +58,17 @@ namespace AP4
             else
                 MessageBox.Show("PROBLEME Modifications");*/
         }
+
+        private void btnRechercher_Click(object sender, EventArgs e)
+        {
+            string num = tbNumero.Text;
+            string prenom = tbPrenom.Text;
+            string nom = tbNom.Text;
+            string mail = tbMail.Text;
+            string statut = tbStatut.Text;
+            string admin = tbAdmin.Text;
+
+            dgvInscrit.DataSource = (Modele.ListeInscrit()).Where(k => k.IDINSCRIT.ToString().StartsWith(num) && k.PRENOMINSCRIT.StartsWith(prenom) && k.NOMINSCRIT.StartsWith(nom) && k.MAIL.StartsWith(mail) && k.ADMIN.ToString().StartsWith(admin) && k.STATUT.ToString().StartsWith(statut)).Select(p => new { IDINSCRIT = p.IDINSCRIT, NOMINSCRIT = p.NOMINSCRIT, PRENOMINSCRIT = p.PRENOMINSCRIT, MAIL = p.MAIL, MDPINSCRIT = p.MDPINSCRIT, TELINSCRIT = p.TELINSCRIT, DATENAISSANCE = p.DATENAISSANCE, ADRESSE = p.ADRESSE, CREDIT = p.CREDIT, ADMIN = p.ADMIN, STATUT = p.STATUT}).ToList();
+        }
     }
 }

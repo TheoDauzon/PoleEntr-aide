@@ -37,7 +37,6 @@ namespace AP4
             this.btnModifier = new System.Windows.Forms.Button();
             this.dgvService = new System.Windows.Forms.DataGridView();
             this.bsService = new System.Windows.Forms.BindingSource(this.components);
-            this.btnTous = new System.Windows.Forms.Button();
             this.btnRechercher = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tbNumero = new System.Windows.Forms.TextBox();
@@ -47,9 +46,9 @@ namespace AP4
             this.tbDescriptif = new System.Windows.Forms.TextBox();
             this.lbDescriptif = new System.Windows.Forms.Label();
             this.lbFinRep = new System.Windows.Forms.Label();
-            this.tbDateDebFin = new System.Windows.Forms.TextBox();
-            this.tbDateDebDebut = new System.Windows.Forms.TextBox();
             this.lbDateReponse = new System.Windows.Forms.Label();
+            this.mstDateServDeb = new System.Windows.Forms.MaskedTextBox();
+            this.mstDateServFin = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvService)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsService)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -58,9 +57,10 @@ namespace AP4
             // btnRetourMenu
             // 
             this.btnRetourMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRetourMenu.Location = new System.Drawing.Point(12, 12);
+            this.btnRetourMenu.Location = new System.Drawing.Point(16, 15);
+            this.btnRetourMenu.Margin = new System.Windows.Forms.Padding(4);
             this.btnRetourMenu.Name = "btnRetourMenu";
-            this.btnRetourMenu.Size = new System.Drawing.Size(163, 49);
+            this.btnRetourMenu.Size = new System.Drawing.Size(217, 60);
             this.btnRetourMenu.TabIndex = 0;
             this.btnRetourMenu.Text = "RETOUR AU MENU";
             this.btnRetourMenu.UseVisualStyleBackColor = true;
@@ -70,18 +70,20 @@ namespace AP4
             // 
             this.lbListeService.AutoSize = true;
             this.lbListeService.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbListeService.Location = new System.Drawing.Point(283, 18);
+            this.lbListeService.Location = new System.Drawing.Point(377, 22);
+            this.lbListeService.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbListeService.Name = "lbListeService";
-            this.lbListeService.Size = new System.Drawing.Size(316, 31);
+            this.lbListeService.Size = new System.Drawing.Size(395, 39);
             this.lbListeService.TabIndex = 1;
             this.lbListeService.Text = "LISTE DES SERVICES";
             // 
             // btnModifier
             // 
             this.btnModifier.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModifier.Location = new System.Drawing.Point(25, 398);
+            this.btnModifier.Location = new System.Drawing.Point(33, 490);
+            this.btnModifier.Margin = new System.Windows.Forms.Padding(4);
             this.btnModifier.Name = "btnModifier";
-            this.btnModifier.Size = new System.Drawing.Size(116, 40);
+            this.btnModifier.Size = new System.Drawing.Size(155, 49);
             this.btnModifier.TabIndex = 3;
             this.btnModifier.Text = "MODIFIER";
             this.btnModifier.UseVisualStyleBackColor = true;
@@ -99,39 +101,34 @@ namespace AP4
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvService.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvService.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvService.Location = new System.Drawing.Point(25, 159);
+            this.dgvService.Location = new System.Drawing.Point(33, 196);
+            this.dgvService.Margin = new System.Windows.Forms.Padding(4);
             this.dgvService.Name = "dgvService";
             this.dgvService.ReadOnly = true;
-            this.dgvService.Size = new System.Drawing.Size(750, 233);
+            this.dgvService.RowHeadersWidth = 51;
+            this.dgvService.Size = new System.Drawing.Size(1000, 287);
             this.dgvService.TabIndex = 5;
-            // 
-            // btnTous
-            // 
-            this.btnTous.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTous.Location = new System.Drawing.Point(642, 111);
-            this.btnTous.Name = "btnTous";
-            this.btnTous.Size = new System.Drawing.Size(133, 31);
-            this.btnTous.TabIndex = 36;
-            this.btnTous.Text = "TOUS";
-            this.btnTous.UseVisualStyleBackColor = true;
             // 
             // btnRechercher
             // 
             this.btnRechercher.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRechercher.Location = new System.Drawing.Point(642, 78);
+            this.btnRechercher.Location = new System.Drawing.Point(856, 130);
+            this.btnRechercher.Margin = new System.Windows.Forms.Padding(4);
             this.btnRechercher.Name = "btnRechercher";
-            this.btnRechercher.Size = new System.Drawing.Size(133, 31);
+            this.btnRechercher.Size = new System.Drawing.Size(177, 37);
             this.btnRechercher.TabIndex = 35;
             this.btnRechercher.Text = "RECHERCHER";
             this.btnRechercher.UseVisualStyleBackColor = true;
+            this.btnRechercher.Click += new System.EventHandler(this.btnRechercher_Click);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(605, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(807, 15);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(188, 49);
+            this.pictureBox1.Size = new System.Drawing.Size(251, 60);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 44;
             this.pictureBox1.TabStop = false;
@@ -139,54 +136,60 @@ namespace AP4
             // tbNumero
             // 
             this.tbNumero.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbNumero.Location = new System.Drawing.Point(100, 80);
+            this.tbNumero.Location = new System.Drawing.Point(217, 99);
+            this.tbNumero.Margin = new System.Windows.Forms.Padding(4);
             this.tbNumero.Name = "tbNumero";
-            this.tbNumero.Size = new System.Drawing.Size(149, 26);
+            this.tbNumero.Size = new System.Drawing.Size(197, 30);
             this.tbNumero.TabIndex = 52;
             // 
             // lbNumero
             // 
             this.lbNumero.AutoSize = true;
             this.lbNumero.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNumero.Location = new System.Drawing.Point(21, 83);
+            this.lbNumero.Location = new System.Drawing.Point(28, 102);
+            this.lbNumero.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbNumero.Name = "lbNumero";
-            this.lbNumero.Size = new System.Drawing.Size(73, 20);
+            this.lbNumero.Size = new System.Drawing.Size(182, 25);
             this.lbNumero.TabIndex = 51;
-            this.lbNumero.Text = "Numéro :";
+            this.lbNumero.Text = "Numéro de l\'inscrit :";
             // 
             // tbExecute
             // 
             this.tbExecute.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbExecute.Location = new System.Drawing.Point(509, 113);
+            this.tbExecute.Location = new System.Drawing.Point(739, 139);
+            this.tbExecute.Margin = new System.Windows.Forms.Padding(4);
             this.tbExecute.Name = "tbExecute";
-            this.tbExecute.Size = new System.Drawing.Size(116, 26);
+            this.tbExecute.Size = new System.Drawing.Size(93, 30);
             this.tbExecute.TabIndex = 50;
             // 
             // lbExecute
             // 
             this.lbExecute.AutoSize = true;
             this.lbExecute.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbExecute.Location = new System.Drawing.Point(428, 116);
+            this.lbExecute.Location = new System.Drawing.Point(637, 142);
+            this.lbExecute.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbExecute.Name = "lbExecute";
-            this.lbExecute.Size = new System.Drawing.Size(75, 20);
+            this.lbExecute.Size = new System.Drawing.Size(94, 25);
             this.lbExecute.TabIndex = 49;
             this.lbExecute.Text = "Exécuté :";
             // 
             // tbDescriptif
             // 
             this.tbDescriptif.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbDescriptif.Location = new System.Drawing.Point(345, 80);
+            this.tbDescriptif.Location = new System.Drawing.Point(544, 99);
+            this.tbDescriptif.Margin = new System.Windows.Forms.Padding(4);
             this.tbDescriptif.Name = "tbDescriptif";
-            this.tbDescriptif.Size = new System.Drawing.Size(280, 26);
+            this.tbDescriptif.Size = new System.Drawing.Size(489, 30);
             this.tbDescriptif.TabIndex = 46;
             // 
             // lbDescriptif
             // 
             this.lbDescriptif.AutoSize = true;
             this.lbDescriptif.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDescriptif.Location = new System.Drawing.Point(255, 83);
+            this.lbDescriptif.Location = new System.Drawing.Point(433, 102);
+            this.lbDescriptif.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbDescriptif.Name = "lbDescriptif";
-            this.lbDescriptif.Size = new System.Drawing.Size(84, 20);
+            this.lbDescriptif.Size = new System.Drawing.Size(103, 25);
             this.lbDescriptif.TabIndex = 45;
             this.lbDescriptif.Text = "Descriptif :";
             // 
@@ -194,47 +197,51 @@ namespace AP4
             // 
             this.lbFinRep.AutoSize = true;
             this.lbFinRep.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbFinRep.Location = new System.Drawing.Point(265, 116);
+            this.lbFinRep.Location = new System.Drawing.Point(353, 143);
+            this.lbFinRep.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbFinRep.Name = "lbFinRep";
-            this.lbFinRep.Size = new System.Drawing.Size(28, 20);
+            this.lbFinRep.Size = new System.Drawing.Size(37, 25);
             this.lbFinRep.TabIndex = 56;
             this.lbFinRep.Text = "À :";
-            // 
-            // tbDateDebFin
-            // 
-            this.tbDateDebFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbDateDebFin.Location = new System.Drawing.Point(299, 113);
-            this.tbDateDebFin.Name = "tbDateDebFin";
-            this.tbDateDebFin.Size = new System.Drawing.Size(121, 26);
-            this.tbDateDebFin.TabIndex = 55;
-            // 
-            // tbDateDebDebut
-            // 
-            this.tbDateDebDebut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbDateDebDebut.Location = new System.Drawing.Point(154, 113);
-            this.tbDateDebDebut.Name = "tbDateDebDebut";
-            this.tbDateDebDebut.Size = new System.Drawing.Size(105, 26);
-            this.tbDateDebDebut.TabIndex = 54;
             // 
             // lbDateReponse
             // 
             this.lbDateReponse.AutoSize = true;
             this.lbDateReponse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDateReponse.Location = new System.Drawing.Point(8, 116);
+            this.lbDateReponse.Location = new System.Drawing.Point(28, 143);
+            this.lbDateReponse.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbDateReponse.Name = "lbDateReponse";
-            this.lbDateReponse.Size = new System.Drawing.Size(140, 20);
+            this.lbDateReponse.Size = new System.Drawing.Size(150, 25);
             this.lbDateReponse.TabIndex = 53;
-            this.lbDateReponse.Text = "Date réponse  de :";
+            this.lbDateReponse.Text = "Date dépot  de :";
+            // 
+            // mstDateServDeb
+            // 
+            this.mstDateServDeb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mstDateServDeb.Location = new System.Drawing.Point(190, 140);
+            this.mstDateServDeb.Mask = "00/00/0000";
+            this.mstDateServDeb.Name = "mstDateServDeb";
+            this.mstDateServDeb.Size = new System.Drawing.Size(156, 30);
+            this.mstDateServDeb.TabIndex = 57;
+            // 
+            // mstDateServFin
+            // 
+            this.mstDateServFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mstDateServFin.Location = new System.Drawing.Point(397, 140);
+            this.mstDateServFin.Mask = "00/00/0000";
+            this.mstDateServFin.Name = "mstDateServFin";
+            this.mstDateServFin.Size = new System.Drawing.Size(156, 30);
+            this.mstDateServFin.TabIndex = 58;
             // 
             // ListeService
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(127)))), ((int)(((byte)(102)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.mstDateServFin);
+            this.Controls.Add(this.mstDateServDeb);
             this.Controls.Add(this.lbFinRep);
-            this.Controls.Add(this.tbDateDebFin);
-            this.Controls.Add(this.tbDateDebDebut);
             this.Controls.Add(this.lbDateReponse);
             this.Controls.Add(this.tbNumero);
             this.Controls.Add(this.lbNumero);
@@ -243,12 +250,12 @@ namespace AP4
             this.Controls.Add(this.tbDescriptif);
             this.Controls.Add(this.lbDescriptif);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.btnTous);
             this.Controls.Add(this.btnRechercher);
             this.Controls.Add(this.dgvService);
             this.Controls.Add(this.btnModifier);
             this.Controls.Add(this.lbListeService);
             this.Controls.Add(this.btnRetourMenu);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ListeService";
             this.Text = "ListeService";
             this.Load += new System.EventHandler(this.ListeService_Load);
@@ -267,7 +274,6 @@ namespace AP4
         private System.Windows.Forms.Button btnModifier;
         private System.Windows.Forms.DataGridView dgvService;
         private System.Windows.Forms.BindingSource bsService;
-        private System.Windows.Forms.Button btnTous;
         private System.Windows.Forms.Button btnRechercher;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox tbNumero;
@@ -277,8 +283,8 @@ namespace AP4
         private System.Windows.Forms.TextBox tbDescriptif;
         private System.Windows.Forms.Label lbDescriptif;
         private System.Windows.Forms.Label lbFinRep;
-        private System.Windows.Forms.TextBox tbDateDebFin;
-        private System.Windows.Forms.TextBox tbDateDebDebut;
         private System.Windows.Forms.Label lbDateReponse;
+        private System.Windows.Forms.MaskedTextBox mstDateServDeb;
+        private System.Windows.Forms.MaskedTextBox mstDateServFin;
     }
 }

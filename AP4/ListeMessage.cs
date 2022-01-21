@@ -28,5 +28,13 @@ namespace AP4
             dgvMessage.DataSource = bsMessage;
             dgvMessage.Columns[4].Visible = false;
         }
+
+        private void btnRechercher_Click(object sender, EventArgs e)
+        {
+            string num = tbNumero.Text;
+            string libelle = tbLibelle.Text;
+            string traiter = tbTraiter.Text;
+            dgvMessage.DataSource = (Modele.ListeMessage()).Where(k => k.IDINSCRIT.ToString().StartsWith(num) && k.LIBELLEMESSAGE.StartsWith(libelle) && k.TRAITER.ToString().StartsWith(traiter)).Select(p => new { IDMESSAGE = p.IDMESSAGE, IDINSCRIT = p.IDINSCRIT, LIBELLEMESSAGE = p.LIBELLEMESSAGE, TRAITER = p.TRAITER}).ToList();    
+        }
     }
 }

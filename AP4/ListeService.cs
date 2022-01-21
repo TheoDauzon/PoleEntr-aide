@@ -36,5 +36,34 @@ namespace AP4
             dgvService.Columns[18].Visible = false;
             dgvService.Columns[19].Visible = false;
         }
+
+        private void btnRechercher_Click(object sender, EventArgs e)
+        {
+            string num = tbNumero.Text;
+            string descriptif = tbDescriptif.Text;
+            string execute = tbExecute.Text;
+            DateTime dateServDeb;
+            DateTime dateServFin;
+            if (mstDateServDeb.MaskFull==true && mstDateServFin.MaskFull == false)
+            {
+                dateServDeb = Convert.ToDateTime(mstDateServDeb.Text);
+                dgvService.DataSource = (Modele.ListeService()).Where(k => k.IDINSCRIT.ToString().StartsWith(num) && k.DESCRIPTIFSERVICE.StartsWith(descriptif) && k.REALISER.ToString().StartsWith(execute) && k.DATEDEPOT >= dateServDeb).Select(p => new { IDSERVICE = p.IDSERVICE, IDINSCRIT = p.IDINSCRIT, IDDEPARTEMENT = p.IDINSCRIT, IDTYPE = p.IDTYPE, DESCRIPTIFSERVICE = p.DESCRIPTIFSERVICE, PHOTO = p.PHOTO, DATEDEBUT = p.DATEDEBUT, PRIX = p.PHOTO, DATEDEPOT = p.DATEDEPOT, REALISER = p.REALISER }).ToList();
+            }
+            else if (mstDateServFin.MaskFull == true && mstDateServDeb.MaskFull == false)
+            {
+                dateServFin = Convert.ToDateTime(mstDateServFin.Text);
+                dgvService.DataSource = (Modele.ListeService()).Where(k => k.IDINSCRIT.ToString().StartsWith(num) && k.DESCRIPTIFSERVICE.StartsWith(descriptif) && k.REALISER.ToString().StartsWith(execute) && k.DATEDEPOT >= dateServFin).Select(p => new { IDSERVICE = p.IDSERVICE, IDINSCRIT = p.IDINSCRIT, IDDEPARTEMENT = p.IDINSCRIT, IDTYPE = p.IDTYPE, DESCRIPTIFSERVICE = p.DESCRIPTIFSERVICE, PHOTO = p.PHOTO, DATEDEBUT = p.DATEDEBUT, PRIX = p.PHOTO, DATEDEPOT = p.DATEDEPOT, REALISER = p.REALISER }).ToList();
+            }
+            else if (mstDateServFin.MaskFull == true && mstDateServDeb.MaskFull == true)
+            {
+                dateServDeb = Convert.ToDateTime(mstDateServDeb.Text);
+                dateServFin = Convert.ToDateTime(mstDateServDeb.Text);
+                dgvService.DataSource = (Modele.ListeService()).Where(k => k.IDINSCRIT.ToString().StartsWith(num) && k.DESCRIPTIFSERVICE.StartsWith(descriptif) && k.REALISER.ToString().StartsWith(execute) && k.DATEDEPOT <= dateServFin && k.DATEDEPOT >= dateServDeb).Select(p => new {IDSERVICE = p.IDSERVICE,  IDINSCRIT = p.IDINSCRIT, IDDEPARTEMENT = p.IDINSCRIT, IDTYPE = p.IDTYPE, DESCRIPTIFSERVICE = p.DESCRIPTIFSERVICE, PHOTO = p.PHOTO, DATEDEBUT = p.DATEDEBUT, PRIX = p.PHOTO, DATEDEPOT = p.DATEDEPOT, REALISER = p.REALISER}).ToList();
+            }
+            else
+            {
+                dgvService.DataSource = (Modele.ListeService()).Where(k => k.IDINSCRIT.ToString().StartsWith(num) && k.DESCRIPTIFSERVICE.StartsWith(descriptif) && k.REALISER.ToString().StartsWith(execute)).Select(p => new { IDSERVICE = p.IDSERVICE, IDINSCRIT = p.IDINSCRIT, IDDEPARTEMENT = p.IDINSCRIT, IDTYPE = p.IDTYPE, DESCRIPTIFSERVICE = p.DESCRIPTIFSERVICE, PHOTO = p.PHOTO, DATEDEBUT = p.DATEDEBUT, PRIX = p.PHOTO, DATEDEPOT = p.DATEDEPOT, REALISER = p.REALISER }).ToList();
+            }
+        }
     }
 }
