@@ -192,7 +192,7 @@ namespace AP4
             // btnEnvoyer
             // 
             this.btnEnvoyer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEnvoyer.Location = new System.Drawing.Point(1261, 490);
+            this.btnEnvoyer.Location = new System.Drawing.Point(1362, 492);
             this.btnEnvoyer.Margin = new System.Windows.Forms.Padding(4);
             this.btnEnvoyer.Name = "btnEnvoyer";
             this.btnEnvoyer.Size = new System.Drawing.Size(155, 49);
@@ -207,7 +207,7 @@ namespace AP4
             this.tbMail.Location = new System.Drawing.Point(1202, 134);
             this.tbMail.Margin = new System.Windows.Forms.Padding(4);
             this.tbMail.Name = "tbMail";
-            this.tbMail.Size = new System.Drawing.Size(339, 30);
+            this.tbMail.Size = new System.Drawing.Size(458, 30);
             this.tbMail.TabIndex = 45;
             // 
             // tbObjet
@@ -216,7 +216,7 @@ namespace AP4
             this.tbObjet.Location = new System.Drawing.Point(1202, 185);
             this.tbObjet.Margin = new System.Windows.Forms.Padding(4);
             this.tbObjet.Name = "tbObjet";
-            this.tbObjet.Size = new System.Drawing.Size(339, 30);
+            this.tbObjet.Size = new System.Drawing.Size(458, 30);
             this.tbObjet.TabIndex = 46;
             // 
             // tbCorps
@@ -224,8 +224,9 @@ namespace AP4
             this.tbCorps.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbCorps.Location = new System.Drawing.Point(1202, 235);
             this.tbCorps.Margin = new System.Windows.Forms.Padding(4);
+            this.tbCorps.Multiline = true;
             this.tbCorps.Name = "tbCorps";
-            this.tbCorps.Size = new System.Drawing.Size(339, 30);
+            this.tbCorps.Size = new System.Drawing.Size(458, 247);
             this.tbCorps.TabIndex = 47;
             // 
             // label1
@@ -265,7 +266,7 @@ namespace AP4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(1122, 22);
+            this.label4.Location = new System.Drawing.Point(1205, 55);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(395, 38);
@@ -277,7 +278,7 @@ namespace AP4
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(127)))), ((int)(((byte)(102)))));
-            this.ClientSize = new System.Drawing.Size(1554, 554);
+            this.ClientSize = new System.Drawing.Size(1673, 554);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -299,6 +300,7 @@ namespace AP4
             this.Controls.Add(this.btnModifierMessage);
             this.Controls.Add(this.lbTitre);
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(1691, 601);
             this.Name = "ListeMessage";
             this.Text = "ListeMessage";
             this.Load += new System.EventHandler(this.ListeMessage_Load);

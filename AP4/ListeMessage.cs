@@ -47,6 +47,9 @@ namespace AP4
             {
                 MessageBox.Show("Mail envoyé avec succès !");
             }
+            tbCorps.Text = "";
+            tbMail.Text = "";
+            tbObjet.Text = "";
         }
 
         private void btnModifierMessage_Click(object sender, EventArgs e)
@@ -54,9 +57,9 @@ namespace AP4
             System.Type type = bsMessage.Current.GetType();
             int idMessage = (int)type.GetProperty("IDMESSAGE").GetValue(bsMessage.Current, null);
 
-            MessageBox.Show("Message :" + idMessage);
+            MessageBox.Show("Message : " + idMessage);
 
-            if (Modele.ModifierMessage(idMessage, 10, DateTime.Now, 1))
+            if (Modele.ModifierMessage(idMessage, "kj"))
                 MessageBox.Show("Modification effectuée");
             else
                 MessageBox.Show("problème dans la modification");
