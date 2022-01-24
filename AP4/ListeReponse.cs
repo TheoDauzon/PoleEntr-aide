@@ -12,6 +12,7 @@ namespace AP4
 {
     public partial class ListeReponse : Form
     {
+        FormGestionReponse FGR;
         public ListeReponse()
         {
             InitializeComponent();
@@ -56,6 +57,20 @@ namespace AP4
             {
                 dgvReponse.DataSource = (Modele.ListeReponse()).Where(k => k.IDINSCRIT.ToString().StartsWith(num) && k.IDSERVICE.ToString().StartsWith(numServ)).Select(p => new { IDINSCRIT = p.IDINSCRIT, IDSERVICE = p.IDSERVICE, DATEREP = p.DATEREP }).ToList();
             }
+        }
+
+        private void btnModifier_Click(object sender, EventArgs e)
+        {
+            System.Type type = bsReponse.Current.GetType();
+            int idInscrit = (int)type.GetProperty("IDINSCRIT").GetValue(bsReponse.Current, null);
+
+            Modele.RecupererReponse(idInscrit);
+
+            int idService = Modele.RecupererReponse(idInscrit).IDSERVICE;
+            DateTime dateReponse = Modele.RecupererReponse(idInscrit).DATEREP;
+
+            FGR = new FormGestionReponse(idInscrit, idService, dateReponse);
+            FGR.Show();
         }
     }
 }

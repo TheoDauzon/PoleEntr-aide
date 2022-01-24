@@ -82,6 +82,12 @@
     <Compile Include="FormGestionMessage.Designer.cs">
       <DependentUpon>FormGestionMessage.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormGestionReponse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGestionReponse.Designer.cs">
+      <DependentUpon>FormGestionReponse.cs</DependentUpon>
+    </Compile>
     <Compile Include="inscrit.cs">
       <DependentUpon>mdlAP4.tt</DependentUpon>
     </Compile>
@@ -171,6 +177,12 @@
     </Compile>
     <EmbeddedResource Include="FormGestionInscrit.resx">
       <DependentUpon>FormGestionInscrit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGestionMessage.resx">
+      <DependentUpon>FormGestionMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGestionReponse.resx">
+      <DependentUpon>FormGestionReponse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListeInscrit.resx">
       <DependentUpon>ListeInscrit.cs</DependentUpon>

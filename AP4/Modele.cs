@@ -14,6 +14,7 @@ namespace AP4
         private static ap4Entities maConnexion;
         private static inscrit unInscrit;
         private static message unMessage;
+        private static repondre uneReponse;
 
         public static inscrit UnInscrit { get => UnInscrit; set => UnInscrit = value; }
         public static void Init()
@@ -82,6 +83,20 @@ namespace AP4
             return unMessage;
         }
 
+        public static repondre RecupererReponse(int idInscrit)
+        {
+            repondre uneReponse = new repondre();
+            try
+            {
+                uneReponse = maConnexion.repondre.First(x => x.IDINSCRIT == idInscrit);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+            return uneReponse;
+        }
+
         public static bool ModifierInscrit(int idI, string nom, string prenom, string mail, string tel, DateTime date, string adresse, int credit, int admin, int statut)
         {
             bool vretour = true;
@@ -104,6 +119,7 @@ namespace AP4
             }
             return vretour;
         }
+
 
         public static bool SuppInscrit(int idI)
         {
@@ -181,14 +197,31 @@ namespace AP4
             }
         }
 
-        public static bool ModifierMessage(int idMessage, string libelle)
+        public static bool ModifierMessage(int idMessage, string libelle, int traiter)
         {
             bool vretour = true;
             try
             {
                 unMessage = RecupererMessage(idMessage);
                 unMessage.LIBELLEMESSAGE = libelle;
+                unMessage.TRAITER = (short)traiter;
+                maConnexion.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                vretour = false;
+            }
+            return vretour;
+        }
 
+        public static bool ModifierReponse(int idInscrit, int idService, DateTime dateRep)
+        {
+            bool vretour = true;
+            try
+            {
+                uneReponse = RecupererReponse(idInscrit);
+                uneReponse.IDSERVICE = idService;
+                uneReponse.DATEREP = dateRep;
                 maConnexion.SaveChanges();
             }
             catch (Exception ex)

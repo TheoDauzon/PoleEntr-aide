@@ -70,7 +70,7 @@
           <Property Name="IDMESSAGE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IDINSCRIT" Type="int" Nullable="false" />
           <Property Name="LIBELLEMESSAGE" Type="varchar" MaxLength="500" Nullable="false" />
-          <Property Name="TRAITER" Type="bool" Nullable="false" />
+          <Property Name="TRAITER" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="repondre">
           <Key>
@@ -568,7 +568,7 @@
           <Property Name="IDINSCRIT" Type="Int32" Nullable="false" />
           <Property Name="LIBELLEMESSAGE" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="inscrit" Relationship="ap4Model.FK_MESSAGE_INSCRIT" FromRole="message" ToRole="inscrit" />
-          <Property Name="TRAITER" Type="Boolean" Nullable="false" />
+          <Property Name="TRAITER" Type="Int16" Nullable="false" />
         </EntityType>
         <EntityType Name="repondre">
           <Key>

@@ -12,6 +12,7 @@ namespace AP4
 {
     public partial class ListeMessage : Form
     {
+        FormGestionMessage FGM;
         public ListeMessage()
         {
             InitializeComponent();
@@ -57,12 +58,15 @@ namespace AP4
             System.Type type = bsMessage.Current.GetType();
             int idMessage = (int)type.GetProperty("IDMESSAGE").GetValue(bsMessage.Current, null);
 
-            MessageBox.Show("Message : " + idMessage);
+            Modele.RecupererMessage(idMessage);
 
-            if (Modele.ModifierMessage(idMessage, "kj"))
-                MessageBox.Show("Modification effectuée");
-            else
-                MessageBox.Show("problème dans la modification");
+            int idInscrit = Modele.RecupererMessage(idMessage).IDINSCRIT;
+            string libelle = Modele.RecupererMessage(idMessage).LIBELLEMESSAGE;
+            int traiter = Modele.RecupererMessage(idMessage).TRAITER;
+
+            FGM = new FormGestionMessage(idMessage, idInscrit, libelle, traiter);
+            FGM.Show();
+
         }
     }
 }

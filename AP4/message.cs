@@ -17,7 +17,7 @@ namespace AP4
         public int IDMESSAGE { get; set; }
         public int IDINSCRIT { get; set; }
         public string LIBELLEMESSAGE { get; set; }
-        public bool TRAITER { get; set; }
+        public short TRAITER { get; set; }
     
         public virtual inscrit inscrit { get; set; }
     }
