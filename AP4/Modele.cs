@@ -15,6 +15,7 @@ namespace AP4
         private static inscrit unInscrit;
         private static message unMessage;
         private static repondre uneReponse;
+        private static service unService;
 
         public static inscrit UnInscrit { get => UnInscrit; set => UnInscrit = value; }
         public static void Init()
@@ -24,6 +25,11 @@ namespace AP4
         public static List<inscrit> ListeInscrit()
         {
             return maConnexion.inscrit.ToList();
+        }
+
+        public static List<departement> ListeDepartement()
+        {
+            return maConnexion.departement.ToList();
         }
 
         public static List<service> ListeService()
@@ -95,6 +101,20 @@ namespace AP4
                 MessageBox.Show(ex.Message.ToString());
             }
             return uneReponse;
+        }
+
+        public static service RecupererService(int idService)
+        {
+            service unService = new service();
+            try
+            {
+                unService = maConnexion.service.First(x => x.IDSERVICE == idService);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+            return unService;
         }
 
         public static bool ModifierInscrit(int idI, string nom, string prenom, string mail, string tel, DateTime date, string adresse, int credit, int admin, int statut)
@@ -222,6 +242,27 @@ namespace AP4
                 uneReponse = RecupererReponse(idInscrit);
                 uneReponse.IDSERVICE = idService;
                 uneReponse.DATEREP = dateRep;
+                maConnexion.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                vretour = false;
+            }
+            return vretour;
+        }
+        public static bool ModifierService(int idService, string descriptif, string photo, DateTime dateReponse, int duree, int prix, bool realiser, int departement)
+        {
+            bool vretour = true;
+            try
+            {
+                unService = RecupererService(idService);
+                unService.DESCRIPTIFSERVICE = descriptif;
+                unService.PHOTO = photo;
+                unService.DATEDEBUT = dateReponse;
+                unService.DUREEJOURS = duree;
+                unService.PRIX = prix;
+                unService.REALISER = realiser;
+                unService.IDDEPARTEMENT = departement;
                 maConnexion.SaveChanges();
             }
             catch (Exception ex)

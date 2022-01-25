@@ -12,6 +12,7 @@ namespace AP4
 {
     public partial class ListeService : Form
     {
+        FormGestionService FGS;
         public ListeService()
         {
             InitializeComponent();
@@ -64,6 +65,25 @@ namespace AP4
             {
                 dgvService.DataSource = (Modele.ListeService()).Where(k => k.IDINSCRIT.ToString().StartsWith(num) && k.DESCRIPTIFSERVICE.StartsWith(descriptif) && k.REALISER.ToString().StartsWith(execute)).Select(p => new { IDSERVICE = p.IDSERVICE, IDINSCRIT = p.IDINSCRIT, IDDEPARTEMENT = p.IDINSCRIT, IDTYPE = p.IDTYPE, DESCRIPTIFSERVICE = p.DESCRIPTIFSERVICE, PHOTO = p.PHOTO, DATEDEBUT = p.DATEDEBUT, PRIX = p.PHOTO, DATEDEPOT = p.DATEDEPOT, REALISER = p.REALISER }).ToList();
             }
+        }
+
+        private void btnModifier_Click(object sender, EventArgs e)
+        {
+            System.Type type = bsService.Current.GetType();
+            int idService = (int)type.GetProperty("IDSERVICE").GetValue(bsService.Current, null);
+
+            Modele.RecupererService(idService);
+
+            string descriptif  = Modele.RecupererService(idService).DESCRIPTIFSERVICE;
+            string photo = Modele.RecupererService(idService).PHOTO;
+            DateTime dateReponse = Modele.RecupererService(idService).DATEDEBUT;
+            int duree = Modele.RecupererService(idService).DUREEJOURS;
+            int prix = Modele.RecupererService(idService).PRIX;
+            bool realiser = Modele.RecupererService(idService).REALISER;
+            int departement = Modele.RecupererService(idService).IDDEPARTEMENT;
+
+            FGS = new FormGestionService(idService, descriptif, photo, dateReponse, duree, prix, realiser, departement);
+            FGS.Show();
         }
     }
 }

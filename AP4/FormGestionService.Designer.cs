@@ -38,7 +38,7 @@ namespace AP4
             this.lbTitre = new System.Windows.Forms.Label();
             this.tbDescriptif = new System.Windows.Forms.TextBox();
             this.lbDescriptif = new System.Windows.Forms.Label();
-            this.cbDepartment = new System.Windows.Forms.ComboBox();
+            this.cbDepartement = new System.Windows.Forms.ComboBox();
             this.lbDateDebut = new System.Windows.Forms.Label();
             this.lbPrix = new System.Windows.Forms.Label();
             this.tbPrix = new System.Windows.Forms.TextBox();
@@ -78,6 +78,7 @@ namespace AP4
             this.btnModifierM.TabIndex = 64;
             this.btnModifierM.Text = "MODIFIER";
             this.btnModifierM.UseVisualStyleBackColor = true;
+            this.btnModifierM.Click += new System.EventHandler(this.btnModifierM_Click);
             // 
             // label2
             // 
@@ -144,14 +145,14 @@ namespace AP4
             this.lbDescriptif.TabIndex = 58;
             this.lbDescriptif.Text = "Descriptif :";
             // 
-            // cbDepartment
+            // cbDepartement
             // 
-            this.cbDepartment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbDepartment.FormattingEnabled = true;
-            this.cbDepartment.Location = new System.Drawing.Point(173, 331);
-            this.cbDepartment.Name = "cbDepartment";
-            this.cbDepartment.Size = new System.Drawing.Size(330, 33);
-            this.cbDepartment.TabIndex = 67;
+            this.cbDepartement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbDepartement.FormattingEnabled = true;
+            this.cbDepartement.Location = new System.Drawing.Point(173, 331);
+            this.cbDepartement.Name = "cbDepartement";
+            this.cbDepartement.Size = new System.Drawing.Size(330, 33);
+            this.cbDepartement.TabIndex = 67;
             // 
             // lbDateDebut
             // 
@@ -240,7 +241,7 @@ namespace AP4
             this.Controls.Add(this.tbPrix);
             this.Controls.Add(this.lbPrix);
             this.Controls.Add(this.lbDateDebut);
-            this.Controls.Add(this.cbDepartment);
+            this.Controls.Add(this.cbDepartement);
             this.Controls.Add(this.dtpReponse);
             this.Controls.Add(this.btnAnnuler);
             this.Controls.Add(this.btnModifierM);
@@ -252,6 +253,7 @@ namespace AP4
             this.Controls.Add(this.lbDescriptif);
             this.Name = "FormGestionService";
             this.Text = "FormGestionService";
+            this.Load += new System.EventHandler(this.FormGestionService_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -268,7 +270,7 @@ namespace AP4
         private System.Windows.Forms.Label lbTitre;
         private System.Windows.Forms.TextBox tbDescriptif;
         private System.Windows.Forms.Label lbDescriptif;
-        private System.Windows.Forms.ComboBox cbDepartment;
+        private System.Windows.Forms.ComboBox cbDepartement;
         private System.Windows.Forms.Label lbDateDebut;
         private System.Windows.Forms.Label lbPrix;
         private System.Windows.Forms.TextBox tbPrix;
