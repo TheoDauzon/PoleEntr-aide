@@ -51,7 +51,7 @@ namespace AP4
             cbDepartement.ValueMember = "IDDEPARTEMENT"; //permet de stocker l'identifiant
             cbDepartement.DisplayMember = "LIBELLEDEPARTEMENT";
             cbDepartement.DataSource = Modele.ListeDepartement();
-            cbDepartement.SelectedIndex = -1;
+            cbDepartement.SelectedIndex = (departement)-1;
         }
 
         private void btnModifierM_Click(object sender, EventArgs e)
@@ -64,7 +64,7 @@ namespace AP4
                 int duree = Convert.ToInt32(tbDuree.Text);
                 int prix = Convert.ToInt32(tbPrix.Text);
                 bool realiser = Convert.ToBoolean(tbRealiser.Text);
-                int departement = cbDepartement.SelectedIndex;
+                int departement = (cbDepartement.SelectedIndex)+1;
 
                 try
                 {
