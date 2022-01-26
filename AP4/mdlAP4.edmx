@@ -52,8 +52,8 @@
           <Property Name="DATENAISSANCE" Type="date" Nullable="false" />
           <Property Name="ADRESSE" Type="char" MaxLength="150" Nullable="false" />
           <Property Name="CREDIT" Type="int" />
-          <Property Name="ADMIN" Type="smallint" Nullable="false" />
-          <Property Name="STATUT" Type="smallint" Nullable="false" />
+          <Property Name="ADMIN" Type="bool" Nullable="false" />
+          <Property Name="STATUT" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="loisirs">
           <Key>
@@ -543,7 +543,7 @@
           <Property Name="DATENAISSANCE" Type="DateTime" Nullable="false" />
           <Property Name="ADRESSE" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="CREDIT" Type="Int32" />
-          <Property Name="ADMIN" Type="Int16" Nullable="false" />
+          <Property Name="ADMIN" Type="Boolean" Nullable="false" />
           <Property Name="STATUT" Type="Int16" Nullable="false" />
           <NavigationProperty Name="message" Relationship="ap4Model.FK_MESSAGE_INSCRIT" FromRole="inscrit" ToRole="message" />
           <NavigationProperty Name="repondre" Relationship="ap4Model.FK_REPONDRE_INSCRIT" FromRole="inscrit" ToRole="repondre" />

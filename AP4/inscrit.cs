@@ -32,7 +32,7 @@ namespace AP4
         public System.DateTime DATENAISSANCE { get; set; }
         public string ADRESSE { get; set; }
         public Nullable<int> CREDIT { get; set; }
-        public short ADMIN { get; set; }
+        public bool ADMIN { get; set; }
         public short STATUT { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

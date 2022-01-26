@@ -32,12 +32,6 @@ namespace AP4
                 string tel = tbTel.Text;
                 string adresse = tbAdresse.Text;
 
-                if (cbInscrit.SelectedIndex != -1)
-                {
-                    idClient = Convert.ToInt32(cbInscrit.SelectedValue.ToString());
-                    nomInscrit = cbInscrit.Text;
-                }
-
                 /*if (rbtnNon.Checked)
                 {
                     if ())

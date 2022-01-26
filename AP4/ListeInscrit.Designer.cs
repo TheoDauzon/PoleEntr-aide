@@ -127,6 +127,7 @@
             this.btnAjouterInscrit.TabIndex = 12;
             this.btnAjouterInscrit.Text = "AJOUTER";
             this.btnAjouterInscrit.UseVisualStyleBackColor = true;
+            this.btnAjouterInscrit.Click += new System.EventHandler(this.btnAjouterInscrit_Click);
             // 
             // btnRechercher
             // 
