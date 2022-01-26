@@ -12,55 +12,120 @@ namespace AP4
 {
     public partial class FormGestionInscrit : Form
     {
-        public FormGestionInscrit()
+        private int idInscrit;
+        private string nom;
+        private string prenom;
+        private string mail;
+        private string mdp;
+        private string tel;
+        private DateTime dateNaiss;
+        private string adresse;
+        private int credit;
+        private bool admin;
+        private int statut;
+        public FormGestionInscrit(int idInscrit, string nom, string prenom, string mail, string mdp, string tel, DateTime dateNaiss, string adresse, int credit, bool admin, int statut)
         {
             InitializeComponent();
-        }
-
-        private void btnAjouter_Click(object sender, EventArgs e)
-        {
-            if (tbNom.Text != "" && tbPrenom.Text != "" && tbEmail.Text != "" && tbMdp.Text != "" && tbTel.Text != "" && tbAdresse.Text != "" && tbCredit.Text != "" && dtpNaissance != null)
-            {
-                //string passwordHash = BCrypt.Net.BCrypt.HashPassword(tbMdp.Text);//Permet de hasher le mot de passe
-                int credit = 100;
-                if (tbCredit.Text != "") credit = Convert.ToInt32(tbCredit.Text);
-                DateTime dateNaissance = dtpNaissance.Value;
-                int idClient = -1;
-                string nomInscrit = "";
-                string prenomInscrit = tbPrenom.Text;
-                string email = tbEmail.Text;
-                string tel = tbTel.Text;
-                string adresse = tbAdresse.Text;
-
-                /*if (rbtnNon.Checked)
-                {
-                    if ())
-                    {
-                        MessageBox.Show("Administrateur ajouté");
-                    }
-                }
-                else if (rbtnOui.Checked)
-                {
-                    if (Controleur.VmodeleF.AjoutAdministrateur(tbNom.Text, tbPrenom.Text, passwordHash, tbEmail.Text, 0))
-                    {
-                        MessageBox.Show("Administrateur ajouté");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Erreur dans l'ajout de l'administrateur", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else
-            {
-                MessageBox.Show("ERREUR : Vous devez saisir le nom, prénom, l'email et le mot de passe ! ", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }*/
-            }
+            this.idInscrit = idInscrit;
+            this.nom = nom;
+            this.prenom = prenom;
+            this.mail = mail;
+            this.mdp = mdp;
+            this.tel = tel;
+            this.dateNaiss = dateNaiss;
+            this.adresse = adresse;
+            this.credit = credit;
+            this.admin = admin;
+            this.statut = statut;
         }
 
         private void btnFermer_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnModifierM_Click(object sender, EventArgs e)
+        {
+            if (idInscrit == -1)
+            {
+                if (MessageBox.Show("Etes-vous sur de vouloir ajouter l'inscrit ?", "Ajouter", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    /*if (Modele.)
+                    {
+                        MessageBox.Show("Insertion de l'inscrit réussi");
+                    }*/
+                }
+            }
+            else
+            {
+                if (MessageBox.Show("Etes-vous sur de vouloir modifier l'inscrit : " + idInscrit + " ?", "Modifier", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    if (Modele.ModifierInscrit(idInscrit, nom, prenom, mail, mdp, tel, dateNaiss, adresse, credit, admin, statut))
+                    {
+                        MessageBox.Show("Modification de l'inscrit réussi");
+                    }
+                }
+            }
+        }
+
+        private void FormGestionInscrit_Load(object sender, EventArgs e)
+        {
+            if (idInscrit == -1)
+            {
+                tbNom.Text = "";
+                tbPrenom.Text = "";
+                tbEmail.Text = "";
+                tbMdp.Text = "";
+                tbTel.Text = "";
+                dtpNaissance.Value = DateTime.Now;
+                tbAdresse.Text = "";
+                tbCredit.Text = 100.ToString();
+                rbPeutToutFaire.Checked = true;
+                rbtnNon.Checked = true; 
+            }
+            else
+            {
+                tbNom.Text = nom;
+                tbPrenom.Text = prenom;
+                tbEmail.Text = mail;
+                tbMdp.Text = mdp;
+                tbTel.Text = tel;
+                dtpNaissance.Value = dateNaiss;
+                tbAdresse.Text = adresse;
+                tbCredit.Text = credit.ToString();
+                if (admin == true)
+                {
+                    rbtnOui.Checked = true;
+                }
+                if (admin == false)
+                {
+                    rbtnNon.Checked = true;
+                }
+                if (statut == 1)
+                {
+                    rbPeutPoster.Checked = true;
+                }
+                if (statut == 2)
+                {
+                    rbPeutPasPoster.Checked = true;
+                }
+                if (statut == 3)
+                {
+                    rbPeutAccepter.Checked = true;
+                }
+                if (statut == 4)
+                {
+                    rbPeutPasAccepter.Checked = true;
+                }
+                if (statut == 5)
+                {
+                    rbPeutToutFaire.Checked = true;
+                }
+                if (statut == 6)
+                {
+                    rbPeutPasToutFaire.Checked = true;
+                }
+            }
         }
     }
 }

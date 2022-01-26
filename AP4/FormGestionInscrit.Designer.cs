@@ -50,16 +50,16 @@ namespace AP4
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.rbPeutPasToutFaire = new System.Windows.Forms.RadioButton();
+            this.rbPeutToutFaire = new System.Windows.Forms.RadioButton();
+            this.rbPeutPasAccepter = new System.Windows.Forms.RadioButton();
+            this.rbPeutAccepter = new System.Windows.Forms.RadioButton();
+            this.rbPeutPoster = new System.Windows.Forms.RadioButton();
+            this.rbPeutPasPoster = new System.Windows.Forms.RadioButton();
             this.tbCredit = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.dtpNaissance = new System.Windows.Forms.DateTimePicker();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
             this.btnAnnuler = new System.Windows.Forms.Button();
             this.btnModifierM = new System.Windows.Forms.Button();
             this.gbSuperAdmin.SuspendLayout();
@@ -75,7 +75,7 @@ namespace AP4
             this.gbSuperAdmin.Margin = new System.Windows.Forms.Padding(4);
             this.gbSuperAdmin.Name = "gbSuperAdmin";
             this.gbSuperAdmin.Padding = new System.Windows.Forms.Padding(4);
-            this.gbSuperAdmin.Size = new System.Drawing.Size(207, 135);
+            this.gbSuperAdmin.Size = new System.Drawing.Size(207, 123);
             this.gbSuperAdmin.TabIndex = 31;
             this.gbSuperAdmin.TabStop = false;
             this.gbSuperAdmin.Text = "Super Administrateur";
@@ -114,7 +114,7 @@ namespace AP4
             this.lbGestionUtilisateur.Location = new System.Drawing.Point(364, 23);
             this.lbGestionUtilisateur.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbGestionUtilisateur.Name = "lbGestionUtilisateur";
-            this.lbGestionUtilisateur.Size = new System.Drawing.Size(394, 39);
+            this.lbGestionUtilisateur.Size = new System.Drawing.Size(381, 38);
             this.lbGestionUtilisateur.TabIndex = 27;
             this.lbGestionUtilisateur.Text = "Gestion des utilisateurs";
             // 
@@ -285,12 +285,12 @@ namespace AP4
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.radioButton6);
-            this.groupBox1.Controls.Add(this.radioButton5);
-            this.groupBox1.Controls.Add(this.radioButton4);
-            this.groupBox1.Controls.Add(this.radioButton3);
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Controls.Add(this.radioButton2);
+            this.groupBox1.Controls.Add(this.rbPeutPasToutFaire);
+            this.groupBox1.Controls.Add(this.rbPeutToutFaire);
+            this.groupBox1.Controls.Add(this.rbPeutPasAccepter);
+            this.groupBox1.Controls.Add(this.rbPeutAccepter);
+            this.groupBox1.Controls.Add(this.rbPeutPoster);
+            this.groupBox1.Controls.Add(this.rbPeutPasPoster);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(965, 13);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
@@ -301,29 +301,71 @@ namespace AP4
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Statut";
             // 
-            // radioButton1
+            // rbPeutPasToutFaire
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(12, 28);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(116, 24);
-            this.radioButton1.TabIndex = 15;
-            this.radioButton1.Text = "Peut poster";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbPeutPasToutFaire.AutoSize = true;
+            this.rbPeutPasToutFaire.Location = new System.Drawing.Point(12, 182);
+            this.rbPeutPasToutFaire.Name = "rbPeutPasToutFaire";
+            this.rbPeutPasToutFaire.Size = new System.Drawing.Size(135, 24);
+            this.rbPeutPasToutFaire.TabIndex = 20;
+            this.rbPeutPasToutFaire.Text = "Peut rien faire";
+            this.rbPeutPasToutFaire.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rbPeutToutFaire
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(12, 60);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(172, 24);
-            this.radioButton2.TabIndex = 16;
-            this.radioButton2.Text = "Ne peut pas poster";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbPeutToutFaire.AutoSize = true;
+            this.rbPeutToutFaire.Checked = true;
+            this.rbPeutToutFaire.Location = new System.Drawing.Point(12, 152);
+            this.rbPeutToutFaire.Name = "rbPeutToutFaire";
+            this.rbPeutToutFaire.Size = new System.Drawing.Size(135, 24);
+            this.rbPeutToutFaire.TabIndex = 19;
+            this.rbPeutToutFaire.TabStop = true;
+            this.rbPeutToutFaire.Text = "Peut tout faire";
+            this.rbPeutToutFaire.UseVisualStyleBackColor = true;
+            // 
+            // rbPeutPasAccepter
+            // 
+            this.rbPeutPasAccepter.AutoSize = true;
+            this.rbPeutPasAccepter.Location = new System.Drawing.Point(12, 122);
+            this.rbPeutPasAccepter.Name = "rbPeutPasAccepter";
+            this.rbPeutPasAccepter.Size = new System.Drawing.Size(190, 24);
+            this.rbPeutPasAccepter.TabIndex = 18;
+            this.rbPeutPasAccepter.Text = "Ne peut pas accepter";
+            this.rbPeutPasAccepter.UseVisualStyleBackColor = true;
+            // 
+            // rbPeutAccepter
+            // 
+            this.rbPeutAccepter.AutoSize = true;
+            this.rbPeutAccepter.Location = new System.Drawing.Point(12, 92);
+            this.rbPeutAccepter.Name = "rbPeutAccepter";
+            this.rbPeutAccepter.Size = new System.Drawing.Size(134, 24);
+            this.rbPeutAccepter.TabIndex = 17;
+            this.rbPeutAccepter.Text = "Peut accepter";
+            this.rbPeutAccepter.UseVisualStyleBackColor = true;
+            // 
+            // rbPeutPoster
+            // 
+            this.rbPeutPoster.AutoSize = true;
+            this.rbPeutPoster.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbPeutPoster.Location = new System.Drawing.Point(12, 28);
+            this.rbPeutPoster.Margin = new System.Windows.Forms.Padding(4);
+            this.rbPeutPoster.Name = "rbPeutPoster";
+            this.rbPeutPoster.Size = new System.Drawing.Size(116, 24);
+            this.rbPeutPoster.TabIndex = 15;
+            this.rbPeutPoster.Text = "Peut poster";
+            this.rbPeutPoster.UseVisualStyleBackColor = true;
+            // 
+            // rbPeutPasPoster
+            // 
+            this.rbPeutPasPoster.AutoSize = true;
+            this.rbPeutPasPoster.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbPeutPasPoster.Location = new System.Drawing.Point(12, 60);
+            this.rbPeutPasPoster.Margin = new System.Windows.Forms.Padding(4);
+            this.rbPeutPasPoster.Name = "rbPeutPasPoster";
+            this.rbPeutPasPoster.Size = new System.Drawing.Size(172, 24);
+            this.rbPeutPasPoster.TabIndex = 16;
+            this.rbPeutPasPoster.Text = "Ne peut pas poster";
+            this.rbPeutPasPoster.UseVisualStyleBackColor = true;
             // 
             // tbCredit
             // 
@@ -364,55 +406,13 @@ namespace AP4
             this.dtpNaissance.Size = new System.Drawing.Size(315, 30);
             this.dtpNaissance.TabIndex = 49;
             // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(12, 92);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(134, 24);
-            this.radioButton3.TabIndex = 17;
-            this.radioButton3.Text = "Peut accepter";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // radioButton4
-            // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(12, 122);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(190, 24);
-            this.radioButton4.TabIndex = 18;
-            this.radioButton4.Text = "Ne peut pas accepter";
-            this.radioButton4.UseVisualStyleBackColor = true;
-            // 
-            // radioButton5
-            // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Checked = true;
-            this.radioButton5.Location = new System.Drawing.Point(12, 152);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(135, 24);
-            this.radioButton5.TabIndex = 19;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "Peut tout faire";
-            this.radioButton5.UseVisualStyleBackColor = true;
-            // 
-            // radioButton6
-            // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(12, 182);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(135, 24);
-            this.radioButton6.TabIndex = 20;
-            this.radioButton6.Text = "Peut rien faire";
-            this.radioButton6.UseVisualStyleBackColor = true;
-            // 
             // btnAnnuler
             // 
             this.btnAnnuler.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnnuler.Location = new System.Drawing.Point(643, 384);
             this.btnAnnuler.Margin = new System.Windows.Forms.Padding(4);
             this.btnAnnuler.Name = "btnAnnuler";
-            this.btnAnnuler.Size = new System.Drawing.Size(155, 49);
+            this.btnAnnuler.Size = new System.Drawing.Size(263, 49);
             this.btnAnnuler.TabIndex = 51;
             this.btnAnnuler.Text = "ANNULER";
             this.btnAnnuler.UseVisualStyleBackColor = true;
@@ -420,13 +420,14 @@ namespace AP4
             // btnModifierM
             // 
             this.btnModifierM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModifierM.Location = new System.Drawing.Point(290, 384);
+            this.btnModifierM.Location = new System.Drawing.Point(220, 384);
             this.btnModifierM.Margin = new System.Windows.Forms.Padding(4);
             this.btnModifierM.Name = "btnModifierM";
-            this.btnModifierM.Size = new System.Drawing.Size(155, 49);
+            this.btnModifierM.Size = new System.Drawing.Size(225, 49);
             this.btnModifierM.TabIndex = 50;
-            this.btnModifierM.Text = "MODIFIER";
+            this.btnModifierM.Text = "MODIFIER/AJOUTER";
             this.btnModifierM.UseVisualStyleBackColor = true;
+            this.btnModifierM.Click += new System.EventHandler(this.btnModifierM_Click);
             // 
             // FormGestionInscrit
             // 
@@ -461,6 +462,7 @@ namespace AP4
             this.Controls.Add(this.lbNom);
             this.Name = "FormGestionInscrit";
             this.Text = "FormGestionInscrit";
+            this.Load += new System.EventHandler(this.FormGestionInscrit_Load);
             this.gbSuperAdmin.ResumeLayout(false);
             this.gbSuperAdmin.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -493,16 +495,16 @@ namespace AP4
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton rbPeutPoster;
+        private System.Windows.Forms.RadioButton rbPeutPasPoster;
         private System.Windows.Forms.TextBox tbCredit;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker dtpNaissance;
-        private System.Windows.Forms.RadioButton radioButton6;
-        private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton rbPeutPasToutFaire;
+        private System.Windows.Forms.RadioButton rbPeutToutFaire;
+        private System.Windows.Forms.RadioButton rbPeutPasAccepter;
+        private System.Windows.Forms.RadioButton rbPeutAccepter;
         private System.Windows.Forms.Button btnAnnuler;
         private System.Windows.Forms.Button btnModifierM;
     }

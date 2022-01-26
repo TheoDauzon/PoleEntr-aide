@@ -117,7 +117,7 @@ namespace AP4
             return unService;
         }
 
-        public static bool ModifierInscrit(int idI, string nom, string prenom, string mail, string tel, DateTime date, string adresse, int credit, int admin, int statut)
+        public static bool ModifierInscrit(int idI, string nom, string prenom, string mail, string mdp, string tel, DateTime date, string adresse, int credit,bool admin, int statut)
         {
             bool vretour = true;
             try
@@ -126,11 +126,13 @@ namespace AP4
                 unInscrit.NOMINSCRIT = nom;
                 unInscrit.PRENOMINSCRIT = prenom;
                 unInscrit.MAIL = mail;
+                unInscrit.MDPINSCRIT = mdp;
                 unInscrit.TELINSCRIT = tel;
                 unInscrit.DATENAISSANCE = date.Date;
                 unInscrit.ADRESSE = adresse;
                 unInscrit.CREDIT = credit;
-
+                unInscrit.ADMIN = admin;
+                unInscrit.STATUT = (short)statut;
                 maConnexion.SaveChanges();
             }
             catch
