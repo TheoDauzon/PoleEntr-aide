@@ -54,8 +54,7 @@ namespace AP4
                     string nom = tbNom.Text;
                     string prenom = tbPrenom.Text;
                     string mail = tbEmail.Text;
-                    string mdp = tbMdp.Text;
-                    //string passwordHash = BCrypt.Net.BCrypt.HashPassword(tbMdp.Text);//Permet de hasher le mot de passe
+                    string mdp = BCrypt.Net.BCrypt.HashPassword(tbMdp.Text); //Permet de hasher le mot de passe
                     string tel = tbTel.Text;
                     DateTime dateNaiss = dtpNaissance.Value;
                     string adresse = tbAdresse.Text;
@@ -76,8 +75,7 @@ namespace AP4
                     string nom = tbNom.Text;
                     string prenom = tbPrenom.Text;
                     string mail = tbEmail.Text;
-                    string mdp = tbMdp.Text;
-                    //string passwordHash = BCrypt.Net.BCrypt.HashPassword(tbMdp.Text);//Permet de hasher le mot de passe
+                    string mdp = BCrypt.Net.BCrypt.HashPassword(tbMdp.Text); //Permet de hasher le mot de passe
                     string tel = tbTel.Text;
                     DateTime dateNaiss = dtpNaissance.Value;
                     string adresse = tbAdresse.Text;
@@ -109,6 +107,7 @@ namespace AP4
             }
             else
             {
+                //string mdp = BCrypt.Net.BCrypt.Verify(tbMdp);
                 tbNom.Text = nom;
                 tbPrenom.Text = prenom;
                 tbEmail.Text = mail;
