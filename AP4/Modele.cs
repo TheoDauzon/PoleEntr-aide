@@ -160,25 +160,24 @@ namespace AP4
             return vretour;
         }
 
-        /*public static bool AjoutInscrit(int montant, DateTime dateC, int idClient, ICollection<partitions> part)
+        public static bool AjoutInscrit(string nom, string prenom, string mail, string mdp, string tel, DateTime date, string adresse, int credit, bool admin, int statut)
         {
             bool vretour = true;
             try
             {
-                // ajout dans la table commande
+                // ajout dans la table inscrit
                 unInscrit = new inscrit();
-                unInscrit.MONTANTCDE = montant;
-                unInscrit.DATECDE = dateC.Date;
-                unInscrit.NUMCLI = idClient;
-                maConnexion.commande.Add(unInscrit);
-                maConnexion.SaveChanges();
-
-                // ajout du lien entre commande et partitions (table contenir de la BD)
-                // ajout des partitions en récupérant l'idCommande de la commande que l'on vient d'ajouter
-                int idCde = maConnexion.commande.Max(x => x.NUMCDE);
-                MessageBox.Show("Utilisateur ajouté " + idCde);
-                unInscrit = RecupererCommande(idCde);
-                unInscrit.partitions = part;
+                unInscrit.NOMINSCRIT = nom;
+                unInscrit.PRENOMINSCRIT = prenom;
+                unInscrit.MAIL = mail;
+                unInscrit.MDPINSCRIT = mdp;
+                unInscrit.TELINSCRIT = tel;
+                unInscrit.DATENAISSANCE = date.Date;
+                unInscrit.ADRESSE = adresse;
+                unInscrit.CREDIT = credit;
+                unInscrit.ADMIN = admin;
+                unInscrit.STATUT = (short)statut;
+                maConnexion.inscrit.Add(unInscrit);
                 maConnexion.SaveChanges();
 
             }
@@ -188,7 +187,7 @@ namespace AP4
                 MessageBox.Show(ex.Message.ToString());
             }
             return vretour;
-        }*/
+        }
 
         public static bool Envoi_mail(string adressseMail, string subject, string body)
         {

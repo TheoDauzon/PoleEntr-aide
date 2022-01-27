@@ -50,19 +50,43 @@ namespace AP4
             {
                 if (MessageBox.Show("Etes-vous sur de vouloir ajouter l'inscrit ?", "Ajouter", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
-                    /*if (Modele.)
+
+                    string nom = tbNom.Text;
+                    string prenom = tbPrenom.Text;
+                    string mail = tbEmail.Text;
+                    string mdp = tbMdp.Text;
+                    //string passwordHash = BCrypt.Net.BCrypt.HashPassword(tbMdp.Text);//Permet de hasher le mot de passe
+                    string tel = tbTel.Text;
+                    DateTime dateNaiss = dtpNaissance.Value;
+                    string adresse = tbAdresse.Text;
+                    int credit = Convert.ToInt32(tbCredit.Text);
+
+                    if (Modele.AjoutInscrit(nom, prenom, mail, mdp, tel, dateNaiss, adresse, credit, admin, statut))
                     {
                         MessageBox.Show("Insertion de l'inscrit réussi");
-                    }*/
+                        //dgvInscrit.Refresh();
+                    }
                 }
             }
             else
             {
                 if (MessageBox.Show("Etes-vous sur de vouloir modifier l'inscrit : " + idInscrit + " ?", "Modifier", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
+
+                    string nom = tbNom.Text;
+                    string prenom = tbPrenom.Text;
+                    string mail = tbEmail.Text;
+                    string mdp = tbMdp.Text;
+                    //string passwordHash = BCrypt.Net.BCrypt.HashPassword(tbMdp.Text);//Permet de hasher le mot de passe
+                    string tel = tbTel.Text;
+                    DateTime dateNaiss = dtpNaissance.Value;
+                    string adresse = tbAdresse.Text;
+                    int credit = Convert.ToInt32(tbCredit.Text);
+
                     if (Modele.ModifierInscrit(idInscrit, nom, prenom, mail, mdp, tel, dateNaiss, adresse, credit, admin, statut))
                     {
                         MessageBox.Show("Modification de l'inscrit réussi");
+                        //dgvInscrit.Refresh();
                     }
                 }
             }

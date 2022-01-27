@@ -10,7 +10,6 @@ using System.Windows.Forms;
 
 namespace AP4
 {
-
     public partial class ListeInscrit : Form
     {
         FormGestionInscrit FGI;
@@ -70,12 +69,14 @@ namespace AP4
 
             FGI = new FormGestionInscrit(idInscrit, nom, prenom, mail, mdp, tel, dateNaiss, adresse, credit, admin, statut);
             FGI.Show();
+            dgvInscrit.Refresh();
         }
 
         private void btnAjouterInscrit_Click(object sender, EventArgs e)
         {
             FGI = new FormGestionInscrit(-1, "", "", "", "", "", DateTime.Now, "", 100, false, 5);
             FGI.Show();
+            dgvInscrit.Refresh();
         }
 
         private void btnRechercher_Click(object sender, EventArgs e)
