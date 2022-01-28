@@ -144,6 +144,8 @@ namespace AP4
             this.tbTraiter.Name = "tbTraiter";
             this.tbTraiter.Size = new System.Drawing.Size(116, 30);
             this.tbTraiter.TabIndex = 18;
+            this.tbTraiter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbTraiter_KeyPress);
+            this.tbTraiter.Leave += new System.EventHandler(this.tbTraiter_Leave);
             // 
             // lbNumero
             // 
@@ -164,6 +166,8 @@ namespace AP4
             this.tbNumero.Name = "tbNumero";
             this.tbNumero.Size = new System.Drawing.Size(197, 30);
             this.tbNumero.TabIndex = 24;
+            this.tbNumero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNumero_KeyPress);
+            this.tbNumero.Leave += new System.EventHandler(this.tbNumero_Leave);
             // 
             // btnRechercher
             // 

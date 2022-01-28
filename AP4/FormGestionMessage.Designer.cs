@@ -103,6 +103,8 @@ namespace AP4
             this.tbTraite.Name = "tbTraite";
             this.tbTraite.Size = new System.Drawing.Size(112, 30);
             this.tbTraite.TabIndex = 45;
+            this.tbTraite.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbTraite_KeyPress);
+            this.tbTraite.Leave += new System.EventHandler(this.tbTraite_Leave);
             // 
             // label2
             // 

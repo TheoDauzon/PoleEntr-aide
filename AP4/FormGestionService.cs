@@ -84,5 +84,15 @@ namespace AP4
                 }
             }
         }
+
+        private void cbDepartement_Leave(object sender, EventArgs e)
+        {
+            if (cbDepartement.SelectedIndex == -1)
+            {
+                MessageBox.Show("Erreur, vous devez sélectionné un département !", "Erreur",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                tbDescriptif.Focus();
+            }
+        }
     }
 }

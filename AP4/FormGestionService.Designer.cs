@@ -153,6 +153,7 @@ namespace AP4
             this.cbDepartement.Name = "cbDepartement";
             this.cbDepartement.Size = new System.Drawing.Size(330, 33);
             this.cbDepartement.TabIndex = 67;
+            this.cbDepartement.Leave += new System.EventHandler(this.cbDepartement_Leave);
             // 
             // lbDateDebut
             // 

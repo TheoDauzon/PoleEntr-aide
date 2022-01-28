@@ -37,7 +37,7 @@ namespace AP4
         {
             System.Type type = bsInscrit.Current.GetType();
             int idInscrit = (int)type.GetProperty("IDINSCRIT").GetValue(bsInscrit.Current, null);
-           
+
             if (MessageBox.Show("Etes vous sur de vouloir supprimer l'inscrit : " + idInscrit, "Suppression", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 if (Modele.SuppInscrit(idInscrit))
@@ -49,7 +49,7 @@ namespace AP4
                     MessageBox.Show("Problème dans la suppression");
             }
         }
-         
+
         private void BtnModifierInscrit_Click(object sender, EventArgs e)
         {
             System.Type type = bsInscrit.Current.GetType();
@@ -70,7 +70,7 @@ namespace AP4
             FGI = new FormGestionInscrit(idInscrit, nom, prenom, mail, mdp, tel, dateNaiss, adresse, credit, admin, statut);
             this.Close();
             FGI.Show();
-            
+
         }
 
         private void btnAjouterInscrit_Click(object sender, EventArgs e)
@@ -89,8 +89,76 @@ namespace AP4
             string statut = tbStatut.Text;
             string admin = tbAdmin.Text;
 
-            dgvInscrit.DataSource = (Modele.ListeInscrit()).Where(k => k.IDINSCRIT.ToString().StartsWith(num) && k.PRENOMINSCRIT.StartsWith(prenom) && k.NOMINSCRIT.StartsWith(nom) && k.MAIL.StartsWith(mail) && k.ADMIN.ToString().StartsWith(admin) && k.STATUT.ToString().StartsWith(statut)).Select(p => new { IDINSCRIT = p.IDINSCRIT, NOMINSCRIT = p.NOMINSCRIT, PRENOMINSCRIT = p.PRENOMINSCRIT, MAIL = p.MAIL, MDPINSCRIT = p.MDPINSCRIT, TELINSCRIT = p.TELINSCRIT, DATENAISSANCE = p.DATENAISSANCE, ADRESSE = p.ADRESSE, CREDIT = p.CREDIT, ADMIN = p.ADMIN, STATUT = p.STATUT}).ToList();
+            dgvInscrit.DataSource = (Modele.ListeInscrit()).Where(k => k.IDINSCRIT.ToString().StartsWith(num) && k.PRENOMINSCRIT.StartsWith(prenom) && k.NOMINSCRIT.StartsWith(nom) && k.MAIL.StartsWith(mail) && k.ADMIN.ToString().StartsWith(admin) && k.STATUT.ToString().StartsWith(statut)).Select(p => new { IDINSCRIT = p.IDINSCRIT, NOMINSCRIT = p.NOMINSCRIT, PRENOMINSCRIT = p.PRENOMINSCRIT, MAIL = p.MAIL, MDPINSCRIT = p.MDPINSCRIT, TELINSCRIT = p.TELINSCRIT, DATENAISSANCE = p.DATENAISSANCE, ADRESSE = p.ADRESSE, CREDIT = p.CREDIT, ADMIN = p.ADMIN, STATUT = p.STATUT }).ToList();
         }
 
+        private void tbStatut_Leave(object sender, EventArgs e)
+        {
+            if (tbStatut.Text.ToString() != "")
+            {
+                if (int.Parse(tbStatut.Text.ToString()) < 0 || int.Parse(tbStatut.Text.ToString()) > 6)
+                {
+                    MessageBox.Show("Erreur, la valeur doit être comprise entre 0 et 6 inclus", "Erreur",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tbStatut.Focus();
+                }
+            }
+        }
+
+        private void tbStatut_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar < '0' || e.KeyChar > '9') && e.KeyChar != Convert.ToChar(Keys.Back))
+            {
+                MessageBox.Show("Erreur, vous devez saisir des entiers", "Erreur", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+                e.Handled = true; // efface le dernier caractère saisi
+            }
+        }
+
+        private void tbAdmin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar < '0' || e.KeyChar > '9') && e.KeyChar != Convert.ToChar(Keys.Back))
+            {
+                MessageBox.Show("Erreur, vous devez saisir des entiers", "Erreur", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+                e.Handled = true; // efface le dernier caractère saisi
+            }
+        }
+
+        private void tbAdmin_Leave(object sender, EventArgs e)
+        {
+            if (tbAdmin.Text.ToString() != "")
+            {
+                if (int.Parse(tbAdmin.Text.ToString()) < 0 || int.Parse(tbAdmin.Text.ToString()) > 1)
+                {
+                    MessageBox.Show("Erreur, la valeur doit être comprise entre 0 et 1 inclus", "Erreur",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tbAdmin.Focus();
+                }
+            }
+        }
+
+        private void tbNumero_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar < '0' || e.KeyChar > '9') && e.KeyChar != Convert.ToChar(Keys.Back))
+            {
+                MessageBox.Show("Erreur, vous devez saisir des entiers", "Erreur", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+                e.Handled = true; // efface le dernier caractère saisi
+            };
+        }
+
+        private void tbNumero_Leave(object sender, EventArgs e)
+        {
+            if (tbNumero.Text.ToString() != "")
+            {
+                if (int.Parse(tbNumero.Text.ToString()) < 0)
+                {
+                    MessageBox.Show("Erreur, la valeur doit être strictement supérieur à 0", "Erreur",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tbNumero.Focus();
+                }
+            }
+        }
     }
 }

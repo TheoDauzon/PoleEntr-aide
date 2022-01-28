@@ -149,6 +149,8 @@
             this.tbNumero.Name = "tbNumero";
             this.tbNumero.Size = new System.Drawing.Size(112, 30);
             this.tbNumero.TabIndex = 38;
+            this.tbNumero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNumero_KeyPress);
+            this.tbNumero.Leave += new System.EventHandler(this.tbNumero_Leave);
             // 
             // tbStatut
             // 
@@ -158,6 +160,8 @@
             this.tbStatut.Name = "tbStatut";
             this.tbStatut.Size = new System.Drawing.Size(65, 30);
             this.tbStatut.TabIndex = 37;
+            this.tbStatut.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbStatut_KeyPress);
+            this.tbStatut.Leave += new System.EventHandler(this.tbStatut_Leave);
             // 
             // lbNumero
             // 
@@ -200,6 +204,8 @@
             this.tbAdmin.Name = "tbAdmin";
             this.tbAdmin.Size = new System.Drawing.Size(65, 30);
             this.tbAdmin.TabIndex = 33;
+            this.tbAdmin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbAdmin_KeyPress);
+            this.tbAdmin.Leave += new System.EventHandler(this.tbAdmin_Leave);
             // 
             // tbMail
             // 

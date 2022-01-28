@@ -69,5 +69,51 @@ namespace AP4
             FGM.Show();
 
         }
+
+        private void tbNumero_Leave(object sender, EventArgs e)
+        {
+            if (tbNumero.Text.ToString() != "")
+            {
+                if (int.Parse(tbNumero.Text.ToString()) < 0)
+                {
+                    MessageBox.Show("Erreur, la valeur doit être strictement supérieur à 0", "Erreur",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tbNumero.Focus();
+                }
+            }
+        }
+
+        private void tbNumero_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar < '0' || e.KeyChar > '9') && e.KeyChar != Convert.ToChar(Keys.Back))
+            {
+                MessageBox.Show("Erreur, vous devez saisir des entiers", "Erreur", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+                e.Handled = true; // efface le dernier caractère saisi
+            }
+        }
+
+        private void tbTraiter_Leave(object sender, EventArgs e)
+        {
+            if (tbTraiter.Text.ToString() != "")
+            {
+                if (int.Parse(tbTraiter.Text.ToString()) < 0 || int.Parse(tbTraite.Text.ToString()) > 1)
+                {
+                    MessageBox.Show("Erreur, la valeur doit être 0 ou 1", "Erreur",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tbTraiter.Focus();
+                }
+            }
+        }
+
+        private void tbTraiter_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar < '0' || e.KeyChar > '9') && e.KeyChar != Convert.ToChar(Keys.Back))
+            {
+                MessageBox.Show("Erreur, vous devez saisir des entiers", "Erreur", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+                e.Handled = true; // efface le dernier caractère saisi
+            }
+        }
     }
 }

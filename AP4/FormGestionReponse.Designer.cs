@@ -84,6 +84,8 @@ namespace AP4
             this.tbService.Name = "tbService";
             this.tbService.Size = new System.Drawing.Size(330, 30);
             this.tbService.TabIndex = 52;
+            this.tbService.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbService_KeyPress);
+            this.tbService.Leave += new System.EventHandler(this.tbService_Leave);
             // 
             // lbService
             // 
@@ -135,6 +137,7 @@ namespace AP4
             this.dtpReponse.Name = "dtpReponse";
             this.dtpReponse.Size = new System.Drawing.Size(330, 30);
             this.dtpReponse.TabIndex = 57;
+            this.dtpReponse.Leave += new System.EventHandler(this.dtpReponse_Leave);
             // 
             // FormGestionReponse
             // 

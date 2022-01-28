@@ -375,6 +375,8 @@ namespace AP4
             this.tbCredit.Name = "tbCredit";
             this.tbCredit.Size = new System.Drawing.Size(315, 30);
             this.tbCredit.TabIndex = 46;
+            this.tbCredit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCredit_KeyPress);
+            this.tbCredit.Leave += new System.EventHandler(this.tbCredit_Leave);
             // 
             // label7
             // 
@@ -405,6 +407,7 @@ namespace AP4
             this.dtpNaissance.Name = "dtpNaissance";
             this.dtpNaissance.Size = new System.Drawing.Size(315, 30);
             this.dtpNaissance.TabIndex = 49;
+            this.dtpNaissance.Leave += new System.EventHandler(this.dtpNaissance_Leave);
             // 
             // btnAnnuler
             // 

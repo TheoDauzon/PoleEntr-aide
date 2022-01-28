@@ -60,5 +60,42 @@ namespace AP4
             tbService.Text = idService.ToString();
             dtpReponse.Text = dateReponse.ToString();
         }
+
+        private void dtpReponse_Leave(object sender, EventArgs e)
+        {
+            if (dtpReponse.Value < DateTime.Today)
+            {
+                MessageBox.Show("Erreur, la date ne doit pas être antérieur à celle du jour", "Erreur",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dtpReponse.Value = DateTime.Today;
+                dtpReponse.Focus();
+            }
+        }
+
+        private void tbService_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar < '0' || e.KeyChar > '9') && e.KeyChar != Convert.ToChar(Keys.Back))
+            {
+                MessageBox.Show("Erreur, vous devez saisir des entiers", "Erreur", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+                e.Handled = true; // efface le dernier caractère saisi
+            }
+        }
+
+        private void tbService_Leave(object sender, EventArgs e)
+        {
+            if (tbService.Text.ToString() != "")
+            {
+                if (int.Parse(tbService.Text.ToString()) < 0)
+                {
+                    MessageBox.Show("Erreur, la valeur doit être strictement supérieur à 0", "Erreur",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tbService.Focus();
+                }
+            }
+        }
+    }
+
+    }
     }
 }

@@ -107,6 +107,7 @@ namespace AP4
             }
             else
             {
+                tbMdp.Enabled = false;
                 //string mdp = BCrypt.Net.BCrypt.Verify(tbMdp);
                 tbNom.Text = nom;
                 tbPrenom.Text = prenom;
@@ -156,6 +157,48 @@ namespace AP4
             LI = new ListeInscrit();
             this.Close();
             LI.Show();
+        }
+
+        private void dtpNaissance_Leave(object sender, EventArgs e)
+        {
+            int age = DateTime.Now.Year - dtpNaissance.Value.Year;
+            if (dtpNaissance.Value > DateTime.Today)
+            {
+                MessageBox.Show("Erreur, la date ne doit pas être antérieur à celle du jour !", "Erreur",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dtpNaissance.Value = DateTime.Today;
+                dtpNaissance.Focus();
+            }
+            if (age < 18)
+            {
+                MessageBox.Show("Erreur, l'inscrit ne peut pas avoir moins de 18 ans !", "Erreur",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dtpNaissance.Value = DateTime.Today;
+                dtpNaissance.Focus();
+            }
+        }
+
+        private void tbCredit_Leave(object sender, EventArgs e)
+        {
+            if (tbCredit.Text.ToString() != "")
+            {
+                if (int.Parse(tbCredit.Text.ToString()) <= 0 || int.Parse(tbCredit.Text.ToString()) >= 100000)
+                {
+                    MessageBox.Show("Erreur, la valeur doit être comprise entre 0 et 100 000", "Erreur",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tbCredit.Focus();
+                }
+            }
+        }
+
+        private void tbCredit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar < '0' || e.KeyChar > '9') && e.KeyChar != Convert.ToChar(Keys.Back))
+            {
+                MessageBox.Show("Erreur, vous devez saisir des entiers", "Erreur", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+                e.Handled = true; // efface le dernier caractère saisi
+            }
         }
     }
 }
