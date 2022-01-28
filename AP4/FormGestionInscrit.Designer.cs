@@ -416,6 +416,7 @@ namespace AP4
             this.btnAnnuler.TabIndex = 51;
             this.btnAnnuler.Text = "ANNULER";
             this.btnAnnuler.UseVisualStyleBackColor = true;
+            this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
             // 
             // btnModifierM
             // 

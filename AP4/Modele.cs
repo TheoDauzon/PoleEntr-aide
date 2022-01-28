@@ -52,17 +52,36 @@ namespace AP4
             try
             {
                 inscrit unInscrit = new inscrit();
-
-                //bool verifMdp = BCrypt.Net.BCrypt.Verify(mdp, unInscrit.MDPINSCRIT);
-                //unInscrit = maConnexion.inscrit.First(x => x.MAIL == mail && verifMdp == true);
-
-                unInscrit = maConnexion.inscrit.First(x => x.MAIL == mail && x.MDPINSCRIT == mdp);
-                return unInscrit;
+                //unInscrit = maConnexion.inscrit.First(x => x.MAIL == mail && x.MDPINSCRIT == mdp);
+                //return unInscrit;
+                unInscrit = RecupererMdp(mail);
+                if (BCrypt.Net.BCrypt.Verify(mdp, unInscrit.MDPINSCRIT))
+                {
+                    return unInscrit;
+                }
+                else
+                {
+                    return null;
+                }
             }
             catch
             {
                 return null;
             }
+        }
+
+        public static inscrit RecupererMdp(string mail)
+        {
+            inscrit unInscrit = new inscrit();
+            try
+            {
+                unInscrit = maConnexion.inscrit.First(x => x.MAIL == mail);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+            return unInscrit;
         }
 
         public static inscrit RecupererInscrit(int idInscrit)

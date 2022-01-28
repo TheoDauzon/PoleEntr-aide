@@ -116,11 +116,11 @@ namespace AP4
                 dtpNaissance.Value = dateNaiss;
                 tbAdresse.Text = adresse;
                 tbCredit.Text = credit.ToString();
-                if (admin == true)
+                if (admin == 1)
                 {
                     rbtnOui.Checked = true;
                 }
-                if (admin == false)
+                if (admin == 0)
                 {
                     rbtnNon.Checked = true;
                 }
@@ -149,6 +149,11 @@ namespace AP4
                     rbPeutPasToutFaire.Checked = true;
                 }
             }
+        }
+
+        private void btnAnnuler_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
