@@ -97,7 +97,7 @@ namespace AP4
         {
             if (tbTraiter.Text.ToString() != "")
             {
-                if (int.Parse(tbTraiter.Text.ToString()) < 0 || int.Parse(tbTraite.Text.ToString()) > 1)
+                if (int.Parse(tbTraiter.Text.ToString()) < 0 || int.Parse(tbTraiter.Text.ToString()) > 1)
                 {
                     MessageBox.Show("Erreur, la valeur doit être 0 ou 1", "Erreur",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);

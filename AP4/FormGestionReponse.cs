@@ -39,7 +39,8 @@ namespace AP4
                 int idService = Convert.ToInt32(tbService.Text);
                 DateTime dateReponse = dtpReponse.Value;
 
-                try {
+                try
+                {
                     bool v = Modele.ModifierReponse(idInscrit, idService, dateReponse);
 
                     MessageBox.Show("Modification effectuée");
@@ -95,7 +96,5 @@ namespace AP4
             }
         }
     }
-
-    }
-    }
 }
+
