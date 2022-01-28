@@ -67,7 +67,7 @@ namespace AP4
             this.dgvMessage.Name = "dgvMessage";
             this.dgvMessage.ReadOnly = true;
             this.dgvMessage.RowHeadersWidth = 51;
-            this.dgvMessage.Size = new System.Drawing.Size(1000, 300);
+            this.dgvMessage.Size = new System.Drawing.Size(796, 300);
             this.dgvMessage.TabIndex = 12;
             // 
             // btnRetourMenu
@@ -168,10 +168,10 @@ namespace AP4
             // btnRechercher
             // 
             this.btnRechercher.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRechercher.Location = new System.Drawing.Point(866, 124);
+            this.btnRechercher.Location = new System.Drawing.Point(663, 130);
             this.btnRechercher.Margin = new System.Windows.Forms.Padding(4);
             this.btnRechercher.Name = "btnRechercher";
-            this.btnRechercher.Size = new System.Drawing.Size(177, 38);
+            this.btnRechercher.Size = new System.Drawing.Size(176, 38);
             this.btnRechercher.TabIndex = 41;
             this.btnRechercher.Text = "RECHERCHER";
             this.btnRechercher.UseVisualStyleBackColor = true;
@@ -181,7 +181,7 @@ namespace AP4
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(804, 22);
+            this.pictureBox1.Location = new System.Drawing.Point(762, 15);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(251, 60);
@@ -192,7 +192,7 @@ namespace AP4
             // btnEnvoyer
             // 
             this.btnEnvoyer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEnvoyer.Location = new System.Drawing.Point(1362, 492);
+            this.btnEnvoyer.Location = new System.Drawing.Point(1166, 487);
             this.btnEnvoyer.Margin = new System.Windows.Forms.Padding(4);
             this.btnEnvoyer.Name = "btnEnvoyer";
             this.btnEnvoyer.Size = new System.Drawing.Size(155, 49);
@@ -204,7 +204,7 @@ namespace AP4
             // tbMail
             // 
             this.tbMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbMail.Location = new System.Drawing.Point(1202, 134);
+            this.tbMail.Location = new System.Drawing.Point(1006, 129);
             this.tbMail.Margin = new System.Windows.Forms.Padding(4);
             this.tbMail.Name = "tbMail";
             this.tbMail.Size = new System.Drawing.Size(458, 30);
@@ -213,7 +213,7 @@ namespace AP4
             // tbObjet
             // 
             this.tbObjet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbObjet.Location = new System.Drawing.Point(1202, 185);
+            this.tbObjet.Location = new System.Drawing.Point(1006, 180);
             this.tbObjet.Margin = new System.Windows.Forms.Padding(4);
             this.tbObjet.Name = "tbObjet";
             this.tbObjet.Size = new System.Drawing.Size(458, 30);
@@ -222,7 +222,7 @@ namespace AP4
             // tbCorps
             // 
             this.tbCorps.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbCorps.Location = new System.Drawing.Point(1202, 235);
+            this.tbCorps.Location = new System.Drawing.Point(1006, 230);
             this.tbCorps.Margin = new System.Windows.Forms.Padding(4);
             this.tbCorps.Multiline = true;
             this.tbCorps.Name = "tbCorps";
@@ -233,7 +233,7 @@ namespace AP4
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1124, 188);
+            this.label1.Location = new System.Drawing.Point(928, 183);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 25);
@@ -244,7 +244,7 @@ namespace AP4
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(1152, 137);
+            this.label2.Location = new System.Drawing.Point(956, 132);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 25);
@@ -255,7 +255,7 @@ namespace AP4
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(1051, 238);
+            this.label3.Location = new System.Drawing.Point(855, 233);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(143, 25);
@@ -266,7 +266,7 @@ namespace AP4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(1205, 55);
+            this.label4.Location = new System.Drawing.Point(1009, 50);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(395, 38);

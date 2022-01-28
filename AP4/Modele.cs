@@ -140,7 +140,7 @@ namespace AP4
             return unService;
         }
 
-        public static bool ModifierInscrit(int idI, string nom, string prenom, string mail, string mdp, string tel, DateTime date, string adresse, int credit,bool admin, int statut)
+        public static bool ModifierInscrit(int idI, string nom, string prenom, string mail, string mdp, string tel, DateTime date, string adresse, int credit,int admin, int statut)
         {
             bool vretour = true;
             try
@@ -154,7 +154,7 @@ namespace AP4
                 unInscrit.DATENAISSANCE = date.Date;
                 unInscrit.ADRESSE = adresse;
                 unInscrit.CREDIT = credit;
-                unInscrit.ADMIN = admin;
+                unInscrit.ADMIN = (short)admin;
                 unInscrit.STATUT = (short)statut;
                 maConnexion.SaveChanges();
             }
@@ -183,7 +183,7 @@ namespace AP4
             return vretour;
         }
 
-        public static bool AjoutInscrit(string nom, string prenom, string mail, string mdp, string tel, DateTime date, string adresse, int credit, bool admin, int statut)
+        public static bool AjoutInscrit(string nom, string prenom, string mail, string mdp, string tel, DateTime date, string adresse, int credit, int admin, int statut)
         {
             bool vretour = true;
             try
@@ -198,7 +198,7 @@ namespace AP4
                 unInscrit.DATENAISSANCE = date.Date;
                 unInscrit.ADRESSE = adresse;
                 unInscrit.CREDIT = credit;
-                unInscrit.ADMIN = admin;
+                unInscrit.ADMIN = (short)admin;
                 unInscrit.STATUT = (short)statut;
                 maConnexion.inscrit.Add(unInscrit);
                 maConnexion.SaveChanges();
@@ -274,7 +274,7 @@ namespace AP4
             }
             return vretour;
         }
-        public static bool ModifierService(int idService, string descriptif, string photo, DateTime dateReponse, int duree, int prix, bool realiser, int departement)
+        public static bool ModifierService(int idService, string descriptif, string photo, DateTime dateReponse, int duree, int prix, int realiser, int departement)
         {
             bool vretour = true;
             try

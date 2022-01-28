@@ -30,7 +30,7 @@ namespace AP4
         public int DUREEJOURS { get; set; }
         public int PRIX { get; set; }
         public System.DateTime DATEDEPOT { get; set; }
-        public bool REALISER { get; set; }
+        public int REALISER { get; set; }
     
         public virtual course course { get; set; }
         public virtual departement departement { get; set; }

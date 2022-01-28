@@ -12,6 +12,7 @@ namespace AP4
 {
     public partial class FormGestionMessage : Form
     {
+        ListeMessage LM;
         private int idMessage;
         private int idInscrit;
         private string libelle;
@@ -33,7 +34,12 @@ namespace AP4
                 int traite = Convert.ToInt32(tbTraite.Text);
 
                 if (Modele.ModifierMessage(idMessage, libelle, traite))
+                {
                     MessageBox.Show("Modification effectuée");
+                    LM = new ListeMessage();
+                    this.Close();
+                    LM.Show();
+                }
                 else
                     MessageBox.Show("Problème dans la modification");
             }
@@ -41,7 +47,9 @@ namespace AP4
 
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
+            LM = new ListeMessage();
             this.Close();
+            LM.Show();
         }
 
         private void FormGestionMessage_Load(object sender, EventArgs e)

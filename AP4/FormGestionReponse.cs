@@ -12,6 +12,7 @@ namespace AP4
 {
     public partial class FormGestionReponse : Form
     {
+        ListeReponse LR;
         private int idInscrit;
         private int idService;
         private DateTime dateReponse;
@@ -26,7 +27,9 @@ namespace AP4
 
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
+            LR = new ListeReponse();
             this.Close();
+            LR.Show();
         }
 
         private void btnModifierM_Click(object sender, EventArgs e)
@@ -40,6 +43,9 @@ namespace AP4
                     bool v = Modele.ModifierReponse(idInscrit, idService, dateReponse);
 
                     MessageBox.Show("Modification effectuée");
+                    LR = new ListeReponse();
+                    this.Close();
+                    LR.Show();
                 }
                 catch (Exception ex)
                 {

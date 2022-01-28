@@ -79,10 +79,11 @@ namespace AP4
             DateTime dateReponse = Modele.RecupererService(idService).DATEDEBUT;
             int duree = Modele.RecupererService(idService).DUREEJOURS;
             int prix = Modele.RecupererService(idService).PRIX;
-            bool realiser = Modele.RecupererService(idService).REALISER;
+            int realiser = Modele.RecupererService(idService).REALISER;
             int departement = Modele.RecupererService(idService).IDDEPARTEMENT;
 
             FGS = new FormGestionService(idService, descriptif, photo, dateReponse, duree, prix, realiser, departement);
+            this.Close();
             FGS.Show();
         }
     }

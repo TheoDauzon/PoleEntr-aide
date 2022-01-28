@@ -12,6 +12,7 @@ namespace AP4
 {
     public partial class FormGestionInscrit : Form
     {
+        ListeInscrit LI;
         private int idInscrit;
         private string nom;
         private string prenom;
@@ -21,9 +22,9 @@ namespace AP4
         private DateTime dateNaiss;
         private string adresse;
         private int credit;
-        private bool admin;
+        private int admin;
         private int statut;
-        public FormGestionInscrit(int idInscrit, string nom, string prenom, string mail, string mdp, string tel, DateTime dateNaiss, string adresse, int credit, bool admin, int statut)
+        public FormGestionInscrit(int idInscrit, string nom, string prenom, string mail, string mdp, string tel, DateTime dateNaiss, string adresse, int credit, int admin, int statut)
         {
             InitializeComponent();
             this.idInscrit = idInscrit;
@@ -37,11 +38,6 @@ namespace AP4
             this.credit = credit;
             this.admin = admin;
             this.statut = statut;
-        }
-
-        private void btnFermer_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void btnModifierM_Click(object sender, EventArgs e)
@@ -63,7 +59,9 @@ namespace AP4
                     if (Modele.AjoutInscrit(nom, prenom, mail, mdp, tel, dateNaiss, adresse, credit, admin, statut))
                     {
                         MessageBox.Show("Insertion de l'inscrit réussi");
-                        //dgvInscrit.Refresh();
+                        LI = new ListeInscrit();
+                        this.Close();
+                        LI.Show();
                     }
                 }
             }
@@ -84,7 +82,9 @@ namespace AP4
                     if (Modele.ModifierInscrit(idInscrit, nom, prenom, mail, mdp, tel, dateNaiss, adresse, credit, admin, statut))
                     {
                         MessageBox.Show("Modification de l'inscrit réussi");
-                        //dgvInscrit.Refresh();
+                        LI = new ListeInscrit();
+                        this.Close();
+                        LI.Show();
                     }
                 }
             }
@@ -153,7 +153,9 @@ namespace AP4
 
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
+            LI = new ListeInscrit();
             this.Close();
+            LI.Show();
         }
     }
 }

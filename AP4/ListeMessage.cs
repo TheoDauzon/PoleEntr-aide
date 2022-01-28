@@ -65,6 +65,7 @@ namespace AP4
             int traiter = Modele.RecupererMessage(idMessage).TRAITER;
 
             FGM = new FormGestionMessage(idMessage, idInscrit, libelle, traiter);
+                        this.Close();
             FGM.Show();
 
         }

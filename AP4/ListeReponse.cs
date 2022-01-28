@@ -70,6 +70,7 @@ namespace AP4
             DateTime dateReponse = Modele.RecupererReponse(idInscrit).DATEREP;
 
             FGR = new FormGestionReponse(idInscrit, idService, dateReponse);
+            this.Close();
             FGR.Show();
         }
     }

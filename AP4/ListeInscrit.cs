@@ -64,17 +64,18 @@ namespace AP4
             DateTime dateNaiss = Modele.RecupererInscrit(idInscrit).DATENAISSANCE;
             string adresse = Modele.RecupererInscrit(idInscrit).ADRESSE;
             int credit = (int)Modele.RecupererInscrit(idInscrit).CREDIT;
-            bool admin = Modele.RecupererInscrit(idInscrit).ADMIN;
+            int admin = Modele.RecupererInscrit(idInscrit).ADMIN;
             int statut = Modele.RecupererInscrit(idInscrit).STATUT;
 
             FGI = new FormGestionInscrit(idInscrit, nom, prenom, mail, mdp, tel, dateNaiss, adresse, credit, admin, statut);
+            this.Close();
             FGI.Show();
-            dgvInscrit.Refresh();
+            
         }
 
         private void btnAjouterInscrit_Click(object sender, EventArgs e)
         {
-            FGI = new FormGestionInscrit(-1, "", "", "", "", "", DateTime.Now, "", 100, false, 5);
+            FGI = new FormGestionInscrit(-1, "", "", "", "", "", DateTime.Now, "", 100, 0, 5);
             FGI.Show();
             dgvInscrit.Refresh();
         }

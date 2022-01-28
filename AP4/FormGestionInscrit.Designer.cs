@@ -421,10 +421,10 @@ namespace AP4
             // btnModifierM
             // 
             this.btnModifierM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModifierM.Location = new System.Drawing.Point(220, 384);
+            this.btnModifierM.Location = new System.Drawing.Point(183, 384);
             this.btnModifierM.Margin = new System.Windows.Forms.Padding(4);
             this.btnModifierM.Name = "btnModifierM";
-            this.btnModifierM.Size = new System.Drawing.Size(225, 49);
+            this.btnModifierM.Size = new System.Drawing.Size(263, 49);
             this.btnModifierM.TabIndex = 50;
             this.btnModifierM.Text = "MODIFIER/AJOUTER";
             this.btnModifierM.UseVisualStyleBackColor = true;

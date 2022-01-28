@@ -52,7 +52,7 @@
           <Property Name="DATENAISSANCE" Type="date" Nullable="false" />
           <Property Name="ADRESSE" Type="char" MaxLength="150" Nullable="false" />
           <Property Name="CREDIT" Type="int" />
-          <Property Name="ADMIN" Type="bool" Nullable="false" />
+          <Property Name="ADMIN" Type="int" Nullable="false" />
           <Property Name="STATUT" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="loisirs">
@@ -96,7 +96,7 @@
           <Property Name="DUREEJOURS" Type="int" Nullable="false" />
           <Property Name="PRIX" Type="int" Nullable="false" />
           <Property Name="DATEDEPOT" Type="date" Nullable="false" />
-          <Property Name="REALISER" Type="bool" Nullable="false" />
+          <Property Name="REALISER" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="tache_menagere">
           <Key>
@@ -543,7 +543,7 @@
           <Property Name="DATENAISSANCE" Type="DateTime" Nullable="false" />
           <Property Name="ADRESSE" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="CREDIT" Type="Int32" />
-          <Property Name="ADMIN" Type="Boolean" Nullable="false" />
+          <Property Name="ADMIN" Type="Int16" Nullable="false" />
           <Property Name="STATUT" Type="Int16" Nullable="false" />
           <NavigationProperty Name="message" Relationship="ap4Model.FK_MESSAGE_INSCRIT" FromRole="inscrit" ToRole="message" />
           <NavigationProperty Name="repondre" Relationship="ap4Model.FK_REPONDRE_INSCRIT" FromRole="inscrit" ToRole="repondre" />
@@ -605,7 +605,7 @@
           <NavigationProperty Name="type" Relationship="ap4Model.FK_SERVICE_TYPE" FromRole="service" ToRole="type" />
           <NavigationProperty Name="tache_menagere" Relationship="ap4Model.FK_TACHE_MENAGERE_SERVICE" FromRole="service" ToRole="tache_menagere" />
           <NavigationProperty Name="transport" Relationship="ap4Model.FK_TRANSPORT_SERVICE" FromRole="service" ToRole="transport" />
-          <Property Name="REALISER" Type="Boolean" Nullable="false" />
+          <Property Name="REALISER" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="tache_menagere">
           <Key>

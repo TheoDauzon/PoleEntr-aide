@@ -12,16 +12,17 @@ namespace AP4
 {
     public partial class FormGestionService : Form
     {
+        ListeService LS;
         private int idService;
         private string descriptif;
         private string photo;
         private DateTime dateReponse;
         private int duree;
         private int prix;
-        private bool realiser;
+        private int realiser;
         private int departement;
 
-        public FormGestionService(int idService, string descriptif, string photo, DateTime dateReponse, int duree, int prix, bool realiser, int departement)
+        public FormGestionService(int idService, string descriptif, string photo, DateTime dateReponse, int duree, int prix, int realiser, int departement)
         {
             InitializeComponent();
             this.idService = idService;
@@ -37,7 +38,9 @@ namespace AP4
 
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
+            LS = new ListeService();
             this.Close();
+            LS.Show();
         }
 
         private void FormGestionService_Load(object sender, EventArgs e)
@@ -63,7 +66,7 @@ namespace AP4
                 DateTime dateReponse = dtpReponse.Value;
                 int duree = Convert.ToInt32(tbDuree.Text);
                 int prix = Convert.ToInt32(tbPrix.Text);
-                bool realiser = Convert.ToBoolean(tbRealiser.Text);
+                int realiser = Convert.ToInt32(tbRealiser.Text);
                 int departement = (cbDepartement.SelectedIndex)+1;
 
                 try
@@ -71,6 +74,9 @@ namespace AP4
                     bool v = Modele.ModifierService(idService, descriptif, photo, dateReponse, duree, prix, realiser, departement);
 
                     MessageBox.Show("Modification effectuée");
+                    LS = new ListeService();
+                    this.Close();
+                    LS.Show();
                 }
                 catch (Exception ex)
                 {

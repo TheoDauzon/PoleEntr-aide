@@ -29,6 +29,7 @@ namespace AP4
             if (unInscrit != null)
             {
                 M = new Menu(unInscrit);
+                //this.Close();
                 M.Show();
                 tbMail.Text = "";
                 tbMdp.Text = "";

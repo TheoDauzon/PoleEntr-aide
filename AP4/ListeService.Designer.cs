@@ -113,10 +113,10 @@ namespace AP4
             // btnRechercher
             // 
             this.btnRechercher.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRechercher.Location = new System.Drawing.Point(856, 130);
+            this.btnRechercher.Location = new System.Drawing.Point(856, 139);
             this.btnRechercher.Margin = new System.Windows.Forms.Padding(4);
             this.btnRechercher.Name = "btnRechercher";
-            this.btnRechercher.Size = new System.Drawing.Size(177, 37);
+            this.btnRechercher.Size = new System.Drawing.Size(177, 30);
             this.btnRechercher.TabIndex = 35;
             this.btnRechercher.Text = "RECHERCHER";
             this.btnRechercher.UseVisualStyleBackColor = true;
