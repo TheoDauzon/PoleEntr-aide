@@ -16,6 +16,7 @@ namespace AP4
         ListeService LS;
         ListeReponse LR;
         ListeMessage LM;
+        ListeStatistique LST;
         readonly inscrit unInscrit;
         public Menu(inscrit unInscrit)
         {
@@ -57,6 +58,12 @@ namespace AP4
             lbNom.Text = unInscrit.NOMINSCRIT;
             lbPrenom.Text = unInscrit.PRENOMINSCRIT;
 
+        }
+
+        private void btnStat_Click(object sender, EventArgs e)
+        {
+            LST = new ListeStatistique();
+            LST.Show();
         }
     }
 }
