@@ -55,6 +55,7 @@ namespace AP4
             this.dtpReponse.Name = "dtpReponse";
             this.dtpReponse.Size = new System.Drawing.Size(330, 30);
             this.dtpReponse.TabIndex = 66;
+            this.dtpReponse.Leave += new System.EventHandler(this.dtpReponse_Leave);
             // 
             // btnAnnuler
             // 
@@ -116,7 +117,7 @@ namespace AP4
             // 
             this.lbTitre.AutoSize = true;
             this.lbTitre.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTitre.Location = new System.Drawing.Point(139, 57);
+            this.lbTitre.Location = new System.Drawing.Point(241, 42);
             this.lbTitre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbTitre.Name = "lbTitre";
             this.lbTitre.Size = new System.Drawing.Size(372, 38);
@@ -186,6 +187,8 @@ namespace AP4
             this.tbPrix.Name = "tbPrix";
             this.tbPrix.Size = new System.Drawing.Size(122, 30);
             this.tbPrix.TabIndex = 70;
+            this.tbPrix.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPrix_KeyPress);
+            this.tbPrix.Leave += new System.EventHandler(this.tbPrix_Leave);
             // 
             // tbDuree
             // 
@@ -196,6 +199,8 @@ namespace AP4
             this.tbDuree.Name = "tbDuree";
             this.tbDuree.Size = new System.Drawing.Size(116, 30);
             this.tbDuree.TabIndex = 72;
+            this.tbDuree.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbDuree_KeyPress);
+            this.tbDuree.Leave += new System.EventHandler(this.tbDuree_Leave);
             // 
             // lbDuree
             // 
@@ -217,6 +222,8 @@ namespace AP4
             this.tbRealiser.Name = "tbRealiser";
             this.tbRealiser.Size = new System.Drawing.Size(73, 30);
             this.tbRealiser.TabIndex = 74;
+            this.tbRealiser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbRealiser_KeyPress);
+            this.tbRealiser.Leave += new System.EventHandler(this.tbRealiser_Leave);
             // 
             // label1
             // 

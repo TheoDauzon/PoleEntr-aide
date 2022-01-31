@@ -30,7 +30,7 @@ namespace AP4
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListeService));
             this.btnRetourMenu = new System.Windows.Forms.Button();
             this.lbListeService = new System.Windows.Forms.Label();
@@ -93,14 +93,14 @@ namespace AP4
             // 
             this.dgvService.AllowUserToAddRows = false;
             this.dgvService.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvService.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvService.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvService.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvService.Location = new System.Drawing.Point(33, 196);
             this.dgvService.Margin = new System.Windows.Forms.Padding(4);
@@ -142,6 +142,8 @@ namespace AP4
             this.tbNumero.Name = "tbNumero";
             this.tbNumero.Size = new System.Drawing.Size(197, 30);
             this.tbNumero.TabIndex = 52;
+            this.tbNumero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNumero_KeyPress);
+            this.tbNumero.Leave += new System.EventHandler(this.tbNumero_Leave);
             // 
             // lbNumero
             // 
@@ -162,6 +164,8 @@ namespace AP4
             this.tbExecute.Name = "tbExecute";
             this.tbExecute.Size = new System.Drawing.Size(93, 30);
             this.tbExecute.TabIndex = 50;
+            this.tbExecute.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbExecute_KeyPress);
+            this.tbExecute.Leave += new System.EventHandler(this.tbExecute_Leave);
             // 
             // lbExecute
             // 
@@ -170,9 +174,9 @@ namespace AP4
             this.lbExecute.Location = new System.Drawing.Point(637, 142);
             this.lbExecute.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbExecute.Name = "lbExecute";
-            this.lbExecute.Size = new System.Drawing.Size(94, 25);
+            this.lbExecute.Size = new System.Drawing.Size(93, 25);
             this.lbExecute.TabIndex = 49;
-            this.lbExecute.Text = "Exécuté :";
+            this.lbExecute.Text = "Réaliser :";
             // 
             // tbDescriptif
             // 
@@ -212,9 +216,9 @@ namespace AP4
             this.lbDateReponse.Location = new System.Drawing.Point(28, 143);
             this.lbDateReponse.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbDateReponse.Name = "lbDateReponse";
-            this.lbDateReponse.Size = new System.Drawing.Size(150, 25);
+            this.lbDateReponse.Size = new System.Drawing.Size(145, 25);
             this.lbDateReponse.TabIndex = 53;
-            this.lbDateReponse.Text = "Date dépot  de :";
+            this.lbDateReponse.Text = "Date dépot de :";
             // 
             // mstDateServDeb
             // 
@@ -224,6 +228,8 @@ namespace AP4
             this.mstDateServDeb.Name = "mstDateServDeb";
             this.mstDateServDeb.Size = new System.Drawing.Size(156, 30);
             this.mstDateServDeb.TabIndex = 57;
+            this.mstDateServDeb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mstDateServDeb_KeyPress);
+            this.mstDateServDeb.Leave += new System.EventHandler(this.mstDateServDeb_Leave);
             // 
             // mstDateServFin
             // 
@@ -233,6 +239,8 @@ namespace AP4
             this.mstDateServFin.Name = "mstDateServFin";
             this.mstDateServFin.Size = new System.Drawing.Size(156, 30);
             this.mstDateServFin.TabIndex = 58;
+            this.mstDateServFin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mstDateServFin_KeyPress);
+            this.mstDateServFin.Leave += new System.EventHandler(this.mstDateServFin_Leave);
             // 
             // ListeService
             // 

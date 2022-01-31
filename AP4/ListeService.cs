@@ -86,5 +86,103 @@ namespace AP4
             this.Close();
             FGS.Show();
         }
+
+        private void tbNumero_Leave(object sender, EventArgs e)
+        {
+            if (tbNumero.Text.ToString() != "")
+            {
+                if (int.Parse(tbNumero.Text.ToString()) < 0)
+                {
+                    MessageBox.Show("Erreur, la valeur doit être strictement supérieur à 0", "Erreur",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tbNumero.Focus();
+                }
+            }
+        }
+
+        private void tbNumero_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar < '0' || e.KeyChar > '9') && e.KeyChar != Convert.ToChar(Keys.Back))
+            {
+                MessageBox.Show("Erreur, vous devez saisir des entiers", "Erreur", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+                e.Handled = true; // efface le dernier caractère saisi
+            }
+        }
+
+        private void tbExecute_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar < '0' || e.KeyChar > '9') && e.KeyChar != Convert.ToChar(Keys.Back))
+            {
+                MessageBox.Show("Erreur, vous devez saisir des entiers", "Erreur", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+                e.Handled = true; // efface le dernier caractère saisi
+            }
+        }
+
+        private void tbExecute_Leave(object sender, EventArgs e)
+        {
+            if (tbExecute.Text.ToString() != "")
+            {
+                if (int.Parse(tbExecute.Text.ToString()) < 0 || int.Parse(tbExecute.Text.ToString()) > 2)
+                {
+                    MessageBox.Show("Erreur, la valeur doit être 0 ou 1 ou bien 2", "Erreur",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tbExecute.Focus();
+                }
+            }
+        }
+
+        private void mstDateServDeb_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar < '0' || e.KeyChar > '9') && e.KeyChar != Convert.ToChar(Keys.Back))
+            {
+                MessageBox.Show("Erreur, vous devez saisir des entiers", "Erreur", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+                e.Handled = true; // efface le dernier caractère saisi
+            }
+        }
+
+        private void mstDateServFin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar < '0' || e.KeyChar > '9') && e.KeyChar != Convert.ToChar(Keys.Back))
+            {
+                MessageBox.Show("Erreur, vous devez saisir des entiers", "Erreur", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+                e.Handled = true; // efface le dernier caractère saisi
+            }
+        }
+
+        private void mstDateServFin_Leave(object sender, EventArgs e)
+        {
+            if (Convert.ToDateTime(mstDateServFin.Text) < Convert.ToDateTime(mstDateServDeb.Text))
+            {
+                MessageBox.Show("Erreur, la deuxième date ne doit pas être inférieur à la première date", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                mstDateServFin.Text = "";
+                mstDateServFin.Focus();
+            }
+            if (Convert.ToDateTime(mstDateServFin.Text) < DateTime.Today)
+            {
+                MessageBox.Show("Erreur, la date ne doit pas être antérieur à celle du jour", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                mstDateServFin.Text = "";
+                mstDateServFin.Focus();
+            }
+        }
+
+        private void mstDateServDeb_Leave(object sender, EventArgs e)
+        {
+            if (Convert.ToDateTime(mstDateServDeb.Text) > Convert.ToDateTime(mstDateServFin.Text))
+            {
+                MessageBox.Show("Erreur, la date ne doit pas être supérieur à la deuxième date", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                mstDateServDeb.Text = "";
+                mstDateServDeb.Focus();
+            }
+            if (Convert.ToDateTime(mstDateServDeb.Text) < DateTime.Today)
+            {
+                MessageBox.Show("Erreur, la date ne doit pas être antérieur à celle du jour", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                mstDateServDeb.Text = "";
+                mstDateServDeb.Focus();
+            }
+        }
     }
 }

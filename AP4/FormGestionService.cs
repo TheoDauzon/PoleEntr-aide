@@ -94,5 +94,85 @@ namespace AP4
                 tbDescriptif.Focus();
             }
         }
+
+        private void dtpReponse_Leave(object sender, EventArgs e)
+        {
+            if (dtpReponse.Value > DateTime.Today)
+            {
+                MessageBox.Show("Erreur, la date ne doit pas être antérieur à celle du jour !", "Erreur",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dtpReponse.Value = DateTime.Today;
+                dtpReponse.Focus();
+            }
+        }
+
+        private void tbDuree_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar < '0' || e.KeyChar > '9') && e.KeyChar != Convert.ToChar(Keys.Back))
+            {
+                MessageBox.Show("Erreur, vous devez saisir des entiers", "Erreur", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+                e.Handled = true; // efface le dernier caractère saisi
+            }
+        }
+
+        private void tbDuree_Leave(object sender, EventArgs e)
+        {
+            if (tbDuree.Text.ToString() != "")
+            {
+                if (int.Parse(tbDuree.Text.ToString()) < 0 || int.Parse(tbDuree.Text.ToString()) > 10)
+                {
+                    MessageBox.Show("Erreur, la valeur doit être comprise entre 0 et 10 inclus", "Erreur",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tbDuree.Focus();
+                }
+            }
+        }
+
+        private void tbPrix_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar < '0' || e.KeyChar > '9') && e.KeyChar != Convert.ToChar(Keys.Back))
+            {
+                MessageBox.Show("Erreur, vous devez saisir des entiers", "Erreur", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+                e.Handled = true; // efface le dernier caractère saisi
+            }
+        }
+
+        private void tbPrix_Leave(object sender, EventArgs e)
+        {
+            if (tbPrix.Text.ToString() != "")
+            {
+                if (int.Parse(tbPrix.Text.ToString()) < 0 || int.Parse(tbPrix.Text.ToString()) > 1000)
+                {
+                    MessageBox.Show("Erreur, la valeur doit être comprise entre 0 et 1000 inclus", "Erreur",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tbPrix.Focus();
+                }
+            }
+        }
+
+        private void tbRealiser_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar < '0' || e.KeyChar > '9') && e.KeyChar != Convert.ToChar(Keys.Back))
+            {
+                MessageBox.Show("Erreur, vous devez saisir des entiers", "Erreur", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+                e.Handled = true; // efface le dernier caractère saisi
+            }
+        }
+
+        private void tbRealiser_Leave(object sender, EventArgs e)
+        {
+            if (tbRealiser.Text.ToString() != "")
+            {
+                if (int.Parse(tbRealiser.Text.ToString()) < 0 || int.Parse(tbRealiser.Text.ToString()) > 2)
+                {
+                    MessageBox.Show("Erreur, la valeur doit être 0 ou 1 ou bien 2", "Erreur",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tbRealiser.Focus();
+                }
+            }
+        }
     }
 }
