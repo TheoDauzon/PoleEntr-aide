@@ -47,7 +47,7 @@
             // BtnGestionInscrits
             // 
             this.BtnGestionInscrits.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGestionInscrits.Location = new System.Drawing.Point(177, 311);
+            this.BtnGestionInscrits.Location = new System.Drawing.Point(750, 176);
             this.BtnGestionInscrits.Margin = new System.Windows.Forms.Padding(4);
             this.BtnGestionInscrits.Name = "BtnGestionInscrits";
             this.BtnGestionInscrits.Size = new System.Drawing.Size(269, 95);
@@ -59,7 +59,7 @@
             // BtnGestionServices
             // 
             this.BtnGestionServices.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGestionServices.Location = new System.Drawing.Point(177, 176);
+            this.BtnGestionServices.Location = new System.Drawing.Point(54, 176);
             this.BtnGestionServices.Margin = new System.Windows.Forms.Padding(4);
             this.BtnGestionServices.Name = "BtnGestionServices";
             this.BtnGestionServices.Size = new System.Drawing.Size(269, 95);
@@ -71,7 +71,7 @@
             // BtnGestionReponses
             // 
             this.BtnGestionReponses.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGestionReponses.Location = new System.Drawing.Point(663, 176);
+            this.BtnGestionReponses.Location = new System.Drawing.Point(406, 176);
             this.BtnGestionReponses.Margin = new System.Windows.Forms.Padding(4);
             this.BtnGestionReponses.Name = "BtnGestionReponses";
             this.BtnGestionReponses.Size = new System.Drawing.Size(269, 95);
@@ -94,7 +94,7 @@
             // BtnGestionMessages
             // 
             this.BtnGestionMessages.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGestionMessages.Location = new System.Drawing.Point(663, 311);
+            this.BtnGestionMessages.Location = new System.Drawing.Point(221, 312);
             this.BtnGestionMessages.Margin = new System.Windows.Forms.Padding(4);
             this.BtnGestionMessages.Name = "BtnGestionMessages";
             this.BtnGestionMessages.Size = new System.Drawing.Size(269, 95);
@@ -174,7 +174,7 @@
             // btnStat
             // 
             this.btnStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStat.Location = new System.Drawing.Point(177, 439);
+            this.btnStat.Location = new System.Drawing.Point(582, 312);
             this.btnStat.Margin = new System.Windows.Forms.Padding(4);
             this.btnStat.Name = "btnStat";
             this.btnStat.Size = new System.Drawing.Size(269, 95);
