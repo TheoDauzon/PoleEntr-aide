@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace AP4
 {
-    public partial class StatNbRep : Form
+    public partial class StatNbMessage : Form
     {
-        public StatNbRep()
+        public StatNbMessage()
         {
             InitializeComponent();
         }
@@ -22,16 +22,16 @@ namespace AP4
             this.Close();
         }
 
-        private void StatNbRep_Load(object sender, EventArgs e)
+        private void StatNbMessage_Load(object sender, EventArgs e)
         {
             // titre
-            chart1.Titles.Add("titre1").Text = "Nombre de réponses total pour tout les services publié sur la plateforme au cours du temps";
+            chart1.Titles.Add("titre1").Text = "Nombre de messages d'aide moyen envoyé par les inscrits au cours du temps";
             chart1.Titles[0].Font = new Font("Microsoft Sans Serif", 15, FontStyle.Bold);
 
-            int nbRep = Modele.ListeReponse().Count;
+            int nbMessage = Modele.ListeMessage().Count;
 
             // série
-            chart1.Series[0].Points.AddXY(DateTime.Now, nbRep);
+            chart1.Series[0].Points.AddXY(DateTime.Now, nbMessage);
 
         }
     }

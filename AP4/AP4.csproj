@@ -179,6 +179,12 @@
     <Compile Include="StatNbInscrit.Designer.cs">
       <DependentUpon>StatNbInscrit.cs</DependentUpon>
     </Compile>
+    <Compile Include="StatNbMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StatNbMessage.Designer.cs">
+      <DependentUpon>StatNbMessage.cs</DependentUpon>
+    </Compile>
     <Compile Include="StatNbRep.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -257,6 +263,18 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="StatNbInscrit.resx">
+      <DependentUpon>StatNbInscrit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StatNbMessage.resx">
+      <DependentUpon>StatNbMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StatNbRep.resx">
+      <DependentUpon>StatNbRep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StatNbService.resx">
+      <DependentUpon>StatNbService.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StatServiceTheme.resx">
       <DependentUpon>StatServiceTheme.cs</DependentUpon>
     </EmbeddedResource>

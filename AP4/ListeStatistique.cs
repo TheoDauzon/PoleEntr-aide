@@ -16,6 +16,7 @@ namespace AP4
         StatNbInscrit SNI;
         StatNbRep SNR;
         StatNbService SNP;
+        StatNbMessage SNM;
         public ListeStatistique()
         {
             InitializeComponent(); 
@@ -48,6 +49,12 @@ namespace AP4
         {
             SNP = new StatNbService();
             SNP.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SNM = new StatNbMessage();
+            SNM.Show();
         }
     }
 }
