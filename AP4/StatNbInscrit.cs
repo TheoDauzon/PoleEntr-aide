@@ -17,6 +17,7 @@ namespace AP4
             InitializeComponent();
         }
 
+        int nbInscrit = Modele.ListeInscrit().Count;
         private void BtnServiceTheme_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -25,13 +26,23 @@ namespace AP4
         private void StatNbInscrit_Load(object sender, EventArgs e)
         {
             // titre
-            chart1.Titles.Add("titre1").Text = "Nombre d'inscrit à la plateforme au cours du temps";
+            chart1.Titles.Add("titre1").Text = "Nombre d'inscrits à la plateforme au cours du temps";
             chart1.Titles[0].Font = new Font("Microsoft Sans Serif", 15, FontStyle.Bold);
 
+            // récupération du nombre d'inscrits
             int nbInscrit = Modele.ListeInscrit().Count;
-            
+
             // série
             chart1.Series[0].Points.AddXY(DateTime.Now, nbInscrit);
+
+            // récupération de la date du dernier ajout dans le graphique
+            DateTime dateDernierGraphique = Convert.ToDateTime(chart1.Series[0].Points.Last().XValue.ToString());
+
+            label1.Text = dateDernierGraphique.ToString();
+            if (DateTime.Now.Day - dateDernierGraphique.Day >= 7)
+            {
+                chart1.Series[0].Points.AddXY(DateTime.Today, nbInscrit);
+            }
 
         }
     }
