@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,15 +34,15 @@ namespace AP4
             int nbInscrit = Modele.ListeInscrit().Count;
 
             // série
-            chart1.Series[0].Points.AddXY(DateTime.Now, nbInscrit);
+            chart1.Series[0].Points.AddXY("24-01-2022", nbInscrit);
 
             // récupération de la date du dernier ajout dans le graphique
-            DateTime dateDernierGraphique = Convert.ToDateTime(chart1.Series[0].Points.Last().XValue.ToString());
+            DateTime dateDernierGraphique = Convert.ToDateTime(chart1.Series[0].Points.Last().AxisLabel);
+            label1.Text = dateDernierGraphique.ToString("dd-MM-yyyy");
 
-            label1.Text = dateDernierGraphique.ToString();
-            if (DateTime.Now.Day - dateDernierGraphique.Day >= 7)
+            if (DateTime.Now.Day - dateDernierGraphique.Day <= 7)
             {
-                chart1.Series[0].Points.AddXY(DateTime.Today, nbInscrit);
+                chart1.Series[0].Points.AddXY(DateTime.Now.ToString("dd-MM-yyyy"), nbInscrit);
             }
 
         }
