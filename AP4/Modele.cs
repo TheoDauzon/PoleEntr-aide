@@ -11,11 +11,12 @@ namespace AP4
 {
     public static class Modele
     {
-        private static ap4Entities maConnexion;
+        public static ap4Entities maConnexion;
         private static inscrit unInscrit;
         private static message unMessage;
         private static repondre uneReponse;
         private static service unService;
+        private static nbInscritsTemps unInscritTemps;
 
         public static inscrit UnInscrit { get => UnInscrit; set => UnInscrit = value; }
         public static void Init()
@@ -45,6 +46,11 @@ namespace AP4
         public static List<message> ListeMessage()
         {
             return maConnexion.message.ToList();
+        }
+
+        public static List<nbInscritsTemps> ListeInscritsTemps()
+        {
+            return maConnexion.nbInscritsTemps.ToList();
         }
 
         public static inscrit VerifInscrit(string mail, string mdp)
@@ -179,6 +185,25 @@ namespace AP4
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message + " " + ex.InnerException.InnerException.Message);
                 vretour = false;
+            }
+            return vretour;
+        }
+
+        public static bool InscritTemps(string date, int nbInscrit)
+        {
+            bool vretour = true;
+            try
+            {
+                unInscritTemps = new nbInscritsTemps();
+                unInscritTemps.DATENB = Convert.ToDateTime(date);
+                unInscritTemps.NBINSCRITSTEMPS1 = nbInscrit;
+                maConnexion.nbInscritsTemps.Add(unInscritTemps);
+                maConnexion.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                vretour = false;
+                MessageBox.Show(ex.Message.ToString());
             }
             return vretour;
         }

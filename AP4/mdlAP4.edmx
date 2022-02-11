@@ -72,6 +72,13 @@
           <Property Name="LIBELLEMESSAGE" Type="varchar" MaxLength="500" Nullable="false" />
           <Property Name="TRAITER" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="nbInscritsTemps">
+          <Key>
+            <PropertyRef Name="DATENB" />
+          </Key>
+          <Property Name="DATENB" Type="date" Nullable="false" />
+          <Property Name="NBINSCRITSTEMPS" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="repondre">
           <Key>
             <PropertyRef Name="IDINSCRIT" />
@@ -347,6 +354,7 @@
           <EntitySet Name="inscrit" EntityType="Self.inscrit" Schema="ap4" store:Type="Tables" />
           <EntitySet Name="loisirs" EntityType="Self.loisirs" Schema="ap4" store:Type="Tables" />
           <EntitySet Name="message" EntityType="Self.message" Schema="ap4" store:Type="Tables" />
+          <EntitySet Name="nbInscritsTemps" EntityType="Self.nbInscritsTemps" Schema="ap4" store:Type="Tables" />
           <EntitySet Name="repondre" EntityType="Self.repondre" Schema="ap4" store:Type="Tables" />
           <EntitySet Name="service" EntityType="Self.service" Schema="ap4" store:Type="Tables" />
           <EntitySet Name="tache_menagere" EntityType="Self.tache_menagere" Schema="ap4" store:Type="Tables" />
@@ -499,6 +507,7 @@
             <End Role="inscrit" EntitySet="inscrit" />
             <End Role="type" EntitySet="type" />
           </AssociationSet>
+          <EntitySet Name="nbInscritsTemps" EntityType="ap4Model.nbInscritsTemps" />
         </EntityContainer>
         <EntityType Name="course">
           <Key>
@@ -836,6 +845,13 @@
           <End Type="ap4Model.inscrit" Role="inscrit" Multiplicity="*" />
           <End Type="ap4Model.type" Role="type" Multiplicity="*" />
         </Association>
+        <EntityType Name="nbInscritsTemps">
+          <Key>
+            <PropertyRef Name="DATENB" />
+          </Key>
+          <Property Name="DATENB" Type="DateTime" Nullable="false" />
+          <Property Name="NBINSCRITSTEMPS1" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -996,6 +1012,14 @@
               <ScalarProperty Name="IDINSCRIT" ColumnName="IDINSCRIT" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="nbInscritsTemps">
+            <EntityTypeMapping TypeName="ap4Model.nbInscritsTemps">
+              <MappingFragment StoreEntitySet="nbInscritsTemps">
+                <ScalarProperty Name="DATENB" ColumnName="DATENB" />
+                <ScalarProperty Name="NBINSCRITSTEMPS1" ColumnName="NBINSCRITSTEMPS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

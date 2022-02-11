@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="80e130bd50a049e2b09d2695b19bb5a2" Name="Diagram1">
+      <Diagram DiagramId="80e130bd50a049e2b09d2695b19bb5a2" Name="Diagram1" ZoomLevel="64">
         <EntityTypeShape EntityType="ap4Model.course" Width="1.5" PointX="7.5" PointY="16" />
         <EntityTypeShape EntityType="ap4Model.departement" Width="1.5" PointX="3" PointY="16.125" />
         <EntityTypeShape EntityType="ap4Model.formation" Width="1.5" PointX="7.5" PointY="21.5" />
@@ -34,6 +34,7 @@
         <AssociationConnector Association="ap4Model.FK_TRANSPORT_SERVICE" />
         <AssociationConnector Association="ap4Model.FK_TACHE_MENAGERE_TYPE_TACHE_MENAGERE" />
         <AssociationConnector Association="ap4Model.illustrer" />
+        <EntityTypeShape EntityType="ap4Model.nbInscritsTemps" Width="1.5" PointX="4.375" PointY="9.125" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
