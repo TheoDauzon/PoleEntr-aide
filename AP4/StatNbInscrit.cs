@@ -19,9 +19,6 @@ namespace AP4
             InitializeComponent();
         }
 
-        int nbInscrit = Modele.ListeInscrit().Count;
-        private DbSet<nbInscritsTemps> lesInscritsTemps;
-
         private void BtnServiceTheme_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -37,22 +34,18 @@ namespace AP4
             int nbInscrit = Modele.ListeInscrit().Count;
 
             // série
-            chart1.Series[0].Points.AddXY("24-01-2022", nbInscrit);
-            int nbInscrittemps = Modele.maConnexion.nbInscritsTemps.Count(); // retourne 1 (nombre d'enregistrement en base dans la table)
-            label1.Text = nbInscrittemps.ToString(); //affiche 1
-
-            for (int i = 0; i <= Modele.maConnexion.nbInscritsTemps.Count(); i++)
+            for (int i = 0; i < Modele.maConnexion.nbInscritsTemps.Count(); i++)
             {
-                chart1.Series[0].Points.AddXY(,);
+                chart1.Series[0].Points.AddXY(Modele.ListeInscritsTemps()[i].DATENB.ToString("dd-MM-yyyy"), Modele.ListeInscritsTemps()[i].NBINSCRITSTEMPS1);
             }
 
             // récupération de la date du dernier ajout dans le graphique
             DateTime dateDernierGraphique = Convert.ToDateTime(chart1.Series[0].Points.Last().AxisLabel);
 
-            if (DateTime.Now.Day - dateDernierGraphique.Day <= 7)
+            if (DateTime.Now.Day - dateDernierGraphique.Day >= 7)
             {
                 Modele.InscritTemps(DateTime.Now.ToString("dd-MM-yyyy"), nbInscrit);
-                //chart1.Series[0].Points.AddXY(DateTime.Now.ToString("dd-MM-yyyy"), nbInscrit);
+                chart1.Series[0].Points.AddXY(DateTime.Now.ToString("dd-MM-yyyy"), nbInscrit);
             }
         }
     }
