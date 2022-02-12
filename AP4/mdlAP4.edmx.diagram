@@ -34,7 +34,10 @@
         <AssociationConnector Association="ap4Model.FK_TRANSPORT_SERVICE" />
         <AssociationConnector Association="ap4Model.FK_TACHE_MENAGERE_TYPE_TACHE_MENAGERE" />
         <AssociationConnector Association="ap4Model.illustrer" />
-        <EntityTypeShape EntityType="ap4Model.nbInscritsTemps" Width="1.5" PointX="4.375" PointY="9.125" />
+        <EntityTypeShape EntityType="ap4Model.nbInscritsTemps" Width="1.5" PointX="0.75" PointY="8.375" />
+        <EntityTypeShape EntityType="ap4Model.nbMessagesTemps" Width="1.5" PointX="3" PointY="8.375" />
+        <EntityTypeShape EntityType="ap4Model.nbReponsesTemps" Width="1.5" PointX="5.375" PointY="8.375" />
+        <EntityTypeShape EntityType="ap4Model.nbServicesTemps" Width="1.5" PointX="7.375" PointY="8.375" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

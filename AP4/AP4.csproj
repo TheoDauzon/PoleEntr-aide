@@ -168,6 +168,15 @@
     <Compile Include="nbInscritsTemps.cs">
       <DependentUpon>mdlAP4.tt</DependentUpon>
     </Compile>
+    <Compile Include="nbMessagesTemps.cs">
+      <DependentUpon>mdlAP4.tt</DependentUpon>
+    </Compile>
+    <Compile Include="nbReponsesTemps.cs">
+      <DependentUpon>mdlAP4.tt</DependentUpon>
+    </Compile>
+    <Compile Include="nbServicesTemps.cs">
+      <DependentUpon>mdlAP4.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="repondre.cs">

@@ -29,9 +29,22 @@ namespace AP4
             chart1.Titles[0].Font = new Font("Microsoft Sans Serif", 15, FontStyle.Bold);
 
             int nbMessage = Modele.ListeMessage().Count;
+            int nbInscrit = Modele.ListeInscrit().Count;
 
             // série
-            chart1.Series[0].Points.AddXY(DateTime.Now, nbMessage);
+            for (int i = 0; i < Modele.maConnexion.nbMessagesTemps.Count(); i++)
+            {
+                chart1.Series[0].Points.AddXY(Modele.ListeMessagesTemps()[i].DATENB.ToString("dd-MM-yyyy"), Modele.ListeMessagesTemps()[i].NBMESSAGESTEMPS1);
+            }
+
+            // récupération de la date du dernier ajout dans le graphique
+            DateTime dateDernierGraphique = Convert.ToDateTime(chart1.Series[0].Points.Last().AxisLabel);
+
+            if (DateTime.Now.Day - dateDernierGraphique.Day >= 7)
+            {
+                Modele.MessageTemps(DateTime.Now.ToString("dd-MM-yyyy"), ((double)nbMessage /nbInscrit));
+                chart1.Series[0].Points.AddXY(DateTime.Now.ToString("dd-MM-yyyy"), ((double)nbMessage /nbInscrit));
+            }
 
         }
     }

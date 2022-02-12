@@ -17,6 +17,9 @@ namespace AP4
         private static repondre uneReponse;
         private static service unService;
         private static nbInscritsTemps unInscritTemps;
+        private static nbMessagesTemps unMessageTemps;
+        private static nbReponsesTemps unReponseTemps;
+        private static nbServicesTemps unServiceTemps;
 
         public static inscrit UnInscrit { get => UnInscrit; set => UnInscrit = value; }
         public static void Init()
@@ -51,6 +54,21 @@ namespace AP4
         public static List<nbInscritsTemps> ListeInscritsTemps()
         {
             return maConnexion.nbInscritsTemps.ToList();
+        }
+
+        public static List<nbMessagesTemps> ListeMessagesTemps()
+        {
+            return maConnexion.nbMessagesTemps.ToList();
+        }
+
+        public static List<nbReponsesTemps> ListeReponsesTemps()
+        {
+            return maConnexion.nbReponsesTemps.ToList();
+        }
+
+        public static List<nbServicesTemps> ListeServicesTemps()
+        {
+            return maConnexion.nbServicesTemps.ToList();
         }
 
         public static inscrit VerifInscrit(string mail, string mdp)
@@ -171,7 +189,6 @@ namespace AP4
             return vretour;
         }
 
-
         public static bool SuppInscrit(int idI)
         {
             bool vretour = true;
@@ -198,6 +215,63 @@ namespace AP4
                 unInscritTemps.DATENB = Convert.ToDateTime(date);
                 unInscritTemps.NBINSCRITSTEMPS1 = nbInscrit;
                 maConnexion.nbInscritsTemps.Add(unInscritTemps);
+                maConnexion.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                vretour = false;
+                MessageBox.Show(ex.Message.ToString());
+            }
+            return vretour;
+        }
+
+        public static bool MessageTemps(string date, double nbMessage)
+        {
+            bool vretour = true;
+            try
+            {
+                unMessageTemps = new nbMessagesTemps();
+                unMessageTemps.DATENB = Convert.ToDateTime(date);
+                unMessageTemps.NBMESSAGESTEMPS1 = nbMessage;
+                maConnexion.nbMessagesTemps.Add(unMessageTemps);
+                maConnexion.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                vretour = false;
+                MessageBox.Show(ex.Message.ToString());
+            }
+            return vretour;
+        }
+
+        public static bool ReponseTemps(string date, int nbReponse)
+        {
+            bool vretour = true;
+            try
+            {
+                unReponseTemps = new nbReponsesTemps();
+                unReponseTemps.DATENB = Convert.ToDateTime(date);
+                unReponseTemps.NBREPONSESTEMPS1 = nbReponse;
+                maConnexion.nbReponsesTemps.Add(unReponseTemps);
+                maConnexion.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                vretour = false;
+                MessageBox.Show(ex.Message.ToString());
+            }
+            return vretour;
+        }
+
+        public static bool ServiceTemps(string date, int nbService)
+        {
+            bool vretour = true;
+            try
+            {
+                unServiceTemps = new nbServicesTemps();
+                unServiceTemps.DATENB = Convert.ToDateTime(date);
+                unServiceTemps.NBSERVICESTEMPS1 = nbService;
+                maConnexion.nbServicesTemps.Add(unServiceTemps);
                 maConnexion.SaveChanges();
             }
             catch (Exception ex)

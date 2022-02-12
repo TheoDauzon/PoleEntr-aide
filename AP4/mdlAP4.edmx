@@ -79,6 +79,27 @@
           <Property Name="DATENB" Type="date" Nullable="false" />
           <Property Name="NBINSCRITSTEMPS" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="nbMessagesTemps">
+          <Key>
+            <PropertyRef Name="DATENB" />
+          </Key>
+          <Property Name="DATENB" Type="date" Nullable="false" />
+          <Property Name="NBMESSAGESTEMPS" Type="double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="nbReponsesTemps">
+          <Key>
+            <PropertyRef Name="DATENB" />
+          </Key>
+          <Property Name="DATENB" Type="date" Nullable="false" />
+          <Property Name="NBREPONSESTEMPS" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="nbServicesTemps">
+          <Key>
+            <PropertyRef Name="DATENB" />
+          </Key>
+          <Property Name="DATENB" Type="date" Nullable="false" />
+          <Property Name="NBSERVICESTEMPS" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="repondre">
           <Key>
             <PropertyRef Name="IDINSCRIT" />
@@ -355,6 +376,9 @@
           <EntitySet Name="loisirs" EntityType="Self.loisirs" Schema="ap4" store:Type="Tables" />
           <EntitySet Name="message" EntityType="Self.message" Schema="ap4" store:Type="Tables" />
           <EntitySet Name="nbInscritsTemps" EntityType="Self.nbInscritsTemps" Schema="ap4" store:Type="Tables" />
+          <EntitySet Name="nbMessagesTemps" EntityType="Self.nbMessagesTemps" Schema="ap4" store:Type="Tables" />
+          <EntitySet Name="nbReponsesTemps" EntityType="Self.nbReponsesTemps" Schema="ap4" store:Type="Tables" />
+          <EntitySet Name="nbServicesTemps" EntityType="Self.nbServicesTemps" Schema="ap4" store:Type="Tables" />
           <EntitySet Name="repondre" EntityType="Self.repondre" Schema="ap4" store:Type="Tables" />
           <EntitySet Name="service" EntityType="Self.service" Schema="ap4" store:Type="Tables" />
           <EntitySet Name="tache_menagere" EntityType="Self.tache_menagere" Schema="ap4" store:Type="Tables" />
@@ -508,6 +532,9 @@
             <End Role="type" EntitySet="type" />
           </AssociationSet>
           <EntitySet Name="nbInscritsTemps" EntityType="ap4Model.nbInscritsTemps" />
+          <EntitySet Name="nbMessagesTemps" EntityType="ap4Model.nbMessagesTemps" />
+          <EntitySet Name="nbReponsesTemps" EntityType="ap4Model.nbReponsesTemps" />
+          <EntitySet Name="nbServicesTemps" EntityType="ap4Model.nbServicesTemps" />
         </EntityContainer>
         <EntityType Name="course">
           <Key>
@@ -852,6 +879,27 @@
           <Property Name="DATENB" Type="DateTime" Nullable="false" />
           <Property Name="NBINSCRITSTEMPS1" Type="Int32" Nullable="false" />
         </EntityType>
+        <EntityType Name="nbMessagesTemps">
+          <Key>
+            <PropertyRef Name="DATENB" />
+          </Key>
+          <Property Name="DATENB" Type="DateTime" Nullable="false" />
+          <Property Name="NBMESSAGESTEMPS1" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="nbReponsesTemps">
+          <Key>
+            <PropertyRef Name="DATENB" />
+          </Key>
+          <Property Name="DATENB" Type="DateTime" Nullable="false" />
+          <Property Name="NBREPONSESTEMPS1" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="nbServicesTemps">
+          <Key>
+            <PropertyRef Name="DATENB" />
+          </Key>
+          <Property Name="DATENB" Type="DateTime" Nullable="false" />
+          <Property Name="NBSERVICESTEMPS1" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1017,6 +1065,30 @@
               <MappingFragment StoreEntitySet="nbInscritsTemps">
                 <ScalarProperty Name="DATENB" ColumnName="DATENB" />
                 <ScalarProperty Name="NBINSCRITSTEMPS1" ColumnName="NBINSCRITSTEMPS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="nbMessagesTemps">
+            <EntityTypeMapping TypeName="ap4Model.nbMessagesTemps">
+              <MappingFragment StoreEntitySet="nbMessagesTemps">
+                <ScalarProperty Name="NBMESSAGESTEMPS1" ColumnName="NBMESSAGESTEMPS" />
+                <ScalarProperty Name="DATENB" ColumnName="DATENB" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="nbReponsesTemps">
+            <EntityTypeMapping TypeName="ap4Model.nbReponsesTemps">
+              <MappingFragment StoreEntitySet="nbReponsesTemps">
+                <ScalarProperty Name="NBREPONSESTEMPS1" ColumnName="NBREPONSESTEMPS" />
+                <ScalarProperty Name="DATENB" ColumnName="DATENB" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="nbServicesTemps">
+            <EntityTypeMapping TypeName="ap4Model.nbServicesTemps">
+              <MappingFragment StoreEntitySet="nbServicesTemps">
+                <ScalarProperty Name="NBSERVICESTEMPS1" ColumnName="NBSERVICESTEMPS" />
+                <ScalarProperty Name="DATENB" ColumnName="DATENB" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
