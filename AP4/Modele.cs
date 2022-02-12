@@ -31,6 +31,28 @@ namespace AP4
             return maConnexion.inscrit.ToList();
         }
 
+        public static List<transport> ListeTransport()
+        {
+            return maConnexion.transport.ToList();
+        }
+        public static List<formation> ListeFormation()
+        {
+            return maConnexion.formation.ToList();
+        }
+
+        public static List<course> ListeCourse()
+        {
+            return maConnexion.course.ToList();
+        }
+        public static List<loisirs> ListeLoisirs()
+        {
+            return maConnexion.loisirs.ToList();
+        }
+        public static List<tache_menagere> ListeTache_Menagere()
+        {
+            return maConnexion.tache_menagere.ToList();
+        }
+
         public static List<departement> ListeDepartement()
         {
             return maConnexion.departement.ToList();
