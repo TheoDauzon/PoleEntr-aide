@@ -20,7 +20,7 @@ namespace AP4
         private void StatServiceTheme_Load(object sender, EventArgs e)
         {
             // titre
-            chart1.Titles.Add("titre1").Text = "Services les plus proposés par thème";
+            chart1.Titles.Add("titre1").Text = "Services les plus proposés par thème en pourcentage";
             chart1.Titles[0].Font = new Font("Microsoft Sans Serif", 15, FontStyle.Bold);
 
             int nbService = Modele.ListeService().Count;

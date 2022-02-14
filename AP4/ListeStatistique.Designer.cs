@@ -86,7 +86,7 @@ namespace AP4
             this.BtnNbRepTheme.Name = "BtnNbRepTheme";
             this.BtnNbRepTheme.Size = new System.Drawing.Size(269, 95);
             this.BtnNbRepTheme.TabIndex = 51;
-            this.BtnNbRepTheme.Text = "NOMBRE DE REPONSES AUX SERVICES";
+            this.BtnNbRepTheme.Text = "NOMBRE DE RÉPONSES AUX SERVICES";
             this.BtnNbRepTheme.UseVisualStyleBackColor = true;
             this.BtnNbRepTheme.Click += new System.EventHandler(this.BtnNbRepTheme_Click);
             // 
@@ -110,7 +110,7 @@ namespace AP4
             this.BtnServiceTheme.Name = "BtnServiceTheme";
             this.BtnServiceTheme.Size = new System.Drawing.Size(269, 95);
             this.BtnServiceTheme.TabIndex = 49;
-            this.BtnServiceTheme.Text = "NOMBRE DE SERVICES PAR THEME";
+            this.BtnServiceTheme.Text = "NOMBRE DE SERVICES PAR THÈME";
             this.BtnServiceTheme.UseVisualStyleBackColor = true;
             this.BtnServiceTheme.Click += new System.EventHandler(this.BtnServiceTheme_Click);
             // 

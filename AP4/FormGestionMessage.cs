@@ -32,16 +32,22 @@ namespace AP4
             {
                 string libelle = tbLibelle.Text;
                 int traite = Convert.ToInt32(tbTraite.Text);
-
-                if (Modele.ModifierMessage(idMessage, libelle, traite))
+                if (tbLibelle.Text == "" || tbTraite.Text == "")
                 {
-                    MessageBox.Show("Modification effectuée");
-                    LM = new ListeMessage();
-                    this.Close();
-                    LM.Show();
+                    MessageBox.Show("Un champs ne peut pas être vide !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
-                    MessageBox.Show("Problème dans la modification");
+                {
+                    if (Modele.ModifierMessage(idMessage, libelle, traite))
+                    {
+                        MessageBox.Show("Modification effectuée");
+                        LM = new ListeMessage();
+                        this.Close();
+                        LM.Show();
+                    }
+                    else
+                        MessageBox.Show("Problème dans la modification");
+                }
             }
         }
 

@@ -131,7 +131,6 @@ namespace AP4
             this.tbDescriptif.Margin = new System.Windows.Forms.Padding(4);
             this.tbDescriptif.Multiline = true;
             this.tbDescriptif.Name = "tbDescriptif";
-            this.tbDescriptif.ReadOnly = true;
             this.tbDescriptif.Size = new System.Drawing.Size(521, 78);
             this.tbDescriptif.TabIndex = 59;
             // 

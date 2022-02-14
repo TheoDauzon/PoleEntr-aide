@@ -77,7 +77,7 @@
             // 
             this.tbMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbMail.Location = new System.Drawing.Point(412, 187);
-            this.tbMail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbMail.Margin = new System.Windows.Forms.Padding(4);
             this.tbMail.Name = "tbMail";
             this.tbMail.Size = new System.Drawing.Size(445, 46);
             this.tbMail.TabIndex = 3;
@@ -86,7 +86,7 @@
             // 
             this.tbMdp.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbMdp.Location = new System.Drawing.Point(412, 337);
-            this.tbMdp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbMdp.Margin = new System.Windows.Forms.Padding(4);
             this.tbMdp.Name = "tbMdp";
             this.tbMdp.PasswordChar = '*';
             this.tbMdp.Size = new System.Drawing.Size(445, 46);
@@ -96,7 +96,7 @@
             // 
             this.btnConnexion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConnexion.Location = new System.Drawing.Point(355, 447);
-            this.btnConnexion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnConnexion.Margin = new System.Windows.Forms.Padding(4);
             this.btnConnexion.Name = "btnConnexion";
             this.btnConnexion.Size = new System.Drawing.Size(235, 55);
             this.btnConnexion.TabIndex = 5;
@@ -108,7 +108,7 @@
             // 
             this.btnQuitter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnQuitter.Location = new System.Drawing.Point(596, 447);
-            this.btnQuitter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnQuitter.Margin = new System.Windows.Forms.Padding(4);
             this.btnQuitter.Name = "btnQuitter";
             this.btnQuitter.Size = new System.Drawing.Size(235, 55);
             this.btnQuitter.TabIndex = 6;
@@ -121,7 +121,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
             this.pictureBox1.Location = new System.Drawing.Point(16, 31);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(292, 105);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -142,9 +142,10 @@
             this.Controls.Add(this.lbMotDePasse);
             this.Controls.Add(this.lbMail);
             this.Controls.Add(this.lbConnexion);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Login";
             this.Text = "Login";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Login_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -82,6 +82,7 @@ namespace AP4
             this.tbService.Margin = new System.Windows.Forms.Padding(4);
             this.tbService.Multiline = true;
             this.tbService.Name = "tbService";
+            this.tbService.ReadOnly = true;
             this.tbService.Size = new System.Drawing.Size(330, 30);
             this.tbService.TabIndex = 52;
             this.tbService.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbService_KeyPress);
@@ -102,7 +103,7 @@ namespace AP4
             // 
             this.lbTitre.AutoSize = true;
             this.lbTitre.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTitre.Location = new System.Drawing.Point(124, 39);
+            this.lbTitre.Location = new System.Drawing.Point(188, 41);
             this.lbTitre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbTitre.Name = "lbTitre";
             this.lbTitre.Size = new System.Drawing.Size(422, 38);
@@ -115,7 +116,6 @@ namespace AP4
             this.tbNumero.Location = new System.Drawing.Point(316, 117);
             this.tbNumero.Margin = new System.Windows.Forms.Padding(4);
             this.tbNumero.Name = "tbNumero";
-            this.tbNumero.ReadOnly = true;
             this.tbNumero.Size = new System.Drawing.Size(330, 30);
             this.tbNumero.TabIndex = 49;
             // 

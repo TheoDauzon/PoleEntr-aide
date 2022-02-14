@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -24,6 +25,7 @@ namespace AP4
         private int credit;
         private int admin;
         private int statut;
+
         public FormGestionInscrit(int idInscrit, string nom, string prenom, string mail, string mdp, string tel, DateTime dateNaiss, string adresse, int credit, int admin, int statut)
         {
             InitializeComponent();
@@ -40,13 +42,30 @@ namespace AP4
             this.statut = statut;
         }
 
+        private bool IsPasswordValid()
+        {
+            string password = tbMdp.Text;
+            if (password.Length >= 8)
+            {
+                Regex majuscules = new Regex("([A-Z])");
+                Regex miniscules = new Regex("([a-z])");
+                Regex chiffres = new Regex("([0-9])");
+                Regex specials = new Regex("([#~%*])");
+
+                if (majuscules.Matches(password).Count >= 1 && miniscules.Matches(password).Count >= 1 && chiffres.Matches(password).Count >= 1 && specials.Matches(password).Count >= 1)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         private void btnModifierM_Click(object sender, EventArgs e)
         {
             if (idInscrit == -1)
             {
                 if (MessageBox.Show("Etes-vous sur de vouloir ajouter l'inscrit ?", "Ajouter", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
-
                     string nom = tbNom.Text;
                     string prenom = tbPrenom.Text;
                     string mail = tbEmail.Text;
@@ -55,13 +74,36 @@ namespace AP4
                     DateTime dateNaiss = dtpNaissance.Value;
                     string adresse = tbAdresse.Text;
                     int credit = Convert.ToInt32(tbCredit.Text);
-
-                    if (Modele.AjoutInscrit(nom, prenom, mail, mdp, tel, dateNaiss, adresse, credit, admin, statut))
+                    if (tbNom.Text == "" || tbPrenom.Text == "" || tbEmail.Text == "" || tbMdp.Text == "" || tbTel.Text == "" || dtpNaissance.Value == null || tbAdresse.Text == "" || tbCredit.Text == "")
                     {
-                        MessageBox.Show("Insertion de l'inscrit réussi");
-                        LI = new ListeInscrit();
-                        this.Close();
-                        LI.Show();
+                        MessageBox.Show("Un champs ne peut pas être vide !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        char[] SpecialChars = "@".ToCharArray();
+
+                        int indexOf = tbEmail.Text.IndexOfAny(SpecialChars);
+                        if (indexOf == -1)
+                        {
+                            MessageBox.Show("L'adresse mail n'est pas correct !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            if (IsPasswordValid() == false)
+                            {
+                                MessageBox.Show("Le mot de passe n'est pas assez sécurisé !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            else
+                            {
+                                if (Modele.AjoutInscrit(nom, prenom, mail, mdp, tel, dateNaiss, adresse, credit, admin, statut))
+                                {
+                                    MessageBox.Show("Insertion de l'inscrit réussi");
+                                    LI = new ListeInscrit();
+                                    this.Close();
+                                    LI.Show();
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -69,7 +111,6 @@ namespace AP4
             {
                 if (MessageBox.Show("Etes-vous sur de vouloir modifier l'inscrit : " + idInscrit + " ?", "Modifier", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
-
                     string nom = tbNom.Text;
                     string prenom = tbPrenom.Text;
                     string mail = tbEmail.Text;
@@ -78,13 +119,36 @@ namespace AP4
                     DateTime dateNaiss = dtpNaissance.Value;
                     string adresse = tbAdresse.Text;
                     int credit = Convert.ToInt32(tbCredit.Text);
-
-                    if (Modele.ModifierInscrit(idInscrit, nom, prenom, mail, mdp, tel, dateNaiss, adresse, credit, admin, statut))
+                    if (tbNom.Text == "" || tbPrenom.Text == "" || tbEmail.Text == "" || tbMdp.Text == "" || tbTel.Text == "" || dtpNaissance.Value == null || tbAdresse.Text == "" || tbCredit.Text == "")
                     {
-                        MessageBox.Show("Modification de l'inscrit réussi");
-                        LI = new ListeInscrit();
-                        this.Close();
-                        LI.Show();
+                        MessageBox.Show("Un champs ne peut pas être vide !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        char[] SpecialChars = "@".ToCharArray();
+
+                        int indexOf = tbEmail.Text.IndexOfAny(SpecialChars);
+                        if (indexOf == -1)
+                        {
+                            MessageBox.Show("L'adresse mail n'est pas correct !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            if (IsPasswordValid() == false)
+                            {
+                                MessageBox.Show("Le mot de passe n'est pas assez sécurisé !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            else
+                            {
+                                if (Modele.ModifierInscrit(idInscrit, nom, prenom, mail, mdp, tel, dateNaiss, adresse, credit, admin, statut))
+                                {
+                                    MessageBox.Show("Modification de l'inscrit réussi");
+                                    LI = new ListeInscrit();
+                                    this.Close();
+                                    LI.Show();
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -94,6 +158,7 @@ namespace AP4
         {
             if (idInscrit == -1)
             {
+                btnModifierM.Text = "AJOUTER";
                 tbNom.Text = "";
                 tbPrenom.Text = "";
                 tbEmail.Text = "";
@@ -107,6 +172,7 @@ namespace AP4
             }
             else
             {
+                btnModifierM.Text = "MODIFIER";
                 tbMdp.Enabled = false;
                 //string mdp = BCrypt.Net.BCrypt.Verify(tbMdp);
                 tbNom.Text = nom;
@@ -154,9 +220,18 @@ namespace AP4
 
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
-            LI = new ListeInscrit();
-            this.Close();
-            LI.Show();
+            if (idInscrit == -1)
+            {
+                //LI = new ListeInscrit();
+                this.Close();
+                //LI.Show();
+            }
+            else
+            {
+                LI = new ListeInscrit();
+                this.Close();
+                LI.Show();
+            }
         }
 
         private void dtpNaissance_Leave(object sender, EventArgs e)
