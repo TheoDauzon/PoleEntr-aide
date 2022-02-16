@@ -42,8 +42,8 @@ namespace AP4
             {
                 if (Modele.SuppInscrit(idInscrit))
                 {
-                    MessageBox.Show("Suppression de l'inscrit réussi");
                     dgvInscrit.Refresh();
+                    MessageBox.Show("Suppression de l'inscrit réussi");
                 }
                 else
                     MessageBox.Show("Problème dans la suppression");

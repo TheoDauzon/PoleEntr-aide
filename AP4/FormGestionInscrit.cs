@@ -42,24 +42,6 @@ namespace AP4
             this.statut = statut;
         }
 
-        private bool IsPasswordValid()
-        {
-            string password = tbMdp.Text;
-            if (password.Length >= 8)
-            {
-                Regex majuscules = new Regex("([A-Z])");
-                Regex miniscules = new Regex("([a-z])");
-                Regex chiffres = new Regex("([0-9])");
-                Regex specials = new Regex("([#~%*])");
-
-                if (majuscules.Matches(password).Count >= 1 && miniscules.Matches(password).Count >= 1 && chiffres.Matches(password).Count >= 1 && specials.Matches(password).Count >= 1)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
         private void btnModifierM_Click(object sender, EventArgs e)
         {
             if (idInscrit == -1)
@@ -89,7 +71,8 @@ namespace AP4
                         }
                         else
                         {
-                            if (IsPasswordValid() == false)
+                            string mdpVerif = tbMdp.Text;
+                            if (Modele.VerifMdp(mdpVerif) == false)
                             {
                                 MessageBox.Show("Le mot de passe n'est pas assez sécurisé !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
@@ -119,6 +102,7 @@ namespace AP4
                     DateTime dateNaiss = dtpNaissance.Value;
                     string adresse = tbAdresse.Text;
                     int credit = Convert.ToInt32(tbCredit.Text);
+                    
                     if (tbNom.Text == "" || tbPrenom.Text == "" || tbEmail.Text == "" || tbMdp.Text == "" || tbTel.Text == "" || dtpNaissance.Value == null || tbAdresse.Text == "" || tbCredit.Text == "")
                     {
                         MessageBox.Show("Un champs ne peut pas être vide !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -134,7 +118,8 @@ namespace AP4
                         }
                         else
                         {
-                            if (IsPasswordValid() == false)
+                            string mdpVerif = tbMdp.Text;
+                            if (Modele.VerifMdp(mdpVerif) == false)
                             {
                                 MessageBox.Show("Le mot de passe n'est pas assez sécurisé !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
@@ -284,7 +269,7 @@ namespace AP4
             {
                 if (Modele.VerifChaine(nom) == false)
                 {
-                    MessageBox.Show("Erreur vous devez saisir uniquement des lettres!", "Erreur",
+                    MessageBox.Show("Erreur vous devez saisir uniquement des lettres !", "Erreur",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                     tbNom.Focus();
                 }
