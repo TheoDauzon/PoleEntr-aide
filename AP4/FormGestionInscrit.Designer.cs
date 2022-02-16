@@ -198,6 +198,7 @@ namespace AP4
             this.tbNom.Name = "tbNom";
             this.tbNom.Size = new System.Drawing.Size(299, 30);
             this.tbNom.TabIndex = 36;
+            this.tbNom.Leave += new System.EventHandler(this.tbNom_Leave);
             // 
             // label1
             // 

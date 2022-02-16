@@ -31,7 +31,7 @@ namespace AP4
             {
                 Regex majuscules = new Regex("([A-Z])");
                 Regex miniscules = new Regex("([a-z])");
-                Regex chiffres = new Regex("([0-9])");
+                Regex chiffres = new Regex("([0-9])"); 
                 Regex specials = new Regex("([#~%*])");
 
                 if(majuscules.Matches(password).Count >= 1 && miniscules.Matches(password).Count >= 1 && chiffres.Matches(password).Count >= 1 && specials.Matches(password).Count >= 1)

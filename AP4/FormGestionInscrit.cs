@@ -275,5 +275,20 @@ namespace AP4
                 e.Handled = true; // efface le dernier caractère saisi
             }
         }
+
+        // vérification sur des chaîne de caractère
+        private void tbNom_Leave(object sender, EventArgs e)
+        {
+            string nom = tbNom.Text;
+            if (nom.ToString() != "")
+            {
+                if (Modele.VerifChaine(nom) == false)
+                {
+                    MessageBox.Show("Erreur vous devez saisir uniquement des lettres!", "Erreur",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tbNom.Focus();
+                }
+            }
+        }
     }
 }

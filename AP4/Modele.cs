@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -186,6 +187,22 @@ namespace AP4
             return unService;
         }
 
+        public static bool VerifChaine(string uneChaine)
+        {
+            Regex majuscules = new Regex("([A-Z])");
+            Regex miniscules = new Regex("([a-z])");
+            Regex chiffres = new Regex("([0-9])");
+            Regex specials = new Regex("([#~%*])");
+
+            if (majuscules.Matches(uneChaine).Count >= 1 || miniscules.Matches(uneChaine).Count >= 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public static bool ModifierInscrit(int idI, string nom, string prenom, string mail, string mdp, string tel, DateTime date, string adresse, int credit,int admin, int statut)
         {
             bool vretour = true;
