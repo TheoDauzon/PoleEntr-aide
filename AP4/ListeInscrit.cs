@@ -12,6 +12,7 @@ namespace AP4
 {
     public partial class ListeInscrit : Form
     {
+        ListeInscrit LI;
         FormGestionInscrit FGI;
         public ListeInscrit()
         {
@@ -42,8 +43,11 @@ namespace AP4
             {
                 if (Modele.SuppInscrit(idInscrit))
                 {
-                    dgvInscrit.Refresh();
                     MessageBox.Show("Suppression de l'inscrit réussi");
+                    dgvInscrit.Refresh();
+                    LI = new ListeInscrit();
+                    this.Close();
+                    LI.Show();
                 }
                 else
                     MessageBox.Show("Problème dans la suppression");

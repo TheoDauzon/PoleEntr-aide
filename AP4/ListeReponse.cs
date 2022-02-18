@@ -139,37 +139,5 @@ namespace AP4
                 e.Handled = true; // efface le dernier caractère saisi
             }
         }
-
-        private void mstDateServDeb_Leave(object sender, EventArgs e)
-        {
-            if (Convert.ToDateTime(mstDateServDeb.Text) > Convert.ToDateTime(mstDateServFin.Text))
-            {
-                MessageBox.Show("Erreur, la date ne doit pas être supérieur à la deuxième date", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                mstDateServDeb.Text = "";
-                mstDateServDeb.Focus();
-            }
-            if (Convert.ToDateTime(mstDateServDeb.Text) < DateTime.Today)
-            {
-                MessageBox.Show("Erreur, la date ne doit pas être antérieur à celle du jour", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                mstDateServDeb.Text = "";
-                mstDateServDeb.Focus();
-            }
-        }
-
-        private void mstDateServFin_Leave(object sender, EventArgs e)
-        {
-            if (Convert.ToDateTime(mstDateServFin.Text) < Convert.ToDateTime(mstDateServDeb.Text))
-            {
-                MessageBox.Show("Erreur, la deuxième date ne doit pas être inférieur à la première date", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                mstDateServFin.Text = "";
-                mstDateServFin.Focus();
-            }
-            if (Convert.ToDateTime(mstDateServFin.Text) < DateTime.Today)
-            {
-                MessageBox.Show("Erreur, la date ne doit pas être antérieur à celle du jour", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                mstDateServFin.Text = "";
-                mstDateServFin.Focus();
-            }
-        }
     }
 }

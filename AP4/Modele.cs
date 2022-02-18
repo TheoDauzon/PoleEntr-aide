@@ -194,7 +194,7 @@ namespace AP4
                 Regex majuscules = new Regex("([A-Z])");
                 Regex miniscules = new Regex("([a-z])");
                 Regex chiffres = new Regex("([0-9])");
-                Regex specials = new Regex("([#~%*])");
+                Regex specials = new Regex("([#~%*&(=)}^|[_-])");
 
                 if (majuscules.Matches(uneChaine).Count < 1 && miniscules.Matches(uneChaine).Count < 1 && chiffres.Matches(uneChaine).Count < 1 && specials.Matches(uneChaine).Count < 1)
                 {
@@ -214,7 +214,7 @@ namespace AP4
         public static bool VerifChaine(string uneChaine)
         {
             Regex chiffres = new Regex("([0-9])");
-            Regex specials = new Regex("([#~%*])");
+            Regex specials = new Regex("([#~%*&(=)}^|[_-])");
 
             if (chiffres.Matches(uneChaine).Count >= 1 || specials.Matches(uneChaine).Count >= 1)
             {

@@ -197,7 +197,6 @@ namespace AP4
             this.mstDateServFin.Size = new System.Drawing.Size(156, 30);
             this.mstDateServFin.TabIndex = 61;
             this.mstDateServFin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mstDateServFin_KeyPress);
-            this.mstDateServFin.Leave += new System.EventHandler(this.mstDateServFin_Leave);
             // 
             // mstDateServDeb
             // 
@@ -208,7 +207,6 @@ namespace AP4
             this.mstDateServDeb.Size = new System.Drawing.Size(156, 30);
             this.mstDateServDeb.TabIndex = 60;
             this.mstDateServDeb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mstDateServDeb_KeyPress);
-            this.mstDateServDeb.Leave += new System.EventHandler(this.mstDateServDeb_Leave);
             // 
             // lbFinRep
             // 

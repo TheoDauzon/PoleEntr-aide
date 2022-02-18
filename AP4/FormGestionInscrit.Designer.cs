@@ -171,6 +171,7 @@ namespace AP4
             this.tbMdp.Size = new System.Drawing.Size(299, 30);
             this.tbMdp.TabIndex = 39;
             this.tbMdp.UseSystemPasswordChar = true;
+            this.tbMdp.Leave += new System.EventHandler(this.tbMdp_Leave);
             // 
             // tbEmail
             // 
@@ -180,6 +181,7 @@ namespace AP4
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(299, 30);
             this.tbEmail.TabIndex = 38;
+            this.tbEmail.Leave += new System.EventHandler(this.tbEmail_Leave);
             // 
             // tbPrenom
             // 

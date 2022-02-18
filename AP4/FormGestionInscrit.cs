@@ -71,13 +71,6 @@ namespace AP4
                         }
                         else
                         {
-                            string mdpVerif = tbMdp.Text;
-                            if (Modele.VerifMdp(mdpVerif) == false)
-                            {
-                                MessageBox.Show("Le mot de passe n'est pas assez sécurisé !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            else
-                            {
                                 if (Modele.AjoutInscrit(nom, prenom, mail, mdp, tel, dateNaiss, adresse, credit, admin, statut))
                                 {
                                     MessageBox.Show("Insertion de l'inscrit réussi");
@@ -86,7 +79,6 @@ namespace AP4
                                     LI.Show();
                                 }
                             }
-                        }
                     }
                 }
             }
@@ -118,21 +110,13 @@ namespace AP4
                         }
                         else
                         {
-                            string mdpVerif = tbMdp.Text;
-                            if (Modele.VerifMdp(mdpVerif) == false)
-                            {
-                                MessageBox.Show("Le mot de passe n'est pas assez sécurisé !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            else
-                            {
-                                if (Modele.ModifierInscrit(idInscrit, nom, prenom, mail, mdp, tel, dateNaiss, adresse, credit, admin, statut))
+                               if (Modele.ModifierInscrit(idInscrit, nom, prenom, mail, mdp, tel, dateNaiss, adresse, credit, admin, statut))
                                 {
                                     MessageBox.Show("Modification de l'inscrit réussi");
                                     LI = new ListeInscrit();
                                     this.Close();
                                     LI.Show();
                                 }
-                            }
                         }
                     }
                 }
@@ -261,7 +245,7 @@ namespace AP4
             }
         }
 
-        // vérification sur des chaîne de caractère
+        // vérification sur une chaîne de caractère
         private void tbNom_Leave(object sender, EventArgs e)
         {
             string nom = tbNom.Text;
@@ -272,6 +256,34 @@ namespace AP4
                     MessageBox.Show("Erreur vous devez saisir uniquement des lettres !", "Erreur",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                     tbNom.Focus();
+                }
+            }
+        }
+
+        private void tbMdp_Leave(object sender, EventArgs e)
+        {
+            string mdp = tbMdp.Text;
+            if (mdp.ToString() != "")
+            {
+                if (Modele.VerifMdp(mdp) == false)
+                {
+                    MessageBox.Show("Erreur, le mot de passe doit contenir au minimum une majuscule, une minuscule, un chiffre, un caractère spécial et sa longueur doit être suopérieur à 8 caractères !", "Erreur",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tbMdp.Focus();
+                }
+            }
+        }
+
+        private void tbEmail_Leave(object sender, EventArgs e)
+        {
+            string mail = tbEmail.Text;
+            for (int i = 0; i < Modele.ListeInscrit().Count(); i++)
+            {
+                if (Modele.ListeInscrit()[i].MAIL.ToString() == mail)
+                {
+                    MessageBox.Show("Erreur, l'adresse mail est déjà utilisé !", "Erreur", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tbEmail.Focus();
                 }
             }
         }
