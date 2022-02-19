@@ -45,12 +45,12 @@ namespace AP4
             else if (mstDateServFin.MaskFull == true && mstDateServDeb.MaskFull == false)
             {
                 dateServFin = Convert.ToDateTime(mstDateServFin.Text);
-                dgvReponse.DataSource = (Modele.ListeReponse()).Where(k => k.IDINSCRIT.ToString().StartsWith(num) && k.IDSERVICE.ToString().StartsWith(numServ) && k.DATEREP >= dateServFin).Select(p => new { IDINSCRIT = p.IDINSCRIT, IDSERVICE = p.IDSERVICE, DATEREP = p.DATEREP }).ToList();
+                dgvReponse.DataSource = (Modele.ListeReponse()).Where(k => k.IDINSCRIT.ToString().StartsWith(num) && k.IDSERVICE.ToString().StartsWith(numServ) && k.DATEREP <= dateServFin).Select(p => new { IDINSCRIT = p.IDINSCRIT, IDSERVICE = p.IDSERVICE, DATEREP = p.DATEREP }).ToList();
             }
             else if (mstDateServFin.MaskFull == true && mstDateServDeb.MaskFull == true)
             {
                 dateServDeb = Convert.ToDateTime(mstDateServDeb.Text);
-                dateServFin = Convert.ToDateTime(mstDateServDeb.Text);
+                dateServFin = Convert.ToDateTime(mstDateServFin.Text);
                 dgvReponse.DataSource = (Modele.ListeReponse()).Where(k => k.IDINSCRIT.ToString().StartsWith(num) && k.IDSERVICE.ToString().StartsWith(numServ) && k.DATEREP <= dateServFin && k.DATEREP >= dateServDeb).Select(p => new { IDINSCRIT = p.IDINSCRIT, IDSERVICE = p.IDSERVICE, DATEREP = p.DATEREP }).ToList();
             }
             else
@@ -137,6 +137,32 @@ namespace AP4
                 MessageBox.Show("Erreur, vous devez saisir des entiers", "Erreur", MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
                 e.Handled = true; // efface le dernier caractère saisi
+            }
+        }
+
+        private void mstDateServDeb_Leave(object sender, EventArgs e)
+        {
+            if (mstDateServDeb.MaskFull == true)
+            {
+                if (Convert.ToDateTime(mstDateServDeb.Text) > DateTime.Today)
+                {
+                    MessageBox.Show("Erreur, la date doit être antérieur à celle du jour", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    mstDateServDeb.Text = "";
+                    mstDateServDeb.Focus();
+                }
+            }
+        }
+
+        private void mstDateServFin_Leave(object sender, EventArgs e)
+        {
+            if (mstDateServFin.MaskFull == true)
+            {
+                if (Convert.ToDateTime(mstDateServFin.Text) > DateTime.Today)
+                {
+                    MessageBox.Show("Erreur, la date doit être antérieur à celle du jour", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    mstDateServFin.Text = "";
+                    mstDateServFin.Focus();
+                }
             }
         }
     }

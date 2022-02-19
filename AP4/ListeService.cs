@@ -45,7 +45,7 @@ namespace AP4
             string execute = tbExecute.Text;
             DateTime dateServDeb;
             DateTime dateServFin;
-            if (mstDateServDeb.MaskFull==true && mstDateServFin.MaskFull == false)
+            if (mstDateServDeb.MaskFull == true && mstDateServFin.MaskFull == false)
             {
                 dateServDeb = Convert.ToDateTime(mstDateServDeb.Text);
                 dgvService.DataSource = (Modele.ListeService()).Where(k => k.IDINSCRIT.ToString().StartsWith(num) && k.DESCRIPTIFSERVICE.StartsWith(descriptif) && k.REALISER.ToString().StartsWith(execute) && k.DATEDEPOT >= dateServDeb).Select(p => new { IDSERVICE = p.IDSERVICE, IDINSCRIT = p.IDINSCRIT, IDDEPARTEMENT = p.IDINSCRIT, IDTYPE = p.IDTYPE, DESCRIPTIFSERVICE = p.DESCRIPTIFSERVICE, PHOTO = p.PHOTO, DATEDEBUT = p.DATEDEBUT, PRIX = p.PHOTO, DATEDEPOT = p.DATEDEPOT, REALISER = p.REALISER }).ToList();
@@ -53,13 +53,13 @@ namespace AP4
             else if (mstDateServFin.MaskFull == true && mstDateServDeb.MaskFull == false)
             {
                 dateServFin = Convert.ToDateTime(mstDateServFin.Text);
-                dgvService.DataSource = (Modele.ListeService()).Where(k => k.IDINSCRIT.ToString().StartsWith(num) && k.DESCRIPTIFSERVICE.StartsWith(descriptif) && k.REALISER.ToString().StartsWith(execute) && k.DATEDEPOT >= dateServFin).Select(p => new { IDSERVICE = p.IDSERVICE, IDINSCRIT = p.IDINSCRIT, IDDEPARTEMENT = p.IDINSCRIT, IDTYPE = p.IDTYPE, DESCRIPTIFSERVICE = p.DESCRIPTIFSERVICE, PHOTO = p.PHOTO, DATEDEBUT = p.DATEDEBUT, PRIX = p.PHOTO, DATEDEPOT = p.DATEDEPOT, REALISER = p.REALISER }).ToList();
+                dgvService.DataSource = (Modele.ListeService()).Where(k => k.IDINSCRIT.ToString().StartsWith(num) && k.DESCRIPTIFSERVICE.StartsWith(descriptif) && k.REALISER.ToString().StartsWith(execute) && k.DATEDEPOT <= dateServFin).Select(p => new { IDSERVICE = p.IDSERVICE, IDINSCRIT = p.IDINSCRIT, IDDEPARTEMENT = p.IDINSCRIT, IDTYPE = p.IDTYPE, DESCRIPTIFSERVICE = p.DESCRIPTIFSERVICE, PHOTO = p.PHOTO, DATEDEBUT = p.DATEDEBUT, PRIX = p.PHOTO, DATEDEPOT = p.DATEDEPOT, REALISER = p.REALISER }).ToList();
             }
             else if (mstDateServFin.MaskFull == true && mstDateServDeb.MaskFull == true)
             {
                 dateServDeb = Convert.ToDateTime(mstDateServDeb.Text);
-                dateServFin = Convert.ToDateTime(mstDateServDeb.Text);
-                dgvService.DataSource = (Modele.ListeService()).Where(k => k.IDINSCRIT.ToString().StartsWith(num) && k.DESCRIPTIFSERVICE.StartsWith(descriptif) && k.REALISER.ToString().StartsWith(execute) && k.DATEDEPOT <= dateServFin && k.DATEDEPOT >= dateServDeb).Select(p => new {IDSERVICE = p.IDSERVICE,  IDINSCRIT = p.IDINSCRIT, IDDEPARTEMENT = p.IDINSCRIT, IDTYPE = p.IDTYPE, DESCRIPTIFSERVICE = p.DESCRIPTIFSERVICE, PHOTO = p.PHOTO, DATEDEBUT = p.DATEDEBUT, PRIX = p.PHOTO, DATEDEPOT = p.DATEDEPOT, REALISER = p.REALISER}).ToList();
+                dateServFin = Convert.ToDateTime(mstDateServFin.Text);
+                dgvService.DataSource = (Modele.ListeService()).Where(k => k.IDINSCRIT.ToString().StartsWith(num) && k.DESCRIPTIFSERVICE.StartsWith(descriptif) && k.REALISER.ToString().StartsWith(execute) && k.DATEDEPOT <= dateServFin && k.DATEDEPOT >= dateServDeb).Select(p => new { IDSERVICE = p.IDSERVICE, IDINSCRIT = p.IDINSCRIT, IDDEPARTEMENT = p.IDINSCRIT, IDTYPE = p.IDTYPE, DESCRIPTIFSERVICE = p.DESCRIPTIFSERVICE, PHOTO = p.PHOTO, DATEDEBUT = p.DATEDEBUT, PRIX = p.PHOTO, DATEDEPOT = p.DATEDEPOT, REALISER = p.REALISER }).ToList();
             }
             else
             {
@@ -74,7 +74,7 @@ namespace AP4
 
             Modele.RecupererService(idService);
 
-            string descriptif  = Modele.RecupererService(idService).DESCRIPTIFSERVICE;
+            string descriptif = Modele.RecupererService(idService).DESCRIPTIFSERVICE;
             string photo = Modele.RecupererService(idService).PHOTO;
             DateTime dateReponse = Modele.RecupererService(idService).DATEDEBUT;
             int duree = Modele.RecupererService(idService).DUREEJOURS;
@@ -150,6 +150,32 @@ namespace AP4
                 MessageBox.Show("Erreur, vous devez saisir des entiers", "Erreur", MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
                 e.Handled = true; // efface le dernier caractère saisi
+            }
+        }
+
+        private void mstDateServDeb_Leave(object sender, EventArgs e)
+        {
+            if (mstDateServDeb.MaskFull == true)
+            {
+                if (Convert.ToDateTime(mstDateServDeb.Text) > DateTime.Today)
+                {
+                    MessageBox.Show("Erreur, la date doit être antérieur à celle du jour", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    mstDateServDeb.Text = "";
+                    mstDateServDeb.Focus();
+                }
+            }
+        }
+
+        private void mstDateServFin_Leave(object sender, EventArgs e)
+        {
+            if (mstDateServFin.MaskFull == true)
+            {
+                if (Convert.ToDateTime(mstDateServFin.Text) > DateTime.Today)
+                {
+                    MessageBox.Show("Erreur, la date doit être antérieur à celle du jour", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    mstDateServFin.Text = "";
+                    mstDateServFin.Focus();
+                }
             }
         }
     }

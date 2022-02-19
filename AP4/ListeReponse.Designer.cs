@@ -30,7 +30,7 @@ namespace AP4
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListeReponse));
             this.btnRetourMenu = new System.Windows.Forms.Button();
             this.lbListeReponse = new System.Windows.Forms.Label();
@@ -94,14 +94,14 @@ namespace AP4
             // 
             this.dgvReponse.AllowUserToAddRows = false;
             this.dgvReponse.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvReponse.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvReponse.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvReponse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReponse.Location = new System.Drawing.Point(33, 196);
             this.dgvReponse.Margin = new System.Windows.Forms.Padding(4);
@@ -197,6 +197,7 @@ namespace AP4
             this.mstDateServFin.Size = new System.Drawing.Size(156, 30);
             this.mstDateServFin.TabIndex = 61;
             this.mstDateServFin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mstDateServFin_KeyPress);
+            this.mstDateServFin.Leave += new System.EventHandler(this.mstDateServFin_Leave);
             // 
             // mstDateServDeb
             // 
@@ -207,6 +208,7 @@ namespace AP4
             this.mstDateServDeb.Size = new System.Drawing.Size(156, 30);
             this.mstDateServDeb.TabIndex = 60;
             this.mstDateServDeb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mstDateServDeb_KeyPress);
+            this.mstDateServDeb.Leave += new System.EventHandler(this.mstDateServDeb_Leave);
             // 
             // lbFinRep
             // 
