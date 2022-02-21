@@ -31,14 +31,6 @@
           <Property Name="VISIOCONF" Type="smallint" Nullable="false" />
           <Property Name="PREREQUIS" Type="char" MaxLength="100" />
         </EntityType>
-        <EntityType Name="illustrer">
-          <Key>
-            <PropertyRef Name="IDINSCRIT" />
-            <PropertyRef Name="IDTYPE" />
-          </Key>
-          <Property Name="IDINSCRIT" Type="int" Nullable="false" />
-          <Property Name="IDTYPE" Type="int" Nullable="false" />
-        </EntityType>
         <EntityType Name="inscrit">
           <Key>
             <PropertyRef Name="IDINSCRIT" />
@@ -176,7 +168,9 @@
           <Property Name="NOMVILLE" Type="char" MaxLength="120" />
         </EntityType>
         <Association Name="FK_COURSE_SERVICE">
-          <End Role="service" Type="Self.service" Multiplicity="1" />
+          <End Role="service" Type="Self.service" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="course" Type="Self.course" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="service">
@@ -188,7 +182,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_FORMATION_SERVICE">
-          <End Role="service" Type="Self.service" Multiplicity="1" />
+          <End Role="service" Type="Self.service" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="formation" Type="Self.formation" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="service">
@@ -199,32 +195,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ILLUSTRER_INSCRIT">
-          <End Role="inscrit" Type="Self.inscrit" Multiplicity="1" />
-          <End Role="illustrer" Type="Self.illustrer" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="inscrit">
-              <PropertyRef Name="IDINSCRIT" />
-            </Principal>
-            <Dependent Role="illustrer">
-              <PropertyRef Name="IDINSCRIT" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ILLUSTRER_TYPE">
-          <End Role="type" Type="Self.type" Multiplicity="1" />
-          <End Role="illustrer" Type="Self.illustrer" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="type">
-              <PropertyRef Name="IDTYPE" />
-            </Principal>
-            <Dependent Role="illustrer">
-              <PropertyRef Name="IDTYPE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_LOISIRS_SERVICE">
-          <End Role="service" Type="Self.service" Multiplicity="1" />
+          <End Role="service" Type="Self.service" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="loisirs" Type="Self.loisirs" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="service">
@@ -248,7 +222,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_MESSAGE_INSCRIT">
-          <End Role="inscrit" Type="Self.inscrit" Multiplicity="1" />
+          <End Role="inscrit" Type="Self.inscrit" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="message" Type="Self.message" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="inscrit">
@@ -260,7 +236,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_REPONDRE_INSCRIT">
-          <End Role="inscrit" Type="Self.inscrit" Multiplicity="1" />
+          <End Role="inscrit" Type="Self.inscrit" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="repondre" Type="Self.repondre" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="inscrit">
@@ -272,7 +250,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_REPONDRE_SERVICE">
-          <End Role="service" Type="Self.service" Multiplicity="1" />
+          <End Role="service" Type="Self.service" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="repondre" Type="Self.repondre" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="service">
@@ -296,7 +276,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SERVICE_INSCRIT">
-          <End Role="inscrit" Type="Self.inscrit" Multiplicity="1" />
+          <End Role="inscrit" Type="Self.inscrit" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="service" Type="Self.service" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="inscrit">
@@ -320,7 +302,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TACHE_MENAGERE_SERVICE">
-          <End Role="service" Type="Self.service" Multiplicity="1" />
+          <End Role="service" Type="Self.service" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="tache_menagere" Type="Self.tache_menagere" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="service">
@@ -344,7 +328,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TRANSPORT_SERVICE">
-          <End Role="service" Type="Self.service" Multiplicity="1" />
+          <End Role="service" Type="Self.service" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="transport" Type="Self.transport" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="service">
@@ -371,7 +357,6 @@
           <EntitySet Name="course" EntityType="Self.course" Schema="ap4" store:Type="Tables" />
           <EntitySet Name="departement" EntityType="Self.departement" Schema="ap4" store:Type="Tables" />
           <EntitySet Name="formation" EntityType="Self.formation" Schema="ap4" store:Type="Tables" />
-          <EntitySet Name="illustrer" EntityType="Self.illustrer" Schema="ap4" store:Type="Tables" />
           <EntitySet Name="inscrit" EntityType="Self.inscrit" Schema="ap4" store:Type="Tables" />
           <EntitySet Name="loisirs" EntityType="Self.loisirs" Schema="ap4" store:Type="Tables" />
           <EntitySet Name="message" EntityType="Self.message" Schema="ap4" store:Type="Tables" />
@@ -394,14 +379,6 @@
           <AssociationSet Name="FK_FORMATION_SERVICE" Association="Self.FK_FORMATION_SERVICE">
             <End Role="service" EntitySet="service" />
             <End Role="formation" EntitySet="formation" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ILLUSTRER_INSCRIT" Association="Self.FK_ILLUSTRER_INSCRIT">
-            <End Role="inscrit" EntitySet="inscrit" />
-            <End Role="illustrer" EntitySet="illustrer" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ILLUSTRER_TYPE" Association="Self.FK_ILLUSTRER_TYPE">
-            <End Role="type" EntitySet="type" />
-            <End Role="illustrer" EntitySet="illustrer" />
           </AssociationSet>
           <AssociationSet Name="FK_LOISIRS_SERVICE" Association="Self.FK_LOISIRS_SERVICE">
             <End Role="service" EntitySet="service" />
@@ -527,10 +504,6 @@
             <End Role="type_tache_menagere" EntitySet="type_tache_menagere" />
             <End Role="tache_menagere" EntitySet="tache_menagere" />
           </AssociationSet>
-          <AssociationSet Name="illustrer" Association="ap4Model.illustrer">
-            <End Role="inscrit" EntitySet="inscrit" />
-            <End Role="type" EntitySet="type" />
-          </AssociationSet>
           <EntitySet Name="nbInscritsTemps" EntityType="ap4Model.nbInscritsTemps" />
           <EntitySet Name="nbMessagesTemps" EntityType="ap4Model.nbMessagesTemps" />
           <EntitySet Name="nbReponsesTemps" EntityType="ap4Model.nbReponsesTemps" />
@@ -584,7 +557,6 @@
           <NavigationProperty Name="message" Relationship="ap4Model.FK_MESSAGE_INSCRIT" FromRole="inscrit" ToRole="message" />
           <NavigationProperty Name="repondre" Relationship="ap4Model.FK_REPONDRE_INSCRIT" FromRole="inscrit" ToRole="repondre" />
           <NavigationProperty Name="service" Relationship="ap4Model.FK_SERVICE_INSCRIT" FromRole="inscrit" ToRole="service" />
-          <NavigationProperty Name="type" Relationship="ap4Model.illustrer" FromRole="inscrit" ToRole="type" />
         </EntityType>
         <EntityType Name="loisirs">
           <Key>
@@ -672,7 +644,6 @@
           </Key>
           <Property Name="IDTYPE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="service" Relationship="ap4Model.FK_SERVICE_TYPE" FromRole="type" ToRole="service" />
-          <NavigationProperty Name="inscrit" Relationship="ap4Model.illustrer" FromRole="type" ToRole="inscrit" />
           <Property Name="LIBELLETYPE" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="type_loisirs">
@@ -868,10 +839,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="illustrer">
-          <End Type="ap4Model.inscrit" Role="inscrit" Multiplicity="*" />
-          <End Type="ap4Model.type" Role="type" Multiplicity="*" />
-        </Association>
         <EntityType Name="nbInscritsTemps">
           <Key>
             <PropertyRef Name="DATENB" />
@@ -1052,14 +1019,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="illustrer" TypeName="ap4Model.illustrer" StoreEntitySet="illustrer">
-            <EndProperty Name="type">
-              <ScalarProperty Name="IDTYPE" ColumnName="IDTYPE" />
-            </EndProperty>
-            <EndProperty Name="inscrit">
-              <ScalarProperty Name="IDINSCRIT" ColumnName="IDINSCRIT" />
-            </EndProperty>
-          </AssociationSetMapping>
           <EntitySetMapping Name="nbInscritsTemps">
             <EntityTypeMapping TypeName="ap4Model.nbInscritsTemps">
               <MappingFragment StoreEntitySet="nbInscritsTemps">

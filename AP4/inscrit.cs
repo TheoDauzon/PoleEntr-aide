@@ -20,7 +20,6 @@ namespace AP4
             this.message = new HashSet<message>();
             this.repondre = new HashSet<repondre>();
             this.service = new HashSet<service>();
-            this.type = new HashSet<type>();
         }
     
         public int IDINSCRIT { get; set; }
@@ -41,7 +40,5 @@ namespace AP4
         public virtual ICollection<repondre> repondre { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<service> service { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<type> type { get; set; }
     }
 }

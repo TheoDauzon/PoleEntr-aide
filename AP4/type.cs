@@ -18,7 +18,6 @@ namespace AP4
         public type()
         {
             this.service = new HashSet<service>();
-            this.inscrit = new HashSet<inscrit>();
         }
     
         public int IDTYPE { get; set; }
@@ -26,7 +25,5 @@ namespace AP4
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<service> service { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<inscrit> inscrit { get; set; }
     }
 }
