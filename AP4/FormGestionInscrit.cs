@@ -155,10 +155,12 @@ namespace AP4
                 if (admin == 1)
                 {
                     rbtnOui.Checked = true;
+                    rbtnNon.Checked = false;
                 }
                 if (admin == 0)
                 {
                     rbtnNon.Checked = true;
+                    rbtnOui.Checked = false;
                 }
                 if (statut == 1)
                 {

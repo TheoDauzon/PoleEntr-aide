@@ -26,7 +26,7 @@ namespace AP4
             dgvInscrit.Columns[11].Visible = false;
             dgvInscrit.Columns[12].Visible = false;
             dgvInscrit.Columns[13].Visible = false;
-            dgvInscrit.Columns[14].Visible = false;
+            //dgvInscrit.Columns[14].Visible = false;
         }
 
         private void BtnRetourMenu_Click(object sender, EventArgs e)

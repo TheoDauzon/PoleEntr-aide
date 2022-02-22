@@ -31,11 +31,11 @@ namespace AP4
             int nbServiceTachesMenageres = Modele.ListeTache_Menagere().Count;
 
             // série
-            chart1.Series[0].Points.AddXY("TRANSPORT", ((double)nbServiceTransport / nbService * 100));
-            chart1.Series[0].Points.AddXY("COURSE", ((double)nbServiceCourse / nbService * 100));
-            chart1.Series[0].Points.AddXY("FORMATION", ((double)nbServiceFormation / nbService * 100));
-            chart1.Series[0].Points.AddXY("LOISIRS", ((double)nbServiceLoisirs / nbService * 100));
-            chart1.Series[0].Points.AddXY("TACHES MENAGERES", ((double)nbServiceTachesMenageres / nbService * 100));
+            chart1.Series[0].Points.AddXY("TRANSPORT", ((double)nbServiceTransport) / nbService * 100);
+            chart1.Series[0].Points.AddXY("COURSE", ((double)nbServiceCourse) / nbService * 100);
+            chart1.Series[0].Points.AddXY("FORMATION", ((double)nbServiceFormation) / nbService * 100);
+            chart1.Series[0].Points.AddXY("LOISIRS", ((double)nbServiceLoisirs) / nbService * 100);
+            chart1.Series[0].Points.AddXY("TACHES MENAGERES", ((double)nbServiceTachesMenageres) / nbService * 100);
         }
 
         private void BtnServiceTheme_Click(object sender, EventArgs e)

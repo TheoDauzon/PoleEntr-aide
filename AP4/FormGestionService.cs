@@ -97,7 +97,7 @@ namespace AP4
 
         private void dtpReponse_Leave(object sender, EventArgs e)
         {
-            if (dtpReponse.Value > DateTime.Today)
+            if (dtpReponse.Value < DateTime.Today)
             {
                 MessageBox.Show("Erreur, la date ne doit pas être antérieur à celle du jour !", "Erreur",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
