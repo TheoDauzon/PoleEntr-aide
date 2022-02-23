@@ -30,7 +30,7 @@ namespace AP4
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListeReponse));
             this.btnRetourMenu = new System.Windows.Forms.Button();
             this.lbListeReponse = new System.Windows.Forms.Label();
@@ -47,6 +47,8 @@ namespace AP4
             this.mstDateServFin = new System.Windows.Forms.MaskedTextBox();
             this.mstDateServDeb = new System.Windows.Forms.MaskedTextBox();
             this.lbFinRep = new System.Windows.Forms.Label();
+            this.tbAttribuer = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReponse)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsReponse)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -94,14 +96,14 @@ namespace AP4
             // 
             this.dgvReponse.AllowUserToAddRows = false;
             this.dgvReponse.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvReponse.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvReponse.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvReponse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReponse.Location = new System.Drawing.Point(33, 196);
             this.dgvReponse.Margin = new System.Windows.Forms.Padding(4);
@@ -221,12 +223,32 @@ namespace AP4
             this.lbFinRep.TabIndex = 59;
             this.lbFinRep.Text = "À :";
             // 
+            // tbAttribuer
+            // 
+            this.tbAttribuer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbAttribuer.Location = new System.Drawing.Point(688, 150);
+            this.tbAttribuer.Name = "tbAttribuer";
+            this.tbAttribuer.Size = new System.Drawing.Size(111, 30);
+            this.tbAttribuer.TabIndex = 63;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(586, 153);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(96, 25);
+            this.label2.TabIndex = 62;
+            this.label2.Text = "Attribuer :";
+            // 
             // ListeReponse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(127)))), ((int)(((byte)(102)))));
             this.ClientSize = new System.Drawing.Size(1068, 554);
+            this.Controls.Add(this.tbAttribuer);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.mstDateServFin);
             this.Controls.Add(this.mstDateServDeb);
             this.Controls.Add(this.lbFinRep);
@@ -270,5 +292,7 @@ namespace AP4
         private System.Windows.Forms.MaskedTextBox mstDateServFin;
         private System.Windows.Forms.MaskedTextBox mstDateServDeb;
         private System.Windows.Forms.Label lbFinRep;
+        private System.Windows.Forms.TextBox tbAttribuer;
+        private System.Windows.Forms.Label label2;
     }
 }

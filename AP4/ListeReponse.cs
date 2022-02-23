@@ -27,8 +27,8 @@ namespace AP4
         {
             bsReponse.DataSource = Modele.ListeReponse(); // appel de la méthode listeClients
             dgvReponse.DataSource = bsReponse;
-            dgvReponse.Columns[3].Visible = false;
             dgvReponse.Columns[4].Visible = false;
+            dgvReponse.Columns[5].Visible = false;
         }
 
         private void btnRechercher_Click(object sender, EventArgs e)
@@ -37,25 +37,26 @@ namespace AP4
             string numServ = tbService.Text;
             DateTime dateServDeb;
             DateTime dateServFin;
+            string attribuer = tbAttribuer.Text;
             if (mstDateServDeb.MaskFull == true && mstDateServFin.MaskFull == false)
             {
                 dateServDeb = Convert.ToDateTime(mstDateServDeb.Text);
-                dgvReponse.DataSource = (Modele.ListeReponse()).Where(k => k.IDINSCRIT.ToString().StartsWith(num) && k.IDSERVICE.ToString().StartsWith(numServ) && k.DATEREP >= dateServDeb).Select(p => new {IDINSCRIT = p.IDINSCRIT, IDSERVICE = p.IDSERVICE, DATEREP = p.DATEREP}).ToList();
+                dgvReponse.DataSource = (Modele.ListeReponse()).Where(k => k.IDINSCRIT.ToString().StartsWith(num) && k.IDSERVICE.ToString().StartsWith(numServ) && k.DATEREP >= dateServDeb && k.ATTRIBUER.ToString().StartsWith(attribuer)).Select(p => new {IDINSCRIT = p.IDINSCRIT, IDSERVICE = p.IDSERVICE, DATEREP = p.DATEREP, ATTRIBUER = p.ATTRIBUER}).ToList();
             }
             else if (mstDateServFin.MaskFull == true && mstDateServDeb.MaskFull == false)
             {
                 dateServFin = Convert.ToDateTime(mstDateServFin.Text);
-                dgvReponse.DataSource = (Modele.ListeReponse()).Where(k => k.IDINSCRIT.ToString().StartsWith(num) && k.IDSERVICE.ToString().StartsWith(numServ) && k.DATEREP <= dateServFin).Select(p => new { IDINSCRIT = p.IDINSCRIT, IDSERVICE = p.IDSERVICE, DATEREP = p.DATEREP }).ToList();
+                dgvReponse.DataSource = (Modele.ListeReponse()).Where(k => k.IDINSCRIT.ToString().StartsWith(num) && k.IDSERVICE.ToString().StartsWith(numServ) && k.DATEREP <= dateServFin && k.ATTRIBUER.ToString().StartsWith(attribuer)).Select(p => new { IDINSCRIT = p.IDINSCRIT, IDSERVICE = p.IDSERVICE, DATEREP = p.DATEREP, ATTRIBUER = p.ATTRIBUER }).ToList();
             }
             else if (mstDateServFin.MaskFull == true && mstDateServDeb.MaskFull == true)
             {
                 dateServDeb = Convert.ToDateTime(mstDateServDeb.Text);
                 dateServFin = Convert.ToDateTime(mstDateServFin.Text);
-                dgvReponse.DataSource = (Modele.ListeReponse()).Where(k => k.IDINSCRIT.ToString().StartsWith(num) && k.IDSERVICE.ToString().StartsWith(numServ) && k.DATEREP <= dateServFin && k.DATEREP >= dateServDeb).Select(p => new { IDINSCRIT = p.IDINSCRIT, IDSERVICE = p.IDSERVICE, DATEREP = p.DATEREP }).ToList();
+                dgvReponse.DataSource = (Modele.ListeReponse()).Where(k => k.IDINSCRIT.ToString().StartsWith(num) && k.IDSERVICE.ToString().StartsWith(numServ) && k.DATEREP <= dateServFin && k.DATEREP >= dateServDeb && k.ATTRIBUER.ToString().StartsWith(attribuer)).Select(p => new { IDINSCRIT = p.IDINSCRIT, IDSERVICE = p.IDSERVICE, DATEREP = p.DATEREP, ATTRIBUER = p.ATTRIBUER }).ToList();
             }
             else
             {
-                dgvReponse.DataSource = (Modele.ListeReponse()).Where(k => k.IDINSCRIT.ToString().StartsWith(num) && k.IDSERVICE.ToString().StartsWith(numServ)).Select(p => new { IDINSCRIT = p.IDINSCRIT, IDSERVICE = p.IDSERVICE, DATEREP = p.DATEREP }).ToList();
+                dgvReponse.DataSource = (Modele.ListeReponse()).Where(k => k.IDINSCRIT.ToString().StartsWith(num) && k.IDSERVICE.ToString().StartsWith(numServ) && k.ATTRIBUER.ToString().StartsWith(attribuer)).Select(p => new { IDINSCRIT = p.IDINSCRIT, IDSERVICE = p.IDSERVICE, DATEREP = p.DATEREP, ATTRIBUER = p.ATTRIBUER }).ToList();
             }
         }
 
@@ -68,8 +69,9 @@ namespace AP4
 
             int idService = Modele.RecupererReponse(idInscrit).IDSERVICE;
             DateTime dateReponse = Modele.RecupererReponse(idInscrit).DATEREP;
+            int attribuer = (int)Modele.RecupererReponse(idInscrit).ATTRIBUER;
 
-            FGR = new FormGestionReponse(idInscrit, idService, dateReponse);
+            FGR = new FormGestionReponse(idInscrit, idService, dateReponse, attribuer);
             this.Close();
             FGR.Show();
         }

@@ -16,13 +16,15 @@ namespace AP4
         private int idInscrit;
         private int idService;
         private DateTime dateReponse;
+        private int attribuer;
 
-        public FormGestionReponse(int idInscrit, int idService, DateTime dateReponse)
+        public FormGestionReponse(int idInscrit, int idService, DateTime dateReponse, int attribuer)
         {
             InitializeComponent();
             this.idInscrit = idInscrit;
             this.idService = idService;
             this.dateReponse = dateReponse;
+            this.attribuer = attribuer;
         }
 
         private void btnAnnuler_Click(object sender, EventArgs e)
@@ -38,10 +40,11 @@ namespace AP4
             {
                 int idService = Convert.ToInt32(tbService.Text);
                 DateTime dateReponse = dtpReponse.Value;
+                int attribuer = Convert.ToInt32(tbAttribuer.Text);
 
                 try
                 {
-                    bool v = Modele.ModifierReponse(idInscrit, idService, dateReponse);
+                    bool v = Modele.ModifierReponse(idInscrit, idService, dateReponse, attribuer);
 
                     MessageBox.Show("Modification effectuée");
                     LR = new ListeReponse();
@@ -60,6 +63,7 @@ namespace AP4
             tbNumero.Text = idInscrit.ToString();
             tbService.Text = idService.ToString();
             dtpReponse.Text = dateReponse.ToString();
+            tbAttribuer.Text = attribuer.ToString();
         }
 
         private void dtpReponse_Leave(object sender, EventArgs e)
@@ -93,6 +97,29 @@ namespace AP4
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                     tbService.Focus();
                 }
+            }
+        }
+
+        private void tbAttribuer_Leave(object sender, EventArgs e)
+        {
+            if (tbAttribuer.Text.ToString() != "")
+            {
+                if (int.Parse(tbAttribuer.Text.ToString()) < 0 || int.Parse(tbAttribuer.Text.ToString()) > 1)
+                {
+                    MessageBox.Show("Erreur, la valeur doit être 0 ou 1", "Erreur",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tbAttribuer.Focus();
+                }
+            }
+        }
+
+        private void tbAttribuer_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar < '0' || e.KeyChar > '9') && e.KeyChar != Convert.ToChar(Keys.Back))
+            {
+                MessageBox.Show("Erreur, vous devez saisir des entiers", "Erreur", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+                e.Handled = true; // efface le dernier caractère saisi
             }
         }
     }

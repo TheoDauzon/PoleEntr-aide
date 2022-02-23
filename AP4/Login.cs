@@ -69,12 +69,6 @@ namespace AP4
                     }
                     else
                     {
-                        /*if (IsPasswordValid() == false)
-                        {
-                            MessageBox.Show("Le mot de passe n'est pas assez sécurisé !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        else
-                        {*/
                             inscrit unInscrit = Modele.VerifInscrit(tbMail.Text, tbMdp.Text);
                             if (unInscrit != null)
                             {
@@ -87,7 +81,6 @@ namespace AP4
                             {
                             MessageBox.Show("Adresse mail ou mot de passe incorrect !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
-                        //}
                     }
                 }
             }

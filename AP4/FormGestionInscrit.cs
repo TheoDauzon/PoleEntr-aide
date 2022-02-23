@@ -56,6 +56,39 @@ namespace AP4
                     DateTime dateNaiss = dtpNaissance.Value;
                     string adresse = tbAdresse.Text;
                     int credit = Convert.ToInt32(tbCredit.Text);
+                    if (rbtnOui.Checked == true)
+                    {
+                        admin = 1;
+                    }
+                    if (rbtnNon.Checked == true)
+                    {
+                        admin = 0;
+                    }
+                    if (rbPeutPoster.Checked == true)
+                    {
+                        statut = 1;
+                    }
+                    if (rbPeutPasPoster.Checked == true)
+                    {
+                        statut = 2;
+                    }
+                    if (rbPeutAccepter.Checked == true)
+                    {
+                        statut = 3;
+                    }
+                    if (rbPeutPasAccepter.Checked == true)
+                    {
+                        statut = 4;
+                    }
+                    if (rbPeutToutFaire.Checked == true)
+                    {
+                        statut = 5;
+                    }
+                    if (rbPeutPasToutFaire.Checked == true)
+                    {
+                        statut = 6;
+                    }
+
                     if (tbNom.Text == "" || tbPrenom.Text == "" || tbEmail.Text == "" || tbMdp.Text == "" || tbTel.Text == "" || dtpNaissance.Value == null || tbAdresse.Text == "" || tbCredit.Text == "")
                     {
                         MessageBox.Show("Un champs ne peut pas être vide !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -94,7 +127,39 @@ namespace AP4
                     DateTime dateNaiss = dtpNaissance.Value;
                     string adresse = tbAdresse.Text;
                     int credit = Convert.ToInt32(tbCredit.Text);
-                    
+                    if (rbtnOui.Checked == true)
+                    {
+                        admin = 1;
+                    }
+                    if (rbtnNon.Checked == true)
+                    {
+                        admin = 0;
+                    }
+                    if (rbPeutPoster.Checked == true)
+                    {
+                        statut = 1;
+                    }
+                    if (rbPeutPasPoster.Checked == true)
+                    {
+                        statut = 2;
+                    }
+                    if (rbPeutAccepter.Checked == true)
+                    {
+                        statut = 3;
+                    }
+                    if (rbPeutPasAccepter.Checked == true)
+                    {
+                        statut = 4;
+                    }
+                    if (rbPeutToutFaire.Checked == true)
+                    {
+                        statut = 5;
+                    }
+                    if (rbPeutPasToutFaire.Checked == true)
+                    {
+                        statut = 6;
+                    }
+
                     if (tbNom.Text == "" || tbPrenom.Text == "" || tbEmail.Text == "" || tbMdp.Text == "" || tbTel.Text == "" || dtpNaissance.Value == null || tbAdresse.Text == "" || tbCredit.Text == "")
                     {
                         MessageBox.Show("Un champs ne peut pas être vide !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -269,7 +334,7 @@ namespace AP4
             {
                 if (Modele.VerifMdp(mdp) == false)
                 {
-                    MessageBox.Show("Erreur, le mot de passe doit contenir au minimum une majuscule, une minuscule, un chiffre, un caractère spécial et sa longueur doit être suopérieur à 8 caractères !", "Erreur",
+                    MessageBox.Show("Erreur, le mot de passe doit contenir au minimum une majuscule, une minuscule, un chiffre, un caractère spécial et sa longueur doit être supérieur à 8 caractères !", "Erreur",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                     tbMdp.Focus();
                 }

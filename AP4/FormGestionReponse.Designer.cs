@@ -38,12 +38,14 @@ namespace AP4
             this.tbNumero = new System.Windows.Forms.TextBox();
             this.lbNumero = new System.Windows.Forms.Label();
             this.dtpReponse = new System.Windows.Forms.DateTimePicker();
+            this.tbAttribuer = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnAnnuler
             // 
             this.btnAnnuler.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnnuler.Location = new System.Drawing.Point(391, 327);
+            this.btnAnnuler.Location = new System.Drawing.Point(391, 353);
             this.btnAnnuler.Margin = new System.Windows.Forms.Padding(4);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(155, 49);
@@ -55,7 +57,7 @@ namespace AP4
             // btnModifierM
             // 
             this.btnModifierM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModifierM.Location = new System.Drawing.Point(131, 327);
+            this.btnModifierM.Location = new System.Drawing.Point(131, 353);
             this.btnModifierM.Margin = new System.Windows.Forms.Padding(4);
             this.btnModifierM.Name = "btnModifierM";
             this.btnModifierM.Size = new System.Drawing.Size(155, 49);
@@ -116,6 +118,7 @@ namespace AP4
             this.tbNumero.Location = new System.Drawing.Point(316, 117);
             this.tbNumero.Margin = new System.Windows.Forms.Padding(4);
             this.tbNumero.Name = "tbNumero";
+            this.tbNumero.ReadOnly = true;
             this.tbNumero.Size = new System.Drawing.Size(330, 30);
             this.tbNumero.TabIndex = 49;
             // 
@@ -139,12 +142,37 @@ namespace AP4
             this.dtpReponse.TabIndex = 57;
             this.dtpReponse.Leave += new System.EventHandler(this.dtpReponse_Leave);
             // 
+            // tbAttribuer
+            // 
+            this.tbAttribuer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbAttribuer.Location = new System.Drawing.Point(316, 304);
+            this.tbAttribuer.Margin = new System.Windows.Forms.Padding(4);
+            this.tbAttribuer.Multiline = true;
+            this.tbAttribuer.Name = "tbAttribuer";
+            this.tbAttribuer.Size = new System.Drawing.Size(330, 30);
+            this.tbAttribuer.TabIndex = 59;
+            this.tbAttribuer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbAttribuer_KeyPress);
+            this.tbAttribuer.Leave += new System.EventHandler(this.tbAttribuer_Leave);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(126, 307);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(96, 25);
+            this.label1.TabIndex = 58;
+            this.label1.Text = "Attribuer :";
+            // 
             // FormGestionReponse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(127)))), ((int)(((byte)(102)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.tbAttribuer);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dtpReponse);
             this.Controls.Add(this.btnAnnuler);
             this.Controls.Add(this.btnModifierM);
@@ -173,5 +201,7 @@ namespace AP4
         private System.Windows.Forms.TextBox tbNumero;
         private System.Windows.Forms.Label lbNumero;
         private System.Windows.Forms.DateTimePicker dtpReponse;
+        private System.Windows.Forms.TextBox tbAttribuer;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -101,6 +101,7 @@ namespace AP4
                 inscrit unInscrit = new inscrit();
                 //unInscrit = maConnexion.inscrit.First(x => x.MAIL == mail && x.MDPINSCRIT == mdp);
                 //return unInscrit;
+
                 unInscrit = RecupererMdp(mail);
                 if (BCrypt.Net.BCrypt.Verify(mdp, unInscrit.MDPINSCRIT))
                 {
@@ -196,7 +197,7 @@ namespace AP4
                 Regex chiffres = new Regex("([0-9])");
                 Regex specials = new Regex("([#~%*&(=)}^|[_-])");
 
-                if (majuscules.Matches(uneChaine).Count < 1 && miniscules.Matches(uneChaine).Count < 1 && chiffres.Matches(uneChaine).Count < 1 && specials.Matches(uneChaine).Count < 1)
+                if (majuscules.Matches(uneChaine).Count < 1 && miniscules.Matches(uneChaine).Count < 1 && chiffres.Matches(uneChaine).Count < 1 && specials.Matches(uneChaine).Count < 1 )
                 {
                     return false;
                 }
@@ -418,7 +419,7 @@ namespace AP4
             return vretour;
         }
 
-        public static bool ModifierReponse(int idInscrit, int idService, DateTime dateRep)
+        public static bool ModifierReponse(int idInscrit, int idService, DateTime dateRep, int attribuer)
         {
             bool vretour = true;
             try
@@ -426,6 +427,7 @@ namespace AP4
                 uneReponse = RecupererReponse(idInscrit);
                 uneReponse.IDSERVICE = idService;
                 uneReponse.DATEREP = dateRep;
+                uneReponse.ATTRIBUER = (sbyte?)attribuer;
                 maConnexion.SaveChanges();
             }
             catch (Exception ex)

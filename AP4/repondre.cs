@@ -17,6 +17,7 @@ namespace AP4
         public int IDINSCRIT { get; set; }
         public int IDSERVICE { get; set; }
         public System.DateTime DATEREP { get; set; }
+        public Nullable<sbyte> ATTRIBUER { get; set; }
     
         public virtual inscrit inscrit { get; set; }
         public virtual service service { get; set; }

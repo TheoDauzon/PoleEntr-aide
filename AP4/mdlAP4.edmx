@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="IDSERVICE" />
           </Key>
-          <Property Name="IDSERVICE" Type="int" Nullable="false" />
+          <Property Name="IDSERVICE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="LIBELLEEPICERIE" Type="char" MaxLength="50" Nullable="false" />
           <Property Name="LISTEACHATS" Type="smallint" Nullable="false" />
           <Property Name="PERSONNE" Type="smallint" Nullable="false" />
@@ -25,7 +25,7 @@
           <Key>
             <PropertyRef Name="IDSERVICE" />
           </Key>
-          <Property Name="IDSERVICE" Type="int" Nullable="false" />
+          <Property Name="IDSERVICE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="LIBELLECOMPETENCE" Type="char" MaxLength="50" Nullable="false" />
           <Property Name="NBHEURES" Type="char" MaxLength="32" />
           <Property Name="VISIOCONF" Type="smallint" Nullable="false" />
@@ -51,7 +51,7 @@
           <Key>
             <PropertyRef Name="IDSERVICE" />
           </Key>
-          <Property Name="IDSERVICE" Type="int" Nullable="false" />
+          <Property Name="IDSERVICE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IDLOISIRS" Type="int" Nullable="false" />
           <Property Name="NBPERSONNES" Type="int" Nullable="false" />
         </EntityType>
@@ -101,6 +101,7 @@
           <Property Name="IDINSCRIT" Type="int" Nullable="false" />
           <Property Name="IDSERVICE" Type="int" Nullable="false" />
           <Property Name="DATEREP" Type="date" Nullable="false" />
+          <Property Name="ATTRIBUER" Type="tinyint" />
         </EntityType>
         <EntityType Name="service">
           <Key>
@@ -122,7 +123,7 @@
           <Key>
             <PropertyRef Name="IDSERVICE" />
           </Key>
-          <Property Name="IDSERVICE" Type="int" Nullable="false" />
+          <Property Name="IDSERVICE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IDTACHE" Type="int" Nullable="false" />
           <Property Name="DESCTACHEM" Type="varchar" MaxLength="128" Nullable="false" />
           <Property Name="MATERIEL" Type="char" MaxLength="120" />
@@ -131,7 +132,7 @@
           <Key>
             <PropertyRef Name="IDSERVICE" />
           </Key>
-          <Property Name="IDSERVICE" Type="int" Nullable="false" />
+          <Property Name="IDSERVICE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="POINTDEPART" Type="char" MaxLength="150" Nullable="false" />
           <Property Name="POINTARRIVEE" Type="char" MaxLength="150" Nullable="false" />
           <Property Name="MOTIF" Type="char" MaxLength="80" Nullable="false" />
@@ -196,16 +197,16 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_LOISIRS_SERVICE">
-          <End Role="service" Type="Self.service" Multiplicity="1">
+          <End Role="type_loisirs" Type="Self.type_loisirs" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="loisirs" Type="Self.loisirs" Multiplicity="0..1" />
+          <End Role="loisirs" Type="Self.loisirs" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="service">
-              <PropertyRef Name="IDSERVICE" />
+            <Principal Role="type_loisirs">
+              <PropertyRef Name="IDLOISIRS" />
             </Principal>
             <Dependent Role="loisirs">
-              <PropertyRef Name="IDSERVICE" />
+              <PropertyRef Name="IDLOISIRS" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -381,7 +382,7 @@
             <End Role="formation" EntitySet="formation" />
           </AssociationSet>
           <AssociationSet Name="FK_LOISIRS_SERVICE" Association="Self.FK_LOISIRS_SERVICE">
-            <End Role="service" EntitySet="service" />
+            <End Role="type_loisirs" EntitySet="type_loisirs" />
             <End Role="loisirs" EntitySet="loisirs" />
           </AssociationSet>
           <AssociationSet Name="FK_LOISIRS_TYPE_LOISIRS" Association="Self.FK_LOISIRS_TYPE_LOISIRS">
@@ -589,6 +590,7 @@
           <Property Name="DATEREP" Type="DateTime" Nullable="false" />
           <NavigationProperty Name="inscrit" Relationship="ap4Model.FK_REPONDRE_INSCRIT" FromRole="repondre" ToRole="inscrit" />
           <NavigationProperty Name="service" Relationship="ap4Model.FK_REPONDRE_SERVICE" FromRole="repondre" ToRole="service" />
+          <Property Name="ATTRIBUER" Type="SByte" />
         </EntityType>
         <EntityType Name="service">
           <Key>
@@ -941,6 +943,7 @@
           <EntitySetMapping Name="repondre">
             <EntityTypeMapping TypeName="ap4Model.repondre">
               <MappingFragment StoreEntitySet="repondre">
+                <ScalarProperty Name="ATTRIBUER" ColumnName="ATTRIBUER" />
                 <ScalarProperty Name="DATEREP" ColumnName="DATEREP" />
                 <ScalarProperty Name="IDSERVICE" ColumnName="IDSERVICE" />
                 <ScalarProperty Name="IDINSCRIT" ColumnName="IDINSCRIT" />
