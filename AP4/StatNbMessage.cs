@@ -39,8 +39,10 @@ namespace AP4
 
             // récupération de la date du dernier ajout dans le graphique
             DateTime dateDernierGraphique = Convert.ToDateTime(chart1.Series[0].Points.Last().AxisLabel);
+            DateTime jourJ = DateTime.Now;
+            TimeSpan jour = jourJ.Subtract(dateDernierGraphique);
 
-            if (DateTime.Now.Day - dateDernierGraphique.Day >= 7)
+            if (jour.TotalDays >= 7)
             {
                 Modele.MessageTemps(DateTime.Now.ToString("dd-MM-yyyy"), ((double)nbMessage /nbInscrit));
                 chart1.Series[0].Points.AddXY(DateTime.Now.ToString("dd-MM-yyyy"), ((double)nbMessage /nbInscrit));
