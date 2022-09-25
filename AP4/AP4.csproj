@@ -322,7 +322,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>mdlAP4.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="AP4_TemporaryKey.pfx" />
     <None Include="mdlAP4.edmx.diagram">
       <DependentUpon>mdlAP4.edmx</DependentUpon>
     </None>
