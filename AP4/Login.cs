@@ -72,18 +72,10 @@ namespace AP4
                             inscrit unInscrit = Modele.VerifInscrit(tbMail.Text, tbMdp.Text);
                             if (unInscrit != null)
                             {
-                                if (unInscrit.ADMIN == 1)
-                                {
-                                    M = new Menu(unInscrit);
-                                    M.Show();
-                                    tbMail.Text = "";
-                                    tbMdp.Text = "";
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Votre compte ne permet pas la connexion !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                                }
+                                M = new Menu(unInscrit);
+                                M.Show();
+                                tbMail.Text = "";
+                                tbMdp.Text = "";
                             }
                             else
                             {
